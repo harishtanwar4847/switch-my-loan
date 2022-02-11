@@ -1,0 +1,343 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2022-02-10 12:26:58.466485",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "customer_details_section",
+  "status",
+  "customer_name",
+  "mobile_number",
+  "email_id",
+  "product_required",
+  "loan_amount",
+  "column_break_7",
+  "lead_owner",
+  "location",
+  "customer_profile",
+  "employer_name",
+  "business_name",
+  "take_home_salary",
+  "profit_after_tax",
+  "business_turnover",
+  "any_existing_obligations",
+  "if_any_existing_obligations_then_below_questions_section",
+  "loan_type",
+  "outstanding_amount",
+  "lender_name",
+  "current_emi",
+  "current_roi",
+  "no_of_emis_paid",
+  "column_break_23",
+  "any_other_remarks",
+  "follow_up_section",
+  "suitable_time_for_call_back",
+  "website_column",
+  "age",
+  "borrower_type",
+  "business_vintage",
+  "company_name",
+  "current_lender",
+  "monthly_emi",
+  "monthly_salary",
+  "monthly_savings",
+  "new_tenure",
+  "column_break_37",
+  "obligation",
+  "offer",
+  "outstanding_tenure",
+  "pan_number",
+  "property_type",
+  "security_holding_value",
+  "tenure_savings",
+  "total_savings"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "Lead-.YYYY.-"
+  },
+  {
+   "fieldname": "customer_details_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Details"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Call Done\nMeeting Scheduled\nMeeting Conducted\nDocumentation Received\nLender Selection\nLogin Done\nAdditional Document Required\nLoan Sanctioned\nDisbursement Document Required\nDisbursement Document Submitted\nLoan Disbursed\nAmount Credited\nPDD",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email ID"
+  },
+  {
+   "fieldname": "product_required",
+   "fieldtype": "Link",
+   "label": "Product Required",
+   "options": "Product"
+  },
+  {
+   "fieldname": "loan_amount",
+   "fieldtype": "Currency",
+   "label": "Loan Amount"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lead_owner",
+   "fieldtype": "Link",
+   "label": "Lead Owner",
+   "options": "User"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "customer_profile",
+   "fieldtype": "Select",
+   "label": "Customer Profile",
+   "options": "Salaried\nSelf Employed"
+  },
+  {
+   "depends_on": "eval: doc.customer_profile==\"Salaried\"",
+   "fieldname": "employer_name",
+   "fieldtype": "Data",
+   "label": "Employer Name"
+  },
+  {
+   "depends_on": "eval: doc.customer_profile==\"Self Employed\"",
+   "fieldname": "business_name",
+   "fieldtype": "Data",
+   "label": "Business Name"
+  },
+  {
+   "depends_on": "eval: doc.customer_profile==\"Salaried\"",
+   "fieldname": "take_home_salary",
+   "fieldtype": "Currency",
+   "label": "Take Home Salary"
+  },
+  {
+   "depends_on": "eval: doc.customer_profile==\"Self Employed\"",
+   "fieldname": "profit_after_tax",
+   "fieldtype": "Currency",
+   "label": "Profit after Tax"
+  },
+  {
+   "depends_on": "eval: doc.customer_profile==\"Self Employed\"",
+   "fieldname": "business_turnover",
+   "fieldtype": "Currency",
+   "label": "Business Turnover"
+  },
+  {
+   "fieldname": "any_existing_obligations",
+   "fieldtype": "Select",
+   "label": "Any Existing Obligations",
+   "options": "Yes\nNo"
+  },
+  {
+   "depends_on": "eval: doc.any_existing_obligations==\"Yes\"",
+   "fieldname": "if_any_existing_obligations_then_below_questions_section",
+   "fieldtype": "Section Break",
+   "label": "If any Existing Obligations then below Questions"
+  },
+  {
+   "fieldname": "loan_type",
+   "fieldtype": "Select",
+   "label": "Loan Type",
+   "options": "New Loan\nSwitch Loan"
+  },
+  {
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "label": "Outstanding Amount"
+  },
+  {
+   "fieldname": "lender_name",
+   "fieldtype": "Link",
+   "label": "Lender Name",
+   "options": "Lender"
+  },
+  {
+   "fieldname": "current_emi",
+   "fieldtype": "Currency",
+   "label": "Current EMI"
+  },
+  {
+   "fieldname": "current_roi",
+   "fieldtype": "Percent",
+   "label": "Current ROI"
+  },
+  {
+   "fieldname": "no_of_emis_paid",
+   "fieldtype": "Int",
+   "label": "No. of EMI's Paid"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "any_other_remarks",
+   "fieldtype": "Text Editor",
+   "label": "Any other Remarks"
+  },
+  {
+   "fieldname": "follow_up_section",
+   "fieldtype": "Section Break",
+   "label": "Follow Up"
+  },
+  {
+   "fieldname": "suitable_time_for_call_back",
+   "fieldtype": "Datetime",
+   "label": "Suitable Time for Call Back"
+  },
+  {
+   "fieldname": "website_column",
+   "fieldtype": "Section Break",
+   "label": "Website"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "Age"
+  },
+  {
+   "fieldname": "borrower_type",
+   "fieldtype": "Select",
+   "label": "Borrower Type",
+   "options": "Companies\nLimited Liability Partnerships\nGeneral Partnerships\nLimited Partnerships\nIndividuals\nUnincorporated Associations\nLocal Authorities"
+  },
+  {
+   "fieldname": "business_vintage",
+   "fieldtype": "Data",
+   "label": "Business Vintage"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name"
+  },
+  {
+   "fieldname": "current_lender",
+   "fieldtype": "Data",
+   "label": "Current Lender"
+  },
+  {
+   "fieldname": "monthly_emi",
+   "fieldtype": "Currency",
+   "label": "Monthly EMI"
+  },
+  {
+   "fieldname": "monthly_salary",
+   "fieldtype": "Currency",
+   "label": "Monthly Salary"
+  },
+  {
+   "fieldname": "monthly_savings",
+   "fieldtype": "Currency",
+   "label": "Monthly Savings"
+  },
+  {
+   "fieldname": "new_tenure",
+   "fieldtype": "Int",
+   "label": "New Tenure"
+  },
+  {
+   "fieldname": "column_break_37",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "obligation",
+   "fieldtype": "Data",
+   "label": "Obligation"
+  },
+  {
+   "fieldname": "offer",
+   "fieldtype": "Data",
+   "label": "Offer"
+  },
+  {
+   "fieldname": "outstanding_tenure",
+   "fieldtype": "Int",
+   "label": "Outstanding Tenure"
+  },
+  {
+   "fieldname": "pan_number",
+   "fieldtype": "Data",
+   "label": "PAN Number"
+  },
+  {
+   "fieldname": "property_type",
+   "fieldtype": "Select",
+   "label": "Property Type",
+   "options": "Option 1\nOption 2"
+  },
+  {
+   "fieldname": "security_holding_value",
+   "fieldtype": "Currency",
+   "label": "Security Holding Value"
+  },
+  {
+   "fieldname": "tenure_savings",
+   "fieldtype": "Currency",
+   "label": "Tenure Savings"
+  },
+  {
+   "fieldname": "total_savings",
+   "fieldtype": "Currency",
+   "label": "Total Savings"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-02-11 17:28:04.373471",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Prospect",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
