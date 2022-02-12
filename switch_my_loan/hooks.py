@@ -57,7 +57,7 @@ app_license = "MIT"
 # ------------
 
 # before_install = "switch_my_loan.install.before_install"
-# after_install = "switch_my_loan.install.after_install"
+after_install = "switch_my_loan.install.after_install"
 
 # Desk Notifications
 # ------------------

@@ -1,0 +1,4 @@
+switch_my_loan.patches.user_manager_role
+switch_my_loan.patches.import_territory
+switch_my_loan.patches.import_product
+switch_my_loan.patches.import_lead_workflow
