@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include switch_my_loan *.css
+recursive-include switch_my_loan *.csv
+recursive-include switch_my_loan *.html
+recursive-include switch_my_loan *.ico
+recursive-include switch_my_loan *.js
+recursive-include switch_my_loan *.json
+recursive-include switch_my_loan *.md
+recursive-include switch_my_loan *.png
+recursive-include switch_my_loan *.py
+recursive-include switch_my_loan *.svg
+recursive-include switch_my_loan *.txt
+recursive-exclude switch_my_loan *.pyc
