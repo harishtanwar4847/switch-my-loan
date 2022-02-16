@@ -8,6 +8,7 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "developers@atriina.com"
 app_license = "MIT"
+app_logo_url = "/assets/switch_my_loan/images/switch_my_loan.png"
 
 # Includes in <head>
 # ------------------
@@ -69,9 +70,10 @@ after_install = "switch_my_loan.install.after_install"
 # -----------
 # Permissions evaluated in scripted ways
 
-# permission_query_conditions = {
+permission_query_conditions = {
 # 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
-# }
+    "Lead": "switch_my_loan.permissions.lead_query"
+}
 #
 # has_permission = {
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
