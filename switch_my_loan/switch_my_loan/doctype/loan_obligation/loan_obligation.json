@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "creation": "2022-02-16 12:08:10.631257",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "loan_type",
+  "outstanding_amount",
+  "lender_name",
+  "current_emi",
+  "current_roi",
+  "no_of_emis_paid",
+  "column_break_7",
+  "any_other_remarks"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "loan_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Loan Type",
+   "options": "\nHome Loan\nLAP\nLAS / Mutual Fund / Bond\nPersonal Loan\nBusiness Loan\nConsumer Durable loan\nAuto - Loan (2 wheeler / Car)"
+  },
+  {
+   "columns": 1,
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Outstanding Amount"
+  },
+  {
+   "columns": 1,
+   "fieldname": "lender_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Lender Name",
+   "options": "Lender"
+  },
+  {
+   "columns": 1,
+   "fieldname": "current_emi",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Current EMI"
+  },
+  {
+   "columns": 1,
+   "fieldname": "current_roi",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Current ROI"
+  },
+  {
+   "columns": 1,
+   "fieldname": "no_of_emis_paid",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "No. of EMI's Paid"
+  },
+  {
+   "columns": 2,
+   "fieldname": "any_other_remarks",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Any Other Remarks"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-02-16 18:59:50.044875",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Loan Obligation",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
