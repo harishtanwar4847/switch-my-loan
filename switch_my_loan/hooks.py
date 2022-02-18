@@ -8,7 +8,7 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "developers@atriina.com"
 app_license = "MIT"
-app_logo_url = "/assets/switch_my_loan/images/switch_my_loan.png"
+app_logo_url = "/assets/switch_my_loan/images/switch_my_loan.jpeg"
 
 # Includes in <head>
 # ------------------
@@ -98,6 +98,12 @@ permission_query_conditions = {
 # 		"on_trash": "method"
 #	}
 # }
+doc_events = {
+	"Lead":{
+        #"on_update": "switch_my_loan.utils.workflow_state",
+		"before_save":"switch_my_loan.utils.workflow_states"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
