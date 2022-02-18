@@ -86,11 +86,3 @@ def workflow_states(doc, method):
             doc.append('remark', {
             'status' : 'Amount Credited'
     })
-    
-    
-
-
-    
-    
-    
-        
