@@ -6,3 +6,12 @@ frappe.ui.form.on('Product', {
 
 	// }
 });
+
+frappe.ui.form.on('Product Sales Team', {
+	product_sales_team_add: function(frm,cdt,cdn) {
+	var u = locals[cdt][cdn];
+    u['location_parent'] = frm.doc.product_name
+	}
+});
+
+

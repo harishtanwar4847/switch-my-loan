@@ -8,6 +8,7 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "developers@atriina.com"
 app_license = "MIT"
+app_logo_url = "/assets/switch_my_loan/images/switch_my_loan.jpeg"
 
 # Includes in <head>
 # ------------------
@@ -31,7 +32,7 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"Lead" : "public/js/lead.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -69,9 +70,10 @@ after_install = "switch_my_loan.install.after_install"
 # -----------
 # Permissions evaluated in scripted ways
 
-# permission_query_conditions = {
+permission_query_conditions = {
 # 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
-# }
+    "Lead": "switch_my_loan.permissions.lead_query"
+}
 #
 # has_permission = {
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
@@ -96,6 +98,13 @@ after_install = "switch_my_loan.install.after_install"
 # 		"on_trash": "method"
 #	}
 # }
+doc_events = {
+	"Lead":{
+		"before_save":"switch_my_loan.utils.workflow_states",
+        #"on_update":"switch_my_loan.utils.lead_owner",
+
+	}
+}
 
 # Scheduled Tasks
 # ---------------
