@@ -10,3 +10,4 @@
 ### Fixes
 
 - [lead allocation and workspace | custom field deletion | permission.py changes | product sales team child table added | change in logo | product.js changes](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/6)
+- [roles changes | lead.js changes | product sales team child table changes](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/7)
