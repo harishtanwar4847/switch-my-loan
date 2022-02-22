@@ -86,3 +86,11 @@ def workflow_states(doc, method):
             doc.append('remark', {
             'status' : 'Amount Credited'
     })
+    sales_person = frappe.db.sql("""select sales_person from `tabProduct Sales Team` where location_name = %s and from_amount <= %s and to_amount >= %s and location_parent = %s""", (doc.location,doc.loan_amount,doc.loan_amount,doc.product_required))
+    if doc.telecaller_name!= None and doc.loan_amount != None and doc.location!= None and doc.product_required!= None:
+        doc.lead_owner = sales_person[0][0]
+        print(doc.lead_owner)
+        
+
+            
+
