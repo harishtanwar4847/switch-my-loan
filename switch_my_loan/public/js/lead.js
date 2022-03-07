@@ -1,19 +1,155 @@
 frappe.ui.form.on('Lead', {
 	refresh: function(frm) {
-        console.log("abc")
+        frm.get_field("remark").grid.df.cannot_delete_rows = true;
+
         if(frm.is_new() && frappe.user_roles.includes('CRM User'))
         {
             frm.set_value("telecaller_name", frappe.session.user)
         }
         if((frm.is_new() && frappe.user_roles.includes('Sales User')) || (frm.is_new() && frappe.user_roles.includes('Sales Manager')))
         {
-            frm.set_value("lead_owner", frappe.session.user)
-            
+            frm.set_value("lead_owner", frappe.session.user)          
+        }
+        if(frm.doc.status == "On Hold"){
+            frm.add_custom_button(__('Resume'), function(){
+                frm.trigger("unhold_purchase_order")
+            }, __("Status"));
+            frm.fields.forEach(function(l){ frm.set_df_property(l.df.fieldname, "read_only", 1); })  
+        }
+        
+        if(frm.doc.status == "Rejected"){
+            frm.add_custom_button(__('Reopen'), function(){    
+                    frm.trigger("unclose_purchase_order")
+                }, __("Status"));
+            frm.fields.forEach(function(l){ frm.set_df_property(l.df.fieldname, "read_only", 1); })  
+        }
+        if(frm.doc.status != "On Hold" && frm.doc.status != "Rejected"){
+            frm.fields.forEach(function(l){ frm.set_df_property(l.df.fieldname, "read_only", 0); })  
+        }
+        
+
+        if(!frm.doc.__islocal && frm.doc.status != "On Hold" && frm.doc.status != "Rejected" && (frappe.user_roles.includes('Sales User') || frappe.user_roles.includes('Sales Manager'))){
+            frm.add_custom_button(__('On Hold'), function(){
+                
+                frm.trigger("hold_purchase_order")                
+            }, __("Status"));
+        
+            frm.add_custom_button(__('Reject'), function(){
+                frm.trigger("close_purchase_order")
+            }, __("Status"));
         }
 
-    }
+    },
+    // workflow_state(frm){
+
+    //     var data = frm.doc.remark;
+    //     data.forEach(function(e){
+    //     if (e.status == frm.doc.workflow_state){
+    //     $("[data-idx=’"+e.status+"’]").attr('readonly', 'true');
+    //     }
+    //     })
+    // },
+
+    setup(frm) {
+	    frm.get_field('remark').grid.cannot_add_rows = true;
+    },
+
+    unhold_purchase_order(frm){
+        frappe.call({
+            "method":"switch_my_loan.utils.update_status",
+            args:{
+                lead:frm.doc.name,
+                status:frm.doc.workflow_state
+            },
+            callback:function(r){
+                frm.reload_doc()
+            }
+        })
+	},
+    close_purchase_order(frm){
+        frappe.call({
+            "method":"switch_my_loan.utils.update_status",
+            args:{
+                lead:frm.doc.name,
+                status:"Rejected"
+            },
+            callback:function(r){
+                frm.reload_doc()
+            }
+        })
+	},
+
+    unclose_purchase_order(frm){
+        frappe.call({
+            "method":"switch_my_loan.utils.update_status",
+            args:{
+                lead:frm.doc.name,
+                status:frm.doc.workflow_state
+            },
+            callback:function(r){
+                frm.reload_doc()
+            }
+        })
+	},
+
+
+    hold_purchase_order(frm){
+		var me = this;
+		var d = new frappe.ui.Dialog({
+			title: __('Reason for Hold'),
+			fields: [
+				{
+					"fieldname": "reason_for_hold",
+					"fieldtype": "Text",
+					"reqd": 1,
+				}
+			],
+			primary_action: function() {
+				var data = d.get_values();
+				let reason_for_hold = 'Reason for hold: ' + data.reason_for_hold;
+
+				frappe.call({
+					method: "frappe.desk.form.utils.add_comment",
+					args: {
+						reference_doctype: frm.doc.doctype,
+						reference_name: frm.doc.name,
+						content: __(reason_for_hold),
+						comment_email: frappe.session.user,
+						comment_by: frappe.session.user_fullname
+					},
+					callback: function(r) {
+						if(!r.exc) {
+                            console.log("testing")
+                            frappe.call({
+                                "method":"switch_my_loan.utils.update_status",
+                                args:{
+                                    lead:frm.doc.name,
+                                    status:"On Hold"
+                                },
+                                callback:function(r){
+                                    frm.reload_doc()
+                                }
+                            })
+                            
+							d.hide();
+                            
+						}
+					}
+				});
+			}
+		});
+		d.show();
+	},
+
 
 });
+
+
+
+
+
+
+
 
 
 
