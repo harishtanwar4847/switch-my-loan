@@ -7,3 +7,6 @@ switch_my_loan.patches.user_manager_role_for_role ****
 switch_my_loan.patches.crm_user_role
 switch_my_loan.patches.custom_field
 switch_my_loan.patches.import_lead_workflow3
+switch_my_loan.patches.import_bank
+switch_my_loan.patches.crm_manager_role
+switch_my_loan.patches.import_product2

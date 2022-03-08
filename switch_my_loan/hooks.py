@@ -101,7 +101,7 @@ permission_query_conditions = {
 doc_events = {
 	"Lead":{
 		"before_save":"switch_my_loan.utils.workflow_states",
-        #"after_save":"switch_my_loan.utils.lead_owner",
+        "after_save":"switch_my_loan.utils.on_update",
 
 	}
 }
@@ -116,9 +116,9 @@ doc_events = {
 # 	"daily": [
 # 		"switch_my_loan.tasks.daily"
 # 	],
-# 	"hourly": [
-# 		"switch_my_loan.tasks.hourly"
-# 	],
+    # "hourly": [
+    #     "switch_my_loan.tasks.hourly"
+    # ],
 # 	"weekly": [
 # 		"switch_my_loan.tasks.weekly"
 # 	]

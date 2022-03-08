@@ -1,5 +1,6 @@
 frappe.ui.form.on('Lead', {
 	refresh: function(frm) {
+
         frm.get_field("remark").grid.df.cannot_delete_rows = true;
 
         if(frm.is_new() && frappe.user_roles.includes('CRM User'))
@@ -8,8 +9,27 @@ frappe.ui.form.on('Lead', {
         }
         if((frm.is_new() && frappe.user_roles.includes('Sales User')) || (frm.is_new() && frappe.user_roles.includes('Sales Manager')))
         {
-            frm.set_value("lead_owner", frappe.session.user)          
+            frm.set_value("lead_owner", frappe.session.user)        
         }
+        if(frappe.user_roles.includes('Sales User') && frm.is_new()){
+            frm.toggle_display("telecaller_name",false)
+
+            // frm.set_df_property("telecaller_name", "read_only",1)
+        }
+        if(!frm.is_new() && frappe.user_roles.includes('CRM User')){
+            frm.toggle_display("location",false)
+            frm.toggle_display("any_existing_obligations",false)
+            frm.toggle_display("customer_profile",false)
+            frm.toggle_display("lender_branch",false)
+            frm.toggle_display("take_home_salary",false)
+            frm.toggle_display("remark",false)
+            frm.toggle_display("source",false)
+            frm.toggle_display("partner",false)
+            frm.toggle_display("mobile_number",false)
+            frm.toggle_display("email_id",false)
+        }
+
+        
         if(frm.doc.status == "On Hold"){
             frm.add_custom_button(__('Resume'), function(){
                 frm.trigger("unhold_purchase_order")
@@ -30,7 +50,6 @@ frappe.ui.form.on('Lead', {
 
         if(!frm.doc.__islocal && frm.doc.status != "On Hold" && frm.doc.status != "Rejected" && (frappe.user_roles.includes('Sales User') || frappe.user_roles.includes('Sales Manager'))){
             frm.add_custom_button(__('On Hold'), function(){
-                
                 frm.trigger("hold_purchase_order")                
             }, __("Status"));
         
@@ -38,21 +57,29 @@ frappe.ui.form.on('Lead', {
                 frm.trigger("close_purchase_order")
             }, __("Status"));
         }
+        frm.cscript.custom_refresh = function(doc) {
+            if(frappe.user_roles.includes('Sales User')){
+                frm.set_df_property("telecaller_name", "read_only", doc.__islocal ? 0 : 1);
+                // frm.set_df_property("telecaller_name", "read_only",1)
+            }
+        }
 
-    },
+
+    // },
     // workflow_state(frm){
 
-    //     var data = frm.doc.remark;
-    //     data.forEach(function(e){
-    //     if (e.status == frm.doc.workflow_state){
-    //     $("[data-idx=’"+e.status+"’]").attr('readonly', 'true');
-    //     }
-    //     })
-    // },
+        var data = frm.doc.remark;
+        data.forEach(function(e){
+        if (e.status == frm.doc.workflow_state){
+        $("[data-idx='"+e.idx+"']").attr("read_only", "true");
+        }
+        })
+    },
 
     setup(frm) {
 	    frm.get_field('remark').grid.cannot_add_rows = true;
-    },
+        
+        },
 
     unhold_purchase_order(frm){
         frappe.call({

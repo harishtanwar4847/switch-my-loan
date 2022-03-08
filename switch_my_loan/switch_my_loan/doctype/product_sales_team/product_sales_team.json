@@ -6,8 +6,7 @@
  "engine": "InnoDB",
  "field_order": [
   "sales_person",
-  "from_amount",
-  "to_amount",
+  "amount_threshold",
   "location_name",
   "location_parent",
   "reporting_manager"
@@ -36,28 +35,22 @@
    "options": "Product"
   },
   {
-   "fieldname": "from_amount",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "From Amount"
-  },
-  {
-   "fieldname": "to_amount",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "label": "To Amount"
-  },
-  {
    "fetch_from": "sales_person.parent_sales_person",
    "fieldname": "reporting_manager",
    "fieldtype": "Data",
    "label": "Reporting Manager"
+  },
+  {
+   "fieldname": "amount_threshold",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount Threshold "
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-02-25 11:31:20.482487",
+ "modified": "2022-03-02 15:54:33.922633",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Product Sales Team",
