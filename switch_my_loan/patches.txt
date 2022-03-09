@@ -10,3 +10,4 @@ switch_my_loan.patches.import_lead_workflow3
 switch_my_loan.patches.import_bank
 switch_my_loan.patches.crm_manager_role
 switch_my_loan.patches.import_product2
+switch_my_loan.patches.import_lead_workflow4
