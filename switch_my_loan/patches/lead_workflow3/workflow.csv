@@ -1,0 +1,18 @@
+Workflow Name,Document Type,Workflow State Field,Is Active,Don't Override Status,Send Email Alert,ID (Document States),State (Document States),Only Allow Edit For (Document States),Doc Status (Document States),Update Field (Document States),Update Value (Document States),Is Optional State (Document States),Next Action Email Template (Document States),Message (Document States),ID (Transitions),State (Transitions),Action (Transitions),Next State (Transitions),Allowed (Transitions),Allow Self Approval (Transitions),Condition (Transitions)
+Lead Workflow New,Lead,workflow_state,1,1,1,1b2b54e044,Open,Sales User,0,status,Open,0,,,3e04a4ac5d,Open,Call Done,Call Done,Sales User,1,
+,,,,,,ef35f0b7ee,Call Done,Sales User,0,status,Call Done,0,,,d8654a5e80,Call Done,Meeting Scheduled,Meeting Scheduled,Sales User,1,
+,,,,,,7013c08dc7,Meeting Scheduled,Sales User,0,status,Meeting Scheduled,0,,,0d131cf31e,Meeting Scheduled,Meeting Conducted,Meeting Conducted,Sales User,1,
+,,,,,,e29ccc701c,Meeting Conducted,Sales User,0,status,Meeting Conducted,0,,,a3c54f9716,Meeting Conducted,Partly Documents Collected,Partly Documents Collected,Sales User,1,
+,,,,,,d142a32c20,Partly Documents Collected,Sales User,0,status,Partly Documents Collected,0,,,07ad3ab35b,Meeting Conducted,Documents Received,Documents Received,Sales User,1,
+,,,,,,f7460bbba8,Documents Received,Sales User,0,status,Documents Received,0,,,55514c9b46,Partly Documents Collected,Documents Received,Documents Received,Sales User,1,
+,,,,,,4e7406f46e,Lender Selection,Sales User,0,status,Lender Selection,0,,,bf3c1a733e,Documents Received,Lender Selection,Lender Selection,Sales User,1,
+,,,,,,0eb69f4d45,Pending For Reporting Manager Approval,Sales Manager,0,status,Pending For Reporting Manager Approval,0,,,2f2fb2cf26,Lender Selection,Send For Reporting Manager Approval,Pending For Reporting Manager Approval,Sales User,1,"doc.mandate_required == ""No"""
+,,,,,,5258384b46,Login Done,Sales User,0,status,Login Done,0,,,c2942e4dad,Lender Selection,Login Done,Login Done,Sales User,1,"doc.mandate_required == ""Yes"""
+,,,,,,c03ea7c206,Additional Doc Required,Sales User,0,status,Additional Doc Required,0,,,f77fd9f7e3,Pending For Reporting Manager Approval,Login Done,Login Done,Sales Manager,1,
+,,,,,,96efa0da4d,Sanctioned,Sales User,0,status,Sanctioned,0,,,bebef32c0e,Pending For Reporting Manager Approval,Reject,Lender Selection,Sales Manager,1,
+,,,,,,e3f1a1462e,Disbursement Doc List,Sales User,0,status,Disbursement Doc List,0,,,e67483d0e6,Login Done,Additional Doc Required,Additional Doc Required,Sales User,1,
+,,,,,,dcbd0d1e03,Disbursement Doc Submitted,Sales User,0,status,Disbursement Doc Submitted,0,,,233c571145,Login Done,Sanctioned,Disbursement Doc List,Sales User,1,
+,,,,,,acff13fef1,Disbursed,Sales User,0,status,Disbursed,0,,,0be1d93474,Additional Doc Required,Sanctioned,Disbursement Doc List,Sales User,1,
+,,,,,,956eb12286,Amount Credited,Sales User,0,status,Amount Credited,0,,,7157cb1c9e,Sanctioned,Sanctioned,Disbursement Doc List,Sales User,1,
+,,,,,,,,,,,,,,,92f12e10ba,Disbursement Doc List,Disbursement Doc Submitted,Disbursed,Sales User,1,
+,,,,,,,,,,,,,,,a173394570,Disbursed,Amount Credited,Amount Credited,Sales User,1,

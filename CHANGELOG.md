@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.1.1-dev] - 2022-03-08
+
+### Added
+
+- [masters and roles addition](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/11)
+
 ## [v0.1.0-uat] - 2022-03-07
 ## [v0.1.0-dev] - 2022-03-01
 
