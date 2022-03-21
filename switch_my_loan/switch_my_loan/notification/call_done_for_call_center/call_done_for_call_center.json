@@ -1,0 +1,30 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "",
+ "creation": "2022-03-15 17:33:52.539203",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "New",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear Mr. {{doc.lead_name}},<br>\nThank you for connecting with Switch My Loan. Hope we could fulfill your requirements. Switch My<br>\nLoan will be the one stop solution for all your loan requirements.<br><br>\nWe provide Personal Loans, Business Loans, Home Loans, Loan against property and Loan Against<br>\nSecurities. We are specialized in Balance transfer loans.<br><br>\nOur processes are completely digitized. You sit back and relax, while we do all the hard-work for<br>\nyour loan.<br><br>\nKindly rate your experience with the caller on a scale of 1 to 10, 1 being Disappointing and 10 being<br>\ninformative and helpful.<br><br>\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\nSwitch My Loan Pvt. Ltd.<br>",
+ "modified": "2022-03-21 18:07:08.969120",
+ "modified_by": "harish.tanwar@atriina.com",
+ "module": "Switch My Loan",
+ "name": "Call Done For Call Center",
+ "owner": "harish.tanwar@atriina.com",
+ "recipients": [
+  {
+   "receiver_by_document_field": "email_id"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sender": "Harishtanwar4847",
+ "sender_email": "harishtanwar4847@gmail.com",
+ "subject": "Call Done For Call Center"
+}

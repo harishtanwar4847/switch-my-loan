@@ -1,0 +1,31 @@
+{
+ "chart_name": "Sanctioned but Undisbursed",
+ "chart_type": "Report",
+ "creation": "2022-03-21 11:50:40.667565",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{}",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "modified": "2022-03-21 18:02:23.601295",
+ "modified_by": "harish.tanwar@atriina.com",
+ "module": "Switch My Loan",
+ "name": "Sanctioned but Undisbursed",
+ "number_of_groups": 0,
+ "owner": "harish.tanwar@atriina.com",
+ "report_name": "Sanctioned but Undisbursed",
+ "time_interval": "Yearly",
+ "timeseries": 0,
+ "timespan": "Last Year",
+ "type": "Bar",
+ "use_report_chart": 0,
+ "x_field": "name",
+ "y_axis": [
+  {
+   "y_field": "sanctioned_but_undisbursed_in_previous_month"
+  }
+ ]
+}

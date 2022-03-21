@@ -1,0 +1,31 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.status == \"Rejected\"",
+ "creation": "2022-03-15 18:43:19.835314",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {{ doc.lead_name }},<br><br>\nThank you for meeting . We are regretful to inform you that we will not be<br><br>\nable to proceed further with your loan application.<br><br>\nIn case of any other loan requirements please visit www.switchmyloan.in<br><br>\nYou sit back and relax, while we do all the hard-work for your loan.<br><br>\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\nSwitch My Loan Pvt. Ltd.<br>",
+ "modified": "2022-03-21 18:09:46.206840",
+ "modified_by": "harish.tanwar@atriina.com",
+ "module": "Switch My Loan",
+ "name": "Rejected",
+ "owner": "harish.tanwar@atriina.com",
+ "recipients": [
+  {
+   "receiver_by_document_field": "email_id"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sender": "Harishtanwar4847",
+ "sender_email": "harishtanwar4847@gmail.com",
+ "subject": "Rejected",
+ "value_changed": "status"
+}
