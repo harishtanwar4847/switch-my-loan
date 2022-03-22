@@ -2473,7 +2473,7 @@
    "columns": 0,
    "creation": "2022-03-09 18:25:17.745504",
    "default": null,
-   "depends_on": null,
+   "depends_on": "eval:doc.workflow_state != \"Open\" && doc.workflow_state != \"Call Done\" && doc.workflow_state != \"Meeting Scheduled\" && doc.workflow_state != \"Meeting Conducted\" && doc.workflow_state != \"Partly Documents Collected\" && doc.workflow_state != \"Documents Received\";",
    "description": null,
    "docstatus": 0,
    "dt": "Lead",
