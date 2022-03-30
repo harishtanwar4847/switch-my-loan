@@ -1,0 +1,31 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.workflow_state == \"Login Done\"",
+ "creation": "2022-03-15 15:46:09.279077",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {{ doc.lead_name }},<br>\nCongratulations !!!<br>\nWe are thrilled to inform your file has been successfully logged in, in {{ doc.lender_selection}}. We will keep<br>\nyou updated with the progress on your loan application.<br><br>\nIn case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}} & \n{% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}} or write us on {{doc.lead_owner}}, \nhe will be your relationship manager.<br><br>\nRegards,<br><br>\nYour Friendly loan buddy<br>\nSwitch My Loan Pvt. Ltd.<br>",
+ "modified": "2022-03-21 18:09:37.398202",
+ "modified_by": "harish.tanwar@atriina.com",
+ "module": "Switch My Loan",
+ "name": "Login Done",
+ "owner": "harish.tanwar@atriina.com",
+ "recipients": [
+  {
+   "receiver_by_document_field": "email_id"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sender": "Harishtanwar4847",
+ "sender_email": "harishtanwar4847@gmail.com",
+ "subject": "Login Done",
+ "value_changed": "workflow_state"
+}

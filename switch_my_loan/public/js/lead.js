@@ -29,6 +29,11 @@ frappe.ui.form.on('Lead', {
             frm.toggle_display("email_id",false)
         }
 
+        if(frm.doc.workflow_state == "Lender Selection" && !frm.doc.mandate_required){
+            frm.dirty()
+        }
+
+
         
         if(frm.doc.status == "On Hold"){
             frm.add_custom_button(__('Resume'), function(){
@@ -63,6 +68,16 @@ frappe.ui.form.on('Lead', {
                 // frm.set_df_property("telecaller_name", "read_only",1)
             }
         }
+
+        // if(frm.doc.workflow_state == "Open"){
+        //     frappe.call({
+        //         method: "frappe.core.doctype.sms_settings.sms_settings.send_sms",
+        //         args: {
+        //         receiver_list: [frm.doc.mobile_number],
+        //         msg: "Hello Erpnext",
+        //         },
+        //     })
+        // }
 
 
     // },

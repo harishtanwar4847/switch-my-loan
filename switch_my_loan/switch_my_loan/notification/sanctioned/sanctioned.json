@@ -1,0 +1,31 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.workflow_state == \"Disbursement Doc List\"",
+ "creation": "2022-03-15 16:09:09.785659",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {{ doc.lead_name }},<br><br>\nCongratulations !!<br><br>\nWe are thrilled to inform you that your application has been sanctioned by {{doc.lender_selection}}  .<br><br>\nYou will receive an email with the list of documents required to disburse the loan. Kindly share the<br><br>\ndocuments at the earliest to avoid any delay.<br><br>\n\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\nSwitch My Loan Pvt. Ltd.<br><br>",
+ "modified": "2022-03-21 18:07:24.439525",
+ "modified_by": "harish.tanwar@atriina.com",
+ "module": "Switch My Loan",
+ "name": "Sanctioned",
+ "owner": "harish.tanwar@atriina.com",
+ "recipients": [
+  {
+   "receiver_by_document_field": "email_id"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sender": "Harishtanwar4847",
+ "sender_email": "harishtanwar4847@gmail.com",
+ "subject": "Sanctioned",
+ "value_changed": "workflow_state"
+}
