@@ -1,0 +1,39 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2022-03-17 18:56:28.105561",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2022-03-31 16:30:29.627585",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Sanctioned but Undisbursed",
+ "owner": "harish.tanwar@atriina.com",
+ "prepared_report": 0,
+ "query": "SELECT \nmonthname(current_date()) as \"Curent Month\",\ncount(case when l.workflow_state = \"Disbursement Doc List\" AND month(l.creation) = month(current_date())-1 then 1 end) as \"Sanctioned but Undisbursed in Previous Month\"\nfrom `tabLead` l",
+ "ref_doctype": "Lead",
+ "report_name": "Sanctioned but Undisbursed",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Sales Manager"
+  },
+  {
+   "role": "CRM User"
+  },
+  {
+   "role": "CRM Manager"
+  }
+ ]
+}

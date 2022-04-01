@@ -8,10 +8,15 @@ def workflow_states(doc,method):
     #     todayDateStr = datetime.strptime(frappe.utils.now(), "%Y-%m-%d %H:%M:%S.%f")
     #     print(todayDateStr)
     #     doc.open_time = frappe.utils.now()
+    
     if doc.workflow_state == "Open" and old_doc == None:
         doc.append('remark', {
         'status' : 'Call Done'
     })
+        doc.open_time = frappe.utils.now()
+        # doc.reload()
+
+
 
     if doc.workflow_state == "Call Done":
         if doc.workflow_state != old_doc.workflow_state:
@@ -84,6 +89,13 @@ def workflow_states(doc,method):
             doc.append('remark', {
             'status' : 'Amount Credited'
     })
+
+    if doc.workflow_state == "Amount Credited":
+        if doc.workflow_state != old_doc.workflow_state:
+            doc.approved_time = frappe.utils.now()
+            # doc.reload()
+
+    
     user = frappe.session.user
     if 'CRM User' in frappe.get_roles(user) and not 'Sales User' in frappe.get_roles(user) and not 'Sales Manager' in frappe.get_roles(user) and doc.loan_amount == None:
         frappe.throw("Please Enter Loan Amount")
@@ -149,6 +161,8 @@ def update_status(lead,status):
     doc = frappe.get_doc("Lead",lead)
     doc.set_status(update = True, status = status)
     doc.reload()
+
+
 
 
 

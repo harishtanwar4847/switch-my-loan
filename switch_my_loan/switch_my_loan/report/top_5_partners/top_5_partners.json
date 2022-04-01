@@ -1,0 +1,39 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2022-03-22 17:31:56.694251",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2022-03-31 16:26:38.948348",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Top 5 Partners",
+ "owner": "harish.tanwar@atriina.com",
+ "prepared_report": 0,
+ "query": "select\npartner as Partner,\ncount(partner) as Count\nfrom `tabLead`\ngroup by\npartner\norder by Count desc limit 5",
+ "ref_doctype": "Lead",
+ "report_name": "Top 5 Partners",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Sales Manager"
+  },
+  {
+   "role": "CRM User"
+  },
+  {
+   "role": "CRM Manager"
+  }
+ ]
+}
