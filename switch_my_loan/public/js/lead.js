@@ -13,9 +13,11 @@ frappe.ui.form.on('Lead', {
         }
         if(frappe.user_roles.includes('Sales User') && frm.is_new()){
             frm.toggle_display("telecaller_name",false)
+            frm.toggle_display("crm_team_remarks",false)
 
-            // frm.set_df_property("telecaller_name", "read_only",1)
+
         }
+        
         if(!frm.is_new() && frappe.user_roles.includes('CRM User')){
             frm.toggle_display("location",false)
             frm.toggle_display("any_existing_obligations",false)
@@ -28,6 +30,7 @@ frappe.ui.form.on('Lead', {
             frm.toggle_display("mobile_number",false)
             frm.toggle_display("email_id",false)
         }
+
 
         if(frm.doc.workflow_state == "Lender Selection" && !frm.doc.mandate_required){
             frm.dirty()
@@ -65,30 +68,13 @@ frappe.ui.form.on('Lead', {
         frm.cscript.custom_refresh = function(doc) {
             if(frappe.user_roles.includes('Sales User')){
                 frm.set_df_property("telecaller_name", "read_only", doc.__islocal ? 0 : 1);
-                // frm.set_df_property("telecaller_name", "read_only",1)
+                frm.set_df_property("crm_team_remarks", "read_only", doc.__islocal ? 0 : 1);
+
+
             }
         }
 
-        // if(frm.doc.workflow_state == "Open"){
-        //     frappe.call({
-        //         method: "frappe.core.doctype.sms_settings.sms_settings.send_sms",
-        //         args: {
-        //         receiver_list: [frm.doc.mobile_number],
-        //         msg: "Hello Erpnext",
-        //         },
-        //     })
-        // }
-
-
-    // },
-    // workflow_state(frm){
-
-        var data = frm.doc.remark;
-        data.forEach(function(e){
-        if (e.status == frm.doc.workflow_state){
-        $("[data-idx='"+e.idx+"']").attr("read_only", "true");
-        }
-        })
+  
     },
 
     setup(frm) {
