@@ -1,0 +1,2 @@
+domain name,Example Email Address,Email Server,Use IMAP,Use SSL,Port,Attachment Limit (MB),Append To,SMTP Server,Use TLS,Use SSL for Outgoing,Append Emails to Sent Folder,smtp_port
+switchmyloan.in,mycrm@switchmyloan.in,imap.gmail.com,1,1,993,1,,smtp.netcorecloud.net,1,0,0,587
