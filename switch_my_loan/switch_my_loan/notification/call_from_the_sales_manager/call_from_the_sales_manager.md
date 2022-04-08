@@ -1,0 +1,1 @@
+Dear {{ doc.lead_name }}, thank you for connecting with {% set var = frappe.db.get_value("User", doc.lead_owner, "full_name") %} {{var}}. We will keep you posted on further movement of your loan application. For more details please visit us at {{ frappe.get_url() }} - Team Switch My Loan

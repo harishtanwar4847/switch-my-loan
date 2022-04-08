@@ -1,0 +1,2 @@
+Congratulations Dear Mr. {{ doc.lead_name }}, we are thrilled to inform you your {{ doc.product_required }} has been disbursed by {{ doc.lender_selection }}. The amount will be credited in your account within 2 working days.
+In case of any query please contact {% set var = frappe.db.get_value("User", doc.lead_owner, "mobile_no") %} {{var}} or write to {{doc.lead_owner}} - Team Switch My Loan
