@@ -1,0 +1,1 @@
+Dear {{ doc.lead_name }}, we are pleased to inform you that your file has been shared with {{ doc.lender_selection}}. We shall update you once your loan application has been logged in. In case of any queries, kindly call on {% set var = frappe.db.get_value("User", doc.lead_owner, "mobile_no") %} {{var}} or write to us on {{ doc.lead_owner }} - Team Switch My Loan

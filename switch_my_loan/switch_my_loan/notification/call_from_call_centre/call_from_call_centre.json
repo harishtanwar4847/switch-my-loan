@@ -1,0 +1,28 @@
+{
+ "attach_print": 0,
+ "channel": "SMS",
+ "condition": "",
+ "creation": "2022-04-08 15:02:18.792192",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "New",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {{ doc.lead_name }}, thank you for connecting with Switch My Loan. Hope we could fulfil your requirement. Kindly visit us at {{ frappe.get_url() }} - your friendly loan buddy.",
+ "modified": "2022-04-08 18:47:46.402086",
+ "modified_by": "harish.tanwar@atriina.com",
+ "module": "Switch My Loan",
+ "name": "Call from Call Centre",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "mobile_number"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sms_template_id": "1007790132987380126"
+}

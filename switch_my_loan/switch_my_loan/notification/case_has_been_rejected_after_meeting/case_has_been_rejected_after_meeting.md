@@ -1,0 +1,1 @@
+Dear Customer, Thank you for meeting {{ doc.lead_owner }}. We are regretful to inform you that we will not be proceeding ahead with your loan application. In case of any other loan requirements, please visit: {{ frappe.get_url() }} - Team Switch My Loan
