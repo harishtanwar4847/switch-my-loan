@@ -1,0 +1,15 @@
+switch_my_loan.patches.user_manager_role
+switch_my_loan.patches.import_territory
+switch_my_loan.patches.import_product
+switch_my_loan.patches.import_lead_workflow
+switch_my_loan.patches.import_lead_workflow2
+switch_my_loan.patches.user_manager_role_for_role ****
+switch_my_loan.patches.crm_user_role
+switch_my_loan.patches.custom_field
+switch_my_loan.patches.import_lead_workflow3
+switch_my_loan.patches.import_bank
+switch_my_loan.patches.crm_manager_role
+switch_my_loan.patches.import_product2
+switch_my_loan.patches.import_lead_workflow4
+switch_my_loan.patches.setting_site
+switch_my_loan.patches.import_email_account

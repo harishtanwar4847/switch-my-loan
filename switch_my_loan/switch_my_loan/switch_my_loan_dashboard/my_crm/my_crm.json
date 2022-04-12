@@ -1,0 +1,77 @@
+{
+ "cards": [
+  {
+   "card": "Total Leads Allocated"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Status Wise Leads",
+   "width": "Full"
+  },
+  {
+   "chart": "Total Number of Cases on Hold",
+   "width": "Full"
+  },
+  {
+   "chart": "Total No. of Leads SM Wise",
+   "width": "Full"
+  },
+  {
+   "chart": "Total No. of Active Leads",
+   "width": "Full"
+  },
+  {
+   "chart": "Total cases Logged-in",
+   "width": "Full"
+  },
+  {
+   "chart": "Total unattended leads",
+   "width": "Full"
+  },
+  {
+   "chart": "Total No. of Leads Zone Wise",
+   "width": "Full"
+  },
+  {
+   "chart": "Total No. of Sanctions",
+   "width": "Full"
+  },
+  {
+   "chart": "Top 5 Partners",
+   "width": "Full"
+  },
+  {
+   "chart": "Top 5 Zones",
+   "width": "Half"
+  },
+  {
+   "chart": "Business Source Mix",
+   "width": "Full"
+  },
+  {
+   "chart": "Location Wise Mix",
+   "width": "Full"
+  },
+  {
+   "chart": "Sanctioned but Undisbursed",
+   "width": "Full"
+  },
+  {
+   "chart": "Total No. of Cases with No  Movement",
+   "width": "Full"
+  }
+ ],
+ "creation": "2022-03-17 12:49:38.863498",
+ "dashboard_name": "My CRM",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2022-03-31 16:53:02.216842",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "My CRM",
+ "owner": "harish.tanwar@atriina.com"
+}

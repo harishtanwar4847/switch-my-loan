@@ -1,0 +1,32 @@
+{
+ "chart_name": "Top 5 Partners",
+ "chart_type": "Report",
+ "creation": "2022-03-22 17:39:35.013876",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{}",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "modified": "2022-03-24 15:53:38.225251",
+ "modified_by": "harish.tanwar@atriina.com",
+ "module": "Switch My Loan",
+ "name": "Top 5 Partners",
+ "number_of_groups": 0,
+ "owner": "harish.tanwar@atriina.com",
+ "report_name": "Top 5 Partners",
+ "time_interval": "Yearly",
+ "timeseries": 0,
+ "timespan": "Last Year",
+ "type": "Bar",
+ "use_report_chart": 0,
+ "x_field": "partner",
+ "y_axis": [
+  {
+   "color": "#39E4A5",
+   "y_field": "count"
+  }
+ ]
+}

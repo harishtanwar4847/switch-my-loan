@@ -1,0 +1,37 @@
+{
+ "chart_name": "Total No. of Cases with No  Movement",
+ "chart_type": "Report",
+ "creation": "2022-03-28 17:21:10.825247",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{}",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "modified": "2022-03-31 16:19:44.746475",
+ "modified_by": "harish.tanwar@atriina.com",
+ "module": "Switch My Loan",
+ "name": "Total No. of Cases with No  Movement",
+ "number_of_groups": 0,
+ "owner": "harish.tanwar@atriina.com",
+ "report_name": "Total No. of Cases with no movement",
+ "time_interval": "Yearly",
+ "timeseries": 0,
+ "timespan": "Last Year",
+ "type": "Bar",
+ "use_report_chart": 0,
+ "x_field": "workflow_state",
+ "y_axis": [
+  {
+   "y_field": "no_movement_since_7_days"
+  },
+  {
+   "y_field": "no_movement_since_15_days"
+  },
+  {
+   "y_field": "no_movement_since_30_days"
+  }
+ ]
+}
