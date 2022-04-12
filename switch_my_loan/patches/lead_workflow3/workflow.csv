@@ -1,5 +1,5 @@
 Workflow Name,Document Type,Workflow State Field,Is Active,Don't Override Status,Send Email Alert,ID (Document States),State (Document States),Only Allow Edit For (Document States),Doc Status (Document States),Update Field (Document States),Update Value (Document States),Is Optional State (Document States),Next Action Email Template (Document States),Message (Document States),ID (Transitions),State (Transitions),Action (Transitions),Next State (Transitions),Allowed (Transitions),Allow Self Approval (Transitions),Condition (Transitions)
-Lead Workflow New,Lead,workflow_state,1,1,1,1b2b54e044,Open,Sales User,0,status,Open,0,,,3e04a4ac5d,Open,Call Done,Call Done,Sales User,1,
+Lead Workflow New,Lead,workflow_state,1,1,0,1b2b54e044,Open,Sales User,0,status,Open,0,,,3e04a4ac5d,Open,Call Done,Call Done,Sales User,1,
 ,,,,,,ef35f0b7ee,Call Done,Sales User,0,status,Call Done,0,,,d8654a5e80,Call Done,Meeting Scheduled,Meeting Scheduled,Sales User,1,
 ,,,,,,7013c08dc7,Meeting Scheduled,Sales User,0,status,Meeting Scheduled,0,,,0d131cf31e,Meeting Scheduled,Meeting Conducted,Meeting Conducted,Sales User,1,
 ,,,,,,e29ccc701c,Meeting Conducted,Sales User,0,status,Meeting Conducted,0,,,a3c54f9716,Meeting Conducted,Partly Documents Collected,Partly Documents Collected,Sales User,1,
