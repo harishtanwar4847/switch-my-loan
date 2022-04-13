@@ -13,8 +13,8 @@ def execute():
             pass    
 
     frappe.db.commit()
-    path = frappe.get_app_path('switch_my_loan','patches','parent_territory.csv')
+    path = frappe.get_app_path('switch_my_loan','patches','master_imports','parent_territory.csv')
     import_file('Territory', path, 'Insert',console=True)
 
-    path1 = frappe.get_app_path('switch_my_loan','patches','territory.csv')
+    path1 = frappe.get_app_path('switch_my_loan','patches','master_imports','territory.csv')
     import_file('Territory', path1, 'Insert',console=True)
