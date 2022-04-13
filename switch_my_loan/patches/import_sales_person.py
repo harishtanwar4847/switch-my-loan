@@ -5,12 +5,14 @@ def execute():
     try:
         frappe.get_doc({
             'doctype': 'Sales Person',
+            'sales_person_name': 'Himanshu',
             'sales_person': 'himanshu@switchmyloan.in',
             'parent_sales_person' : 'Sales Team',
             'is_group':1
         }).insert()
         frappe.get_doc({
             'doctype': 'Sales Person',
+            'sales_person_name': 'Sachin',
             'sales_person': 'sachin@switchmyloan.in',
             'parent_sales_person' : 'himanshu@switchmyloan.in',
             'is_group':1
