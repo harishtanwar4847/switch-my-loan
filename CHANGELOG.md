@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.0.1] - 2022-04-13
+
+### Added
+
+[Data import](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/23)
+
 ## [v1.0.0] - 2022-04-12
 ## [v0.1.5-uat] - 2022-04-12
 
