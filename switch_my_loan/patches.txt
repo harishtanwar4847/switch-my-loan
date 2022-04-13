@@ -17,6 +17,4 @@ switch_my_loan.patches.import_sales_partner_type
 switch_my_loan.patches.import_sales_partner
 switch_my_loan.patches.import_lender
 switch_my_loan.patches.import_lead_source
-switch_my_loan.patches.import_territory2
 switch_my_loan.patches.import_sales_person
-switch_my_loan.patches.import_product3
