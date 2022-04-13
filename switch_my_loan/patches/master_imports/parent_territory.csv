@@ -1,0 +1,5 @@
+Territory Name,Parent Territory,Is Group,Territory Manager,old_parent,ID (Targets),Item Group (Targets),Fiscal Year (Targets),Target Qty (Targets),Target  Amount (Targets),Target Distribution (Targets)
+Central,Mumbai,1,,Mumbai,,,,,,
+Western,Mumbai,1,,Mumbai,,,,,,
+Harbour,Mumbai,1,,Mumbai,,,,,,
+Gujarat,All Territories,1,,All Territories,,,,,,
