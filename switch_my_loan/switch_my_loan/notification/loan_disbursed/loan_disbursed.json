@@ -12,8 +12,8 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Congratulations Dear {{ doc.lead_name}},<br><br>\nWe are thrilled to inform you that your loan has been disbursed by {{doc.lender_selection}}. The amount will<br><br>\nbe credited in your account within 2 working days / you will receive the cheque from the bank<br><br>\nbranch within 2 working days.<br><br>\nIn case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}} or write to {{doc.lead_owner}}<br>\n <br><br>\nFor further loan requirements please visit www.switchmyloan.in<br><br>\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\nSwitch My Loan Pvt. Ltd.<br>",
- "modified": "2022-04-01 18:19:24.555154",
- "modified_by": "harish.tanwar@atriina.com",
+ "modified": "2022-04-14 13:46:44.998679",
+ "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Loan Disbursed",
  "owner": "harish.tanwar@atriina.com",
@@ -24,8 +24,8 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sender": "Notifications",
- "sender_email": "developers@atriina.com",
+ "sender": null,
+ "sender_email": null,
  "subject": "Loan Disbursed",
  "value_changed": "workflow_state"
 }
