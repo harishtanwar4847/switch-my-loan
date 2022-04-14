@@ -12,7 +12,7 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Dear {{ doc.lead_name}},\nThank you for connecting with {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}} . We will keep you posted with further<br>\nmovement on your loan application. For more details please visit us www.switchmyloan.in<br><br>\nOur processes are completely digitized. You sit back and relax, while we do all the hard-work for<br>\nyour loan.<br><br>\nKindly rate your experience with {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}} on a scale of 1 to 10, 1 being Disappointing<br>\nand 10 being informative and helpful.<br><br><br>\n\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\nSwitch My Loan Pvt. Ltd.<br><br>",
- "modified": "2022-04-14 13:45:06.538449",
+ "modified": "2022-04-14 15:51:33.584670",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Call Done",
@@ -24,8 +24,6 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sender": null,
- "sender_email": null,
  "subject": "Call Done",
  "value_changed": "workflow_state"
 }

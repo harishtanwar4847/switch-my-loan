@@ -12,7 +12,7 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Dear {{ doc.lead_name }},<br><br>\nThank you for meeting . We are regretful to inform you that we will not be<br><br>\nable to proceed further with your loan application.<br><br>\nIn case of any other loan requirements please visit www.switchmyloan.in<br><br>\nYou sit back and relax, while we do all the hard-work for your loan.<br><br>\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\nSwitch My Loan Pvt. Ltd.<br>",
- "modified": "2022-04-14 13:47:39.650101",
+ "modified": "2022-04-14 15:49:22.801578",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Rejected",
@@ -24,8 +24,6 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sender": null,
- "sender_email": null,
  "subject": "Rejected",
  "value_changed": "status"
 }
