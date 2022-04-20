@@ -108,12 +108,12 @@ def workflow_states(doc,method):
     
     
     
-    sales_person = frappe.db.sql("""select sales_person from `tabProduct Sales Team` where location_name = %s and amount_threshold >= %s and location_parent = %s order by amount_threshold asc limit 1""", (doc.location,doc.loan_amount,doc.product_required))
+    sales_person = frappe.db.sql("""select sales_person from `tabProduct Sales Team` where location_name = %s and amount_threshold >= %s and parent = %s order by amount_threshold asc limit 1""", (doc.location,doc.loan_amount,doc.product_required))
     # abc = frappe.db.get_list("Lead", filters={'workflow_state':('not in',('Amount Credited')),"lead_owner":sales_person[0][0]}, fields=("lead_owner"))
     # print(abc)
     if 'CRM User' in frappe.get_roles(user) and not 'Sales User' in frappe.get_roles(user) and not 'Sales Manager' in frappe.get_roles(user) and doc.loan_amount != None and doc.location!= None and doc.product_required!= None:
-        location = frappe.db.sql("""select location_name from `tabProduct Sales Team` where location_parent = %s""",doc.product_required)
-        amount_threshold = frappe.db.sql("""select amount_threshold from `tabProduct Sales Team` where location_parent = %s and location_name = %s""", (doc.product_required, doc.location))
+        location = frappe.db.sql("""select location_name from `tabProduct Sales Team` where parent = %s""",doc.product_required)
+        amount_threshold = frappe.db.sql("""select amount_threshold from `tabProduct Sales Team` where parent = %s and location_name = %s""", (doc.product_required, doc.location))
         print(location)
         print(amount_threshold)
         res4 = [element for tupl in location for element in tupl]
@@ -155,7 +155,17 @@ def workflow_states(doc,method):
         if res3.count(doc.lead_owner) >= int(lead_count3[0][0]):
             frappe.msgprint("Already 15 Leads Assigned, So this lead is assigned to reporting manager")
             doc.lead_owner = reporting_manager[0][0]
-                    
+
+        email = doc.lead_owner
+        user_name = frappe.get_doc('User', email).full_name
+        emailmessage = """Dear {},<br><br>
+        Lead of {} has been allocated to you.<br>
+        Kindly attend to the lead and update the status within 2 hours.<br><br>
+        Best Regards,<br>
+        CRM Team.""".format(user_name, doc.lead_name)
+        frappe.sendmail(subject="Lead Allocated", content=emailmessage, recipients = '{}'.format(doc.lead_owner),sender="mycrm@switchmyloan.in")
+
+
 @frappe.whitelist()
 def update_status(lead,status):
     doc = frappe.get_doc("Lead",lead)
