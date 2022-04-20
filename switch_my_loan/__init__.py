@@ -1,5 +1,5 @@
 
-__version__ = '0.1.5-dev'
+__version__ = '0.1.6-dev'
 
 import frappe
 import os
@@ -26,6 +26,8 @@ def neodove_webhook():
 # modifying frappe.core.doctype.sms_settings.sms_settings.send_sms as send_sms_custom to take sms_template_id input
 from frappe.core.doctype.sms_settings.sms_settings import validate_receiver_nos, send_via_gateway
 from six import string_types
+from frappe.modules.utils import get_doc_module
+from frappe.utils import is_html
 
 def send_sms_custom(receiver_list, msg, sender_name = '', success_msg = True, sms_template_id=None):
 	import json
@@ -90,3 +92,19 @@ def send_via_gateway_custom(arg):
 		if arg.get('success_msg'):
 			frappe.msgprint(frappe._("SMS sent to following numbers: {0}").format("\n" + "\n".join(success_list)))
 # frappe.core.doctype.sms_settings.sms_settings.send_via_gateway = send_via_gateway_custom
+
+def load_standard_properties_custom(self, context):
+    '''load templates and run get_context'''
+    module = get_doc_module(self.module, self.doctype, self.name)
+    if module:
+        if hasattr(module, 'get_context'):
+            out = module.get_context(context)
+            if out: context.update(out)
+
+    self.message = self.get_template()
+
+    if self.channel != 'SMS':
+        if not is_html(self.message):
+            self.message = frappe.utils.md_to_html(self.message)
+
+Notification.load_standard_properties = load_standard_properties_custom
