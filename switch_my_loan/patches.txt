@@ -13,4 +13,5 @@ switch_my_loan.patches.import_product2
 switch_my_loan.patches.import_lead_workflow4
 switch_my_loan.patches.setting_site
 switch_my_loan.patches.import_email_account
-switch_my_loan.patches.hostname_addition
+switch_my_loan.patches.hostname_addition #20-04-2022
+switch_my_loan.patches.sms_settings
