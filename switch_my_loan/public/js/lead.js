@@ -18,7 +18,7 @@ frappe.ui.form.on('Lead', {
 
         }
         
-        if(!frm.is_new() && frappe.user_roles.includes('CRM User')){
+        if(!frm.is_new() && frappe.user_roles.includes('CRM User') && !frappe.user_roles.includes('Sales User') && !frappe.user_roles.includes('Sales Manager')){
             frm.toggle_display("location",false)
             frm.toggle_display("any_existing_obligations",false)
             frm.toggle_display("customer_profile",false)
@@ -77,6 +77,7 @@ frappe.ui.form.on('Lead', {
   
     },
 
+<<<<<<< HEAD
     checklist: function (frm) {
         if (frm.doc.checklist) {
             frm.clear_table('documents');
@@ -96,6 +97,8 @@ frappe.ui.form.on('Lead', {
         }
     },
 
+=======
+>>>>>>> develop
     setup(frm) {
 	    frm.get_field('remark').grid.cannot_add_rows = true;
         

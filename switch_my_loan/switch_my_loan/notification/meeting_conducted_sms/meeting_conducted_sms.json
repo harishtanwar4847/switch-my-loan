@@ -1,0 +1,30 @@
+{
+ "attach_print": 0,
+ "channel": "SMS",
+ "condition": "doc.workflow_state == \"Meeting Conducted\"",
+ "creation": "2022-04-08 15:15:06.052906",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {{ doc.lead_name }}, Thank you for meeting {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}}. Hope we were able to fulfil your requirement. For more details please contact: {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}}, he will be your relationship manager. - Team Switch My Loan",
+ "modified": "2022-04-08 18:48:25.601806",
+ "modified_by": "harish.tanwar@atriina.com",
+ "module": "Switch My Loan",
+ "name": "Meeting Conducted SMS",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "mobile_number"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sms_template_id": "1007155466130605966",
+ "subject": "Meeting Conducted",
+ "value_changed": "workflow_state"
+}

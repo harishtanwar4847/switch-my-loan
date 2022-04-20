@@ -8,6 +8,7 @@
   "sales_person",
   "amount_threshold",
   "location_name",
+  "location_parent",
   "reporting_manager"
  ],
  "fields": [
@@ -24,6 +25,14 @@
    "in_list_view": 1,
    "label": "Location Name",
    "options": "Territory"
+  },
+  {
+   "fetch_from": "parent.product_name",
+   "fieldname": "location_parent",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Location Parent",
+   "options": "Product"
   },
   {
    "fetch_from": "sales_person.parent_sales_person",

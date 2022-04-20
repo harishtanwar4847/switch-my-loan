@@ -1,10 +1,28 @@
 # Changelog
 
+## [v0.1.7-dev] - 2022-04-20
+
+### Added
+
+- [sms_setting updation](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/27)
+
+## [v0.1.6-dev] - 2022-04-20
+
+### Added
+
+- [sms changes](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/26)
+
 ## [v0.1.5-uat] - 2022-04-12
 
 ### Added
 
 - [email_account|document checklist](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/21)
+
+## [v0.1.5-dev] - 2022-04-08
+
+### Added
+
+- [sms templates](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/20)
 
 ## [v0.1.4-uat] - 2022-04-07
 ## [v0.1.4-dev] - 2022-04-06
