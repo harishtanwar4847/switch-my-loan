@@ -77,7 +77,6 @@ frappe.ui.form.on('Lead', {
   
     },
 
-<<<<<<< HEAD
     checklist: function (frm) {
         if (frm.doc.checklist) {
             frm.clear_table('documents');
@@ -97,8 +96,6 @@ frappe.ui.form.on('Lead', {
         }
     },
 
-=======
->>>>>>> develop
     setup(frm) {
 	    frm.get_field('remark').grid.cannot_add_rows = true;
         
