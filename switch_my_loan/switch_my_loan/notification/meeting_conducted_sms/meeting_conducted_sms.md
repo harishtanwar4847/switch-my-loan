@@ -1,0 +1,1 @@
+Dear {{ doc.lead_name }}, Thank you for meeting {% set var = frappe.db.get_value("User", doc.lead_owner, "full_name") %} {{var}}. Hope we were able to fulfil your requirement. For more details please contact: {% set var = frappe.db.get_value("User", doc.lead_owner, "full_name") %} {{var}}, he will be your relationship manager. - Team Switch My Loan

@@ -1,27 +1,31 @@
 {
  "actions": [],
- "allow_rename": 1,
- "autoname": "field:document_name",
- "creation": "2022-04-12 01:03:08.623691",
+ "creation": "2022-03-09 15:09:22.976668",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "document_name"
+  "document",
+  "status"
  ],
  "fields": [
   {
-   "fieldname": "document_name",
+   "fieldname": "document",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Document Name",
-   "reqd": 1,
-   "unique": 1
+   "label": "Document"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Status"
   }
  ],
  "index_web_pages_for_search": 1,
+ "istable": 1,
  "links": [],
- "modified": "2022-04-12 01:03:08.623691",
+ "modified": "2022-03-09 15:09:22.976668",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Document",
