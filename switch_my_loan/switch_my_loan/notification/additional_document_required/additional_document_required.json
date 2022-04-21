@@ -1,0 +1,30 @@
+{
+ "attach_print": 0,
+ "channel": "SMS",
+ "condition": "doc.workflow_state == \"Additional Doc Required\"",
+ "creation": "2022-04-08 15:34:04.789295",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {{ doc.lead_name }}, In order to process your file, we require the following documents:. Kindly click on the link {{ frappe.get_url() }} and upload the same or email it to your relationship manager {{ doc.lead_owner}} - Team Switch My Loan",
+ "modified": "2022-04-08 18:46:29.649322",
+ "modified_by": "harish.tanwar@atriina.com",
+ "module": "Switch My Loan",
+ "name": "Additional document required",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "mobile_number"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sms_template_id": "1007122268471524615",
+ "subject": "Additional document required",
+ "value_changed": "workflow_state"
+}

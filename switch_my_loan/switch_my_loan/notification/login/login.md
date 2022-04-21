@@ -1,0 +1,2 @@
+Congratulations Mr. {{ doc.lead_name }}, your file has been successfully logged in, in {{ doc.lender_selection}}. We will keep you updated with the progress on your loan application. You can login to Switch My Loan and track your application status.
+In case of any query please contact {% set var = frappe.db.get_value("User", doc.lead_owner, "full_name") %} {{var}} or write to {{doc.lead_owner}}

@@ -155,7 +155,17 @@ def workflow_states(doc,method):
         if res3.count(doc.lead_owner) >= int(lead_count3[0][0]):
             frappe.msgprint("Already 15 Leads Assigned, So this lead is assigned to reporting manager")
             doc.lead_owner = reporting_manager[0][0]
-                    
+
+        email = doc.lead_owner
+        user_name = frappe.get_doc('User', email).full_name
+        emailmessage = """Dear {},<br><br>
+        Lead of {} has been allocated to you.<br>
+        Kindly attend to the lead and update the status within 2 hours.<br><br>
+        Best Regards,<br>
+        CRM Team.""".format(user_name, doc.lead_name)
+        frappe.sendmail(subject="Lead Allocated", content=emailmessage, recipients = '{}'.format(doc.lead_owner),sender="mycrm@switchmyloan.in")
+
+
 @frappe.whitelist()
 def update_status(lead,status):
     doc = frappe.get_doc("Lead",lead)

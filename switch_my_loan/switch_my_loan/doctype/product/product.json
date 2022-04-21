@@ -73,6 +73,11 @@
    "export": 1,
    "read": 1,
    "role": "Sales Manager"
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "role": "CRM Manager"
   }
  ],
  "sort_field": "modified",
