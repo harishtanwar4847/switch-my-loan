@@ -1,0 +1,29 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "",
+ "creation": "2022-04-12 16:19:41.302350",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}},<br><br>\nLead of {{doc.lead_name}} with Lead ID {{doc.name}} has been allocated to you.<br>\nKindly attend to the lead and update the status within 2 hours.<br><br>\n\nBest Regards,<br>\nCRM Team.",
+ "modified": "2022-04-22 17:08:32.902958",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Lead Allocated",
+ "owner": "harish.tanwar@atriina.com",
+ "recipients": [
+  {
+   "receiver_by_document_field": "lead_owner"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Lead Allocated",
+ "value_changed": "lead_owner"
+}

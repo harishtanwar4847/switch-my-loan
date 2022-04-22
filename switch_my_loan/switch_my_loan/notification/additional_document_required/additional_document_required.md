@@ -1,1 +1,1 @@
-Dear {{ doc.lead_name }}, In order to process your file, we require the following documents:. Kindly click on the link {{ frappe.get_url() }} and upload the same or email it to your relationship manager {{ doc.lead_owner}} - Team Switch My Loan
+Dear {{ doc.lead_name }}, In order to process your file, we require the following documents:. Kindly click on the link https://www.switchmyloan.in and upload the same or email it to your relationship manager {{ doc.lead_owner}} - Team Switch My Loan

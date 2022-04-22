@@ -12,8 +12,8 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Dear {{ doc.lead_name }},<br><br>\nThank you for meeting {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}}  Hope we were able to answer all your queries and<br>\nfulfill your requirements. For further details please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}} and \n{% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}}. He<br> \nwill be your relationship manager.<br><br>\nPlease visit www.switchmyloan.in to know more about our products. You sit back and relax, while<br>\nwe do all the hard-work for your loan.<br><br>\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\nSwitch My Loan Pvt. Ltd.<br>",
- "modified": "2022-04-01 18:19:51.115245",
- "modified_by": "harish.tanwar@atriina.com",
+ "modified": "2022-04-14 15:51:08.661464",
+ "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Meeting Conducted",
  "owner": "harish.tanwar@atriina.com",
@@ -25,8 +25,6 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sender": "Notifications",
- "sender_email": "developers@atriina.com",
  "subject": "Meeting Conducted",
  "value_changed": "workflow_state"
 }
