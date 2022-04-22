@@ -77,6 +77,25 @@ frappe.ui.form.on('Lead', {
   
     },
 
+    checklist: function (frm) {
+        if (frm.doc.checklist) {
+            frm.clear_table('documents');
+            frappe.model.with_doc('Document Checklist', frm.doc.checklist, function () {
+                let source_doc = frappe.model.get_doc('Document Checklist', frm.doc.checklist);
+                $.each(source_doc.list_of_document, function (index, source_row) {
+                    
+                var addChild = frm.add_child("documents");
+	             	addChild.document = source_row.document_name;
+		            frm.refresh_field('documents');
+                });
+            });
+        }
+        if(!frm.doc.checklist) {
+            frm.clear_table('documents');
+            frm.refresh_field('documents');
+        }
+    },
+
     setup(frm) {
 	    frm.get_field('remark').grid.cannot_add_rows = true;
         
