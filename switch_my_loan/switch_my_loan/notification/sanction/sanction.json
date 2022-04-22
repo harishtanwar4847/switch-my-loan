@@ -11,7 +11,7 @@
  "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Congratulations Mr. {{ doc.lead_name }}, your loan application has been sanctioned by {{doc.lender_selection}} . You will receive an email with the list of documents required for disbursing the loan. Kindly share those documents at the earliest to avoid any delay.\nIn case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}} or write to {{ doc.lead_owner}} - Team Switch My Loan",
+ "message": "Congratulations Mr. {{ doc.lead_name }}, your loan application has been sanctioned by {{doc.lender_selection}} . You will receive an email with the list of documents required for disbursing the loan. Kindly share those documents at the earliest to avoid any delay.\nIn case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}} - {% set var2 = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var2}}  or write to {{ doc.lead_owner}} - Team Switch My Loan",
  "modified": "2022-04-08 18:48:05.534255",
  "modified_by": "harish.tanwar@atriina.com",
  "module": "Switch My Loan",

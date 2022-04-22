@@ -11,7 +11,7 @@
  "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Dear {{ doc.lead_name }}, thank you for connecting with {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}}. We will keep you posted on further movement of your loan application. For more details please visit us at {{ frappe.get_url() }} - Team Switch My Loan",
+ "message": "Dear {{ doc.lead_name }}, thank you for connecting with {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}}. We will keep you posted on further movement of your loan application. For more details please visit us at https://www.switchmyloan.in - Team Switch My Loan",
  "modified": "2022-04-08 18:47:23.679884",
  "modified_by": "harish.tanwar@atriina.com",
  "module": "Switch My Loan",
