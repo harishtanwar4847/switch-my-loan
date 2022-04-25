@@ -97,9 +97,36 @@ frappe.ui.form.on('Lead', {
     },
 
     setup(frm) {
+        if (frm.is_new()){
+            frm.set_value("location"," ")
+            frm.set_value("lender_branch"," ")
+        }
+        frm.set_query('location', () => {
+            return {
+                filters: {
+                    is_group:['!=',1]
+                }
+            }
+        })
+        frm.set_query('lender_branch', () => {
+            return {
+                filters: {
+                    is_group:['!=',1]
+                }
+            }
+        })
 	    frm.get_field('remark').grid.cannot_add_rows = true;
         
         },
+
+    validate(frm){
+        if(frm.doc.location == "All Territories"){
+            frappe.throw("Please Select Location Name")
+        }
+        if(frm.doc.lender_branch == "All Territories"){
+            frappe.throw("Please Select Lender Branch")
+        }
+    },
 
     unhold_purchase_order(frm){
         frappe.call({

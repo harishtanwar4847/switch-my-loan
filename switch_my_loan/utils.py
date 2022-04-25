@@ -1,7 +1,6 @@
 import frappe
 from datetime import datetime
 
-
 def workflow_states(doc,method): 
     old_doc = doc.get_doc_before_save()
     # if doc.workflow_state == "Open":
@@ -15,8 +14,6 @@ def workflow_states(doc,method):
     })
         doc.open_time = frappe.utils.now()
         # doc.reload()
-
-
 
     if doc.workflow_state == "Call Done":
         if doc.workflow_state != old_doc.workflow_state:
@@ -159,10 +156,10 @@ def workflow_states(doc,method):
         email = doc.lead_owner
         user_name = frappe.get_doc('User', email).full_name
         emailmessage = """Dear {},<br><br>
-        Lead of {} has been allocated to you.<br>
+        Lead of {} with Lead ID {} has been allocated to you.<br>
         Kindly attend to the lead and update the status within 2 hours.<br><br>
         Best Regards,<br>
-        CRM Team.""".format(user_name, doc.lead_name)
+        CRM Team.""".format(user_name, doc.lead_name, doc.name)
         frappe.sendmail(subject="Lead Allocated", content=emailmessage, recipients = '{}'.format(doc.lead_owner),sender="mycrm@switchmyloan.in")
 
 
