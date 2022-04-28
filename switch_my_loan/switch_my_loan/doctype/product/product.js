@@ -2,20 +2,27 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Product', {
-	refresh: function(frm) {
-		for ( let i in frm.doc.product_sales_team){
-			frm.doc.product_sales_team[i].location_parent = frm.doc.product_name;
+	// refresh: function(frm) {
+	// }
+	
+	setup(frm){
+		frm.set_query('location_name', 'product_sales_team', () => {
+			return {
+				filters: {
+					is_group:['!=',1]
+				}
 			}
-			frm.refresh_field("product_sales_team"); 
+		})
 
 	}
 });
 
-// frappe.ui.form.on('Product Sales Team', {
-// 	product_sales_team_add: function(frm,cdt,cdn) {
-// 	var u = locals[cdt][cdn];
-//     u['location_parent'] = frm.doc.product_name
-// 	}
-// });
+frappe.ui.form.on('Product Sales Team',{
+	product_sales_team_add(frm,cdt,cdn){
+		var row = locals[cdt][cdn]
+		row.location_name = ""
+	}
+})
+
 
 

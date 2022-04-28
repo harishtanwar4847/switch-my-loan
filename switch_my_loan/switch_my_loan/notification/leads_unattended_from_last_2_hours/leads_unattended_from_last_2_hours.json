@@ -1,0 +1,27 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "creation": "2022-04-28 09:59:08.457193",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Custom",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Hello,<br>\nThese Leads Remains Unattended From Last 2 Hours:<br><br>\n<table border=\"1\" cellspacing=\"0\" cellpadding=\"5\" align=\"\">\n<th>Lead ID</th>\n<th>Name</th>\n<th>Mobile Number</th>\n{% for j in doc.leads %}\n<tr>\n<td>{{j[0]}}</td>\n<td>{{j[1]}}</td>\n<td>{{j[2]}}</td>\n</tr>\n{% endfor %}\n</table>",
+ "modified": "2022-04-28 10:09:21.512738",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Leads Unattended From Last 2 Hours",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_role": "Sales Manager"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Leads Unattended From Last 2 Hours"
+}

@@ -109,23 +109,23 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"switch_my_loan.tasks.all"
 # 	],
-# 	"daily": [
-# 		"switch_my_loan.tasks.daily"
-# 	],
-    # "hourly": [
-    #     "switch_my_loan.tasks.hourly"
-    # ],
+	"daily": [
+		"switch_my_loan.tasks.unattended_leads_daily"
+	],
+    "hourly": [
+        "switch_my_loan.tasks.unattended_leads_hourly"
+    ]
 # 	"weekly": [
 # 		"switch_my_loan.tasks.weekly"
 # 	]
 # 	"monthly": [
 # 		"switch_my_loan.tasks.monthly"
 # 	]
-# }
+}
 
 # Testing
 # -------
