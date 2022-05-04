@@ -17,6 +17,7 @@ frappe.ui.form.on('Lead', {
 
 
         }
+
         
         if(!frm.is_new() && frappe.user_roles.includes('CRM User') && !frappe.user_roles.includes('Sales User') && !frappe.user_roles.includes('Sales Manager')){
             frm.toggle_display("location",false)
@@ -97,10 +98,6 @@ frappe.ui.form.on('Lead', {
     },
 
     setup(frm) {
-        if (frm.is_new()){
-            frm.set_value("location"," ")
-            frm.set_value("lender_branch"," ")
-        }
         frm.set_query('location', () => {
             return {
                 filters: {

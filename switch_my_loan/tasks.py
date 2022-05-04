@@ -6,7 +6,7 @@ from frappe.utils import date_diff
 from jinja2 import Template
 
 def unattended_leads_hourly():
-    leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","mobile_number"), as_list = True)
+    leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","source"), as_list = True)
     print(leadlist)
     sm_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales Manager'""", as_list=1)]
     leadlist2 = []
@@ -33,7 +33,7 @@ def unattended_leads_hourly():
         subject=frappe.render_template(notification.subject, args), message=frappe.render_template(notification.message, args))
 
 def unattended_leads_daily():
-    leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","mobile_number"), as_list = True)
+    leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","source"), as_list = True)
     print(leadlist)
     sm_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales Manager'""", as_list=1)]
     leadlist2 = []

@@ -18,3 +18,4 @@ switch_my_loan.patches.import_sales_partner
 switch_my_loan.patches.import_lender
 switch_my_loan.patches.import_lead_source
 switch_my_loan.patches.role_updates ####
+switch_my_loan.patches.navbar_settings
