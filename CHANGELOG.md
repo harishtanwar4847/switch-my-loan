@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.0.5-dev] - 2022-05-04
+
+### Added
+
+-[Internal mail notifications](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/35)
+
 ## [v1.0.4-dev] - 2022-04-28
 
 ### Added
