@@ -10,8 +10,8 @@
  "idx": 0,
  "is_public": 1,
  "is_standard": 1,
- "modified": "2022-03-21 18:01:45.196960",
- "modified_by": "harish.tanwar@atriina.com",
+ "modified": "2022-05-06 12:35:15.116798",
+ "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Total No. of Leads Zone Wise",
  "number_of_groups": 0,
@@ -25,7 +25,7 @@
  "x_field": "territory",
  "y_axis": [
   {
-   "color": "#EC864B",
+   "color": "#4463F0",
    "y_field": "count"
   }
  ]

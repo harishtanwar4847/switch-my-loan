@@ -10,8 +10,8 @@
  "idx": 0,
  "is_public": 1,
  "is_standard": 1,
- "modified": "2022-03-24 15:53:38.225251",
- "modified_by": "harish.tanwar@atriina.com",
+ "modified": "2022-05-06 12:37:36.566981",
+ "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Top 5 Partners",
  "number_of_groups": 0,
@@ -25,7 +25,7 @@
  "x_field": "partner",
  "y_axis": [
   {
-   "color": "#39E4A5",
+   "color": "#4463F0",
    "y_field": "count"
   }
  ]

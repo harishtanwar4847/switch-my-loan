@@ -11,14 +11,15 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Hello,<br>\nThese Leads Remains Unattended From Last 2 Hours:<br><br>\n<table border=\"1\" cellspacing=\"0\" cellpadding=\"5\" align=\"\">\n<th>S. No.</th>\n<th>Lead ID</th>\n<th>Lead Name</th>\n<th>Loan Amount</th>\n<th>Product</th>\n<th>Lead Creation Time & Date</th>\n<th>Sales Manager Allocated Source</th>\n{% for j in doc.leads %}\n<tr>\n<td>{{loop.index}}</td>\n<td>{{j[0]}}</td>\n<td>{{j[1]}}</td>\n<td>{{j[2]}}</td>\n<td>{{j[3]}}</td>\n<td>{{j[4]}}</td>\n<td>{{j[5]}}</td>\n</tr>\n{% endfor %}\n</table>",
- "modified": "2022-05-03 08:07:25.295930",
+ "modified": "2022-05-10 09:59:24.939937",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Leads Unattended From Last 2 Hours",
  "owner": "Administrator",
  "recipients": [
   {
-   "receiver_by_role": "Sales Manager"
+   "receiver_by_document_field": "",
+   "receiver_by_role": "Sales User"
   }
  ],
  "send_system_notification": 0,

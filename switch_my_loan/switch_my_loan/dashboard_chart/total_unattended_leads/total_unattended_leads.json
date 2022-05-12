@@ -12,8 +12,8 @@
  "idx": 0,
  "is_public": 1,
  "is_standard": 1,
- "modified": "2022-03-21 18:01:33.355028",
- "modified_by": "harish.tanwar@atriina.com",
+ "modified": "2022-05-06 12:33:10.265535",
+ "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Total unattended leads",
  "number_of_groups": 0,
@@ -29,31 +29,31 @@
  "x_field": "status",
  "y_axis": [
   {
-   "color": "#db1818",
+   "color": "#4463F0",
    "y_field": "open"
   },
   {
-   "color": "#f2aaaa",
+   "color": "#4463F0",
    "y_field": "call_done"
   },
   {
-   "color": "#edcaca",
+   "color": "#4463F0",
    "y_field": "meeting_scheduled"
   },
   {
-   "color": "#B4CD29",
+   "color": "#4463F0",
    "y_field": "meeting_conducted"
   },
   {
-   "color": "#39E4A5",
+   "color": "#4463F0",
    "y_field": "partly_documents_collected"
   },
   {
-   "color": "#4F9DD9",
+   "color": "#4463F0",
    "y_field": "documents_received"
   },
   {
-   "color": "#EC864B",
+   "color": "#4463F0",
    "y_field": "lender_selection"
   },
   {
@@ -61,35 +61,35 @@
    "y_field": "pending_for_reporting_manager_approval"
   },
   {
-   "color": "#29CD42",
+   "color": "#4463F0",
    "y_field": "login_done"
   },
   {
-   "color": "#ED6396",
+   "color": "#4463F0",
    "y_field": "additional_doc_required"
   },
   {
-   "color": "#CB2929",
+   "color": "#4463F0",
    "y_field": "sanctioned"
   },
   {
-   "color": "#761ACB",
+   "color": "#4463F0",
    "y_field": "disbursement_doc_list"
   },
   {
-   "color": "#29ccb1",
+   "color": "#4463F0",
    "y_field": "disbursement_doc_submitted"
   },
   {
-   "color": "#29CD42",
+   "color": "#4463F0",
    "y_field": "disbursed"
   },
   {
-   "color": "#449CF0",
+   "color": "#4463F0",
    "y_field": "amount_credited"
   },
   {
-   "color": "#4a3333",
+   "color": "#4463F0",
    "y_field": "on_hold"
   }
  ]

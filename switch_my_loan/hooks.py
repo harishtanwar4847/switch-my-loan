@@ -1,4 +1,5 @@
 from . import __version__ as app_version
+import switch_my_loan
 
 app_name = "switch_my_loan"
 app_title = "Switch My Loan"
@@ -113,12 +114,17 @@ scheduler_events = {
 # 	"all": [
 # 		"switch_my_loan.tasks.all"
 # 	],
-	"daily": [
-		"switch_my_loan.tasks.unattended_leads_daily"
-	],
-    "hourly": [
-        "switch_my_loan.tasks.unattended_leads_hourly"
-    ]
+	# "daily": [
+	# 	"switch_my_loan.tasks.unattended_leads_daily"
+	# ],
+    # "hourly": [
+    #     "switch_my_loan.tasks.unattended_leads_after_two_hours",
+	# 	"switch_my_loan.tasks.unattended_leads_after_four_hours"
+    # ],
+	"cron":{"0 10 * * *": ["switch_my_loan.tasks.unattended_leads_daily"],
+	"0 19 * * *": ["switch_my_loan.tasks.unattended_leads_daily"],
+	"0 */2 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours"],
+	"2 */4 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours"]}
 # 	"weekly": [
 # 		"switch_my_loan.tasks.weekly"
 # 	]
