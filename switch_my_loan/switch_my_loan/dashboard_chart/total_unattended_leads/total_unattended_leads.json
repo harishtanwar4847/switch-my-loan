@@ -12,7 +12,7 @@
  "idx": 0,
  "is_public": 1,
  "is_standard": 1,
- "modified": "2022-05-06 12:33:10.265535",
+ "modified": "2022-05-13 16:22:04.859018",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Total unattended leads",
@@ -30,67 +30,7 @@
  "y_axis": [
   {
    "color": "#4463F0",
-   "y_field": "open"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "call_done"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "meeting_scheduled"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "meeting_conducted"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "partly_documents_collected"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "documents_received"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "lender_selection"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "pending_for_reporting_manager_approval"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "login_done"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "additional_doc_required"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "sanctioned"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "disbursement_doc_list"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "disbursement_doc_submitted"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "disbursed"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "amount_credited"
-  },
-  {
-   "color": "#4463F0",
-   "y_field": "on_hold"
+   "y_field": "count"
   }
  ]
 }
