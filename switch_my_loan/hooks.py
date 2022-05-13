@@ -121,8 +121,8 @@ scheduler_events = {
     #     "switch_my_loan.tasks.unattended_leads_after_two_hours",
 	# 	"switch_my_loan.tasks.unattended_leads_after_four_hours"
     # ],
-	"cron":{"0 10 * * *": ["switch_my_loan.tasks.unattended_leads_daily"],
-	"0 19 * * *": ["switch_my_loan.tasks.unattended_leads_daily"],
+	"cron":{"5 10 * * *": ["switch_my_loan.tasks.unattended_leads_daily"],
+	"5 19 * * *": ["switch_my_loan.tasks.unattended_leads_daily"],
 	"0 */2 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours"],
 	"2 */4 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours"]}
 # 	"weekly": [
