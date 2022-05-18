@@ -10,8 +10,8 @@
  "idx": 0,
  "is_public": 1,
  "is_standard": 1,
- "modified": "2022-03-31 16:19:44.746475",
- "modified_by": "harish.tanwar@atriina.com",
+ "modified": "2022-05-06 12:46:25.448794",
+ "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Total No. of Cases with No  Movement",
  "number_of_groups": 0,
@@ -25,12 +25,15 @@
  "x_field": "workflow_state",
  "y_axis": [
   {
+   "color": "#4463F0",
    "y_field": "no_movement_since_7_days"
   },
   {
+   "color": "#4463F0",
    "y_field": "no_movement_since_15_days"
   },
   {
+   "color": "#4463F0",
    "y_field": "no_movement_since_30_days"
   }
  ]

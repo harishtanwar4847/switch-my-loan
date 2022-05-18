@@ -1,0 +1,28 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "creation": "2022-05-10 10:00:09.263449",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Custom",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Hello,<br>\nThese Leads Remains Unattended From Last 4 Hours:<br><br>\n<table border=\"1\" cellspacing=\"0\" cellpadding=\"5\" align=\"\">\n<th>S. No.</th>\n<th>Lead ID</th>\n<th>Lead Name</th>\n<th>Loan Amount</th>\n<th>Product</th>\n<th>Lead Creation Time & Date</th>\n<th>Sales Manager Allocated Source</th>\n{% for j in doc.leads %}\n<tr>\n<td>{{loop.index}}</td>\n<td>{{j[0]}}</td>\n<td>{{j[1]}}</td>\n<td>{{j[2]}}</td>\n<td>{{j[3]}}</td>\n<td>{{j[4]}}</td>\n<td>{{j[5]}}</td>\n</tr>\n{% endfor %}\n</table>",
+ "modified": "2022-05-10 16:26:12.198510",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Leads Unattended From Last 4 Hours",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "",
+   "receiver_by_role": "Sales Manager"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Leads Unattended From Last 4 Hours"
+}
