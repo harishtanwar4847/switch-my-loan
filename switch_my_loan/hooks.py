@@ -121,10 +121,14 @@ scheduler_events = {
     #     "switch_my_loan.tasks.unattended_leads_after_two_hours",
 	# 	"switch_my_loan.tasks.unattended_leads_after_four_hours"
     # ],
-	"cron":{"5 10 * * *": ["switch_my_loan.tasks.unattended_leads_daily"],
-	"5 19 * * *": ["switch_my_loan.tasks.unattended_leads_daily"],
-	"0 */2 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours"],
-	"2 */4 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours"]}
+	"cron":{"10 10 * * *": ["switch_my_loan.tasks.unattended_leads_daily_at_ten"],
+	"10 19 * * *": ["switch_my_loan.tasks.unattended_leads_daily_at_seven"],
+	"0 12 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_twelve"],
+	"0 14 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_two"],
+	"0 16 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_four"],
+	"0 18 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_six"],
+	"5 14 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours_at_two"],
+	"5 18 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours_at_six"]}
 # 	"weekly": [
 # 		"switch_my_loan.tasks.weekly"
 # 	]
