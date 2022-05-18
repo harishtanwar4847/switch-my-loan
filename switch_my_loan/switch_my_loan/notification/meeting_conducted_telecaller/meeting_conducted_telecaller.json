@@ -1,0 +1,29 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.workflow_state == \"Meeting Conducted\"",
+ "creation": "2022-05-02 11:12:38.637299",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Meeting Done:<br><br>\nDear {% set var = frappe.db.get_value(\"User\", doc.telecaller_name, \"full_name\") %} {{var}},<br><br>\nThe meeting scheduled with the customer {{doc.lead_name}} has been completed.<br><br>\nKindly login to {{frappe.get_url()}} for more updates on the lead<br><br>\nRegards,<br><br>\nMyCRM",
+ "modified": "2022-05-02 19:56:28.836029",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Meeting Conducted Telecaller",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "telecaller_name"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Meeting Done",
+ "value_changed": "workflow_state"
+}

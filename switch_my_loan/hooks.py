@@ -1,4 +1,5 @@
 from . import __version__ as app_version
+import switch_my_loan
 
 app_name = "switch_my_loan"
 app_title = "Switch My Loan"
@@ -109,23 +110,32 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"switch_my_loan.tasks.all"
 # 	],
-# 	"daily": [
-# 		"switch_my_loan.tasks.daily"
-# 	],
+	# "daily": [
+	# 	"switch_my_loan.tasks.unattended_leads_daily"
+	# ],
     # "hourly": [
-    #     "switch_my_loan.tasks.hourly"
+    #     "switch_my_loan.tasks.unattended_leads_after_two_hours",
+	# 	"switch_my_loan.tasks.unattended_leads_after_four_hours"
     # ],
+	"cron":{"10 10 * * *": ["switch_my_loan.tasks.unattended_leads_daily_at_ten"],
+	"10 19 * * *": ["switch_my_loan.tasks.unattended_leads_daily_at_seven"],
+	"0 12 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_twelve"],
+	"0 14 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_two"],
+	"0 16 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_four"],
+	"0 18 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_six"],
+	"5 14 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours_at_two"],
+	"5 18 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours_at_six"]}
 # 	"weekly": [
 # 		"switch_my_loan.tasks.weekly"
 # 	]
 # 	"monthly": [
 # 		"switch_my_loan.tasks.monthly"
 # 	]
-# }
+}
 
 # Testing
 # -------

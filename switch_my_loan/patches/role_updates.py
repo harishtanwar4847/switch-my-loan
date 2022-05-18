@@ -20,6 +20,7 @@ def execute():
     doc3.form_sidebar = 1
     doc3.timeline = 1
     doc3.dashboard = 1
+    doc3.view_switcher = 1
     doc3.save()
     frappe.db.commit()
 

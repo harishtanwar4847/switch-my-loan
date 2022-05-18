@@ -20,7 +20,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-22 16:29:19.163796",
+ "modified": "2022-05-12 19:08:54.131930",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Lender",
@@ -70,6 +70,14 @@
    "export": 1,
    "read": 1,
    "role": "CRM Manager"
+  },
+  {
+   "role": "Partner User",
+   "write": 1
+  },
+  {
+   "role": "Partner Manager",
+   "write": 1
   }
  ],
  "sort_field": "modified",

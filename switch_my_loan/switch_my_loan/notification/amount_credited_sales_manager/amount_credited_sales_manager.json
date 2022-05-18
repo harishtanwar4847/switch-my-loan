@@ -1,0 +1,29 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.workflow_state == \"Amount Credited\"",
+ "creation": "2022-05-02 12:53:09.982638",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}},<br><br>\nThe amount has been remitted to the customer\u2019s {{doc.lead_name}} bank account.<br><br>\nThe status has been changed to {{doc.status}}<br><br>\nKindly login to {{frappe.get_url()}} for more updates on the lead<br><br>\nRegards,<br><br>\nMyCRM",
+ "modified": "2022-05-02 19:59:01.129483",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Amount Credited Sales Manager",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "lead_owner"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Amount Remitted",
+ "value_changed": "workflow_state"
+}
