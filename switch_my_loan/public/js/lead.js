@@ -17,6 +17,7 @@ frappe.ui.form.on('Lead', {
 
 
         }
+
         
         if(!frm.is_new() && frappe.user_roles.includes('CRM User') && !frappe.user_roles.includes('Sales User') && !frappe.user_roles.includes('Sales Manager')){
             frm.toggle_display("location",false)
@@ -44,6 +45,13 @@ frappe.ui.form.on('Lead', {
             }, __("Status"));
             frm.fields.forEach(function(l){ frm.set_df_property(l.df.fieldname, "read_only", 1); })  
         }
+
+        if(frm.doc.status == "Drop"){
+            frm.add_custom_button(__('Resume'), function(){
+                frm.trigger("unhold_purchase_order")
+            }, __("Status"));
+            frm.fields.forEach(function(l){ frm.set_df_property(l.df.fieldname, "read_only", 1); })  
+        }
         
         if(frm.doc.status == "Rejected"){
             frm.add_custom_button(__('Reopen'), function(){    
@@ -51,14 +59,18 @@ frappe.ui.form.on('Lead', {
                 }, __("Status"));
             frm.fields.forEach(function(l){ frm.set_df_property(l.df.fieldname, "read_only", 1); })  
         }
-        if(frm.doc.status != "On Hold" && frm.doc.status != "Rejected"){
+        if(frm.doc.status != "On Hold" && frm.doc.status != "Rejected" && frm.doc.status != "Drop"){
             frm.fields.forEach(function(l){ frm.set_df_property(l.df.fieldname, "read_only", 0); })  
         }
         
 
-        if(!frm.doc.__islocal && frm.doc.status != "On Hold" && frm.doc.status != "Rejected" && (frappe.user_roles.includes('Sales User') || frappe.user_roles.includes('Sales Manager'))){
+        if(!frm.doc.__islocal && frm.doc.status != "On Hold" && frm.doc.status != "Rejected" && frm.doc.status != "Drop" && (frappe.user_roles.includes('Sales User') || frappe.user_roles.includes('Sales Manager'))){
             frm.add_custom_button(__('On Hold'), function(){
                 frm.trigger("hold_purchase_order")                
+            }, __("Status"));
+
+            frm.add_custom_button(__('Drop'), function(){
+                frm.trigger("drop_purchase_order")                
             }, __("Status"));
         
             frm.add_custom_button(__('Reject'), function(){
@@ -97,10 +109,6 @@ frappe.ui.form.on('Lead', {
     },
 
     setup(frm) {
-        if (frm.is_new()){
-            frm.set_value("location"," ")
-            frm.set_value("lender_branch"," ")
-        }
         frm.set_query('location', () => {
             return {
                 filters: {
@@ -116,8 +124,18 @@ frappe.ui.form.on('Lead', {
             }
         })
 	    frm.get_field('remark').grid.cannot_add_rows = true;
+
+        frm.set_query('investment_type', 'investment', () => {
+            return {
+                filters: {
+                    'name':['not in', frm.doc.investment.map(function(cur_seg){return cur_seg.investment_type})],
+
+                }
+            }
+        })      
         
         },
+
 
     validate(frm){
         if(frm.doc.location == "All Territories"){
@@ -214,6 +232,83 @@ frappe.ui.form.on('Lead', {
 		});
 		d.show();
 	},
+
+    drop_purchase_order(frm){
+		var me = this;
+		var d = new frappe.ui.Dialog({
+			title: __('Reason for Drop'),
+			fields: [
+				{
+					"fieldname": "reason_for_drop",
+					"fieldtype": "Select",
+                    "options":["Not Interested","Not Eligible","Not Connected"],
+					"reqd": 1,
+				}
+			],
+			primary_action: function() {
+                console.log(frm)
+				var data = d.get_values();
+				let reason_for_drop = 'Reason for drop: ' + data.reason_for_drop;
+                if (window.timeout){
+                    clearTimeout(window.timeout)
+                    delete window.timeout
+                }
+                window.timeout=setTimeout(function(){
+                    frm.set_value("reason_for_drop", data.reason_for_drop) 
+                    frm.refresh_field("reason_for_drop")              
+                    frm.save()
+                },1500)
+                // frappe.call({
+                //     url: "/api/resource/Lead/"+frm.doc.name,
+                //     method: "PUT",
+                //     args: {
+                //         reason_for_drop: data.reason_for_drop
+                //     },
+                //     callback: function(r){
+                //         console.log("reloading form")
+                //         frm.reload()
+                //     }
+                // })
+				frappe.call({
+					method: "frappe.desk.form.utils.add_comment",
+					args: {
+						reference_doctype: frm.doc.doctype,
+						reference_name: frm.doc.name,
+						content: __(reason_for_drop),
+						comment_email: frappe.session.user,
+						comment_by: frappe.session.user_fullname
+					},
+					callback: function(r) {
+						if(!r.exc) {
+                            console.log("testing")
+                            frappe.call({
+                                "method":"switch_my_loan.utils.update_status",
+                                args:{
+                                    lead:frm.doc.name,
+                                    status:"Drop"
+                                },
+                                callback:function(r){
+                                    frm.reload_doc()
+                                    
+                                }
+                                
+                            })
+							d.hide();
+                            
+						}
+                        
+					}
+				});
+                // if(frm.doc.status == "Drop"){
+                //     frm.set_value("reason_for_drop", data.reason_for_drop)
+                //     cur_frm.save()
+                // }
+
+			} 
+            
+		});
+		d.show();
+    }
 
 
 });
