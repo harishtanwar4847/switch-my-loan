@@ -1,11 +1,5 @@
 # Changelog
 
-## [v1.0.7-dev] - 2022-05-18
-
-### Added
-
--[updation in Unattended leads notifications](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/38)
-
 ## [v1.0.6-uat] - 2022-05-18
 ## [v1.0.6-dev] - 2022-05-12
 
