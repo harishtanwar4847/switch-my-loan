@@ -8,7 +8,7 @@ from jinja2 import Template
 def unattended_leads_after_two_hours_at_twelve():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i]}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -36,7 +36,7 @@ def unattended_leads_after_two_hours_at_twelve():
 def unattended_leads_after_two_hours_at_two():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i]}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -64,7 +64,7 @@ def unattended_leads_after_two_hours_at_two():
 def unattended_leads_after_two_hours_at_four():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i]}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -92,7 +92,7 @@ def unattended_leads_after_two_hours_at_four():
 def unattended_leads_after_two_hours_at_six():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i]}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -121,7 +121,7 @@ def unattended_leads_after_two_hours_at_six():
 def unattended_leads_after_four_hours_at_two():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i]}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -151,7 +151,7 @@ def unattended_leads_after_four_hours_at_two():
         sm = frappe.db.sql("""select l.name,l.lead_name,l.loan_amount,l.product_required,l.creation,l.lead_owner from `tabLead` as l 
         join `tabSales Person` as sp 
         on sp.name = l.lead_owner   
-        where sp.parent_sales_person = %s""",(sm_list[i]))
+        where l.workflow_state = "Open" and sp.parent_sales_person = %s""",(sm_list[i]))
         leadlist2 = []
         if sm:
             for lead in sm:
@@ -171,7 +171,7 @@ def unattended_leads_after_four_hours_at_two():
 def unattended_leads_after_four_hours_at_six():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i]}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -201,7 +201,7 @@ def unattended_leads_after_four_hours_at_six():
         sm = frappe.db.sql("""select l.name,l.lead_name,l.loan_amount,l.product_required,l.creation,l.lead_owner from `tabLead` as l 
         join `tabSales Person` as sp 
         on sp.name = l.lead_owner   
-        where sp.parent_sales_person = %s""",(sm_list[i]))
+        where l.workflow_state = "Open" and sp.parent_sales_person = %s""",(sm_list[i]))
         leadlist2 = []
         if sm:
             for lead in sm:
@@ -222,7 +222,7 @@ def unattended_leads_after_four_hours_at_six():
 def unattended_leads_daily_at_ten():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i]}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -252,7 +252,7 @@ def unattended_leads_daily_at_ten():
         sm = frappe.db.sql("""select l.name,l.lead_name,l.loan_amount,l.product_required,l.creation,l.lead_owner from `tabLead` as l 
         join `tabSales Person` as sp 
         on sp.name = l.lead_owner   
-        where sp.parent_sales_person = %s""",(sm_list[i]))
+        where l.workflow_state = "Open" and sp.parent_sales_person = %s""",(sm_list[i]))
         leadlist2 = []
         if sm:
             for lead in sm:
@@ -272,7 +272,7 @@ def unattended_leads_daily_at_ten():
 def unattended_leads_daily_at_seven():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i]}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -302,7 +302,7 @@ def unattended_leads_daily_at_seven():
         sm = frappe.db.sql("""select l.name,l.lead_name,l.loan_amount,l.product_required,l.creation,l.lead_owner from `tabLead` as l 
         join `tabSales Person` as sp 
         on sp.name = l.lead_owner   
-        where sp.parent_sales_person = %s""",(sm_list[i]))
+        where l.workflow_state = "Open" and sp.parent_sales_person = %s""",(sm_list[i]))
         leadlist2 = []
         if sm:
             for lead in sm:

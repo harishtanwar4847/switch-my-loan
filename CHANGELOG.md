@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.0.7-dev] - 2022-05-25
+
+### Added
+
+-[change in unattende leads notifications only trigger if status is open](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/41)
+
+## [v1.0.6] - 2022-05-19 
 ## [v1.0.6-uat] - 2022-05-18
 ## [v1.0.6-dev] - 2022-05-12
 
