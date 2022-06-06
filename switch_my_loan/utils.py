@@ -146,12 +146,18 @@ def workflow_states(doc,method):
 
         if res.count(doc.lead_owner) <= int(lead_count1[0][0]):
             doc.lead_owner = sales_person[0][0]
+            subject = frappe.db.get_value('User', {"name":doc.lead_owner}, 'mobile_no')
+            doc.lead_owner_mobile_no = subject
         if count2 >= int(lead_count2[0][0]):
             frappe.msgprint("Already 15 Leads Assigned, So this lead is assigned to reporting manager")
             doc.lead_owner = reporting_manager2[0][0]
+            subject = frappe.db.get_value('User', {"name":doc.lead_owner}, 'mobile_no')
+            doc.lead_owner_mobile_no = subject
         if res3.count(doc.lead_owner) >= int(lead_count3[0][0]):
             frappe.msgprint("Already 15 Leads Assigned, So this lead is assigned to reporting manager")
             doc.lead_owner = reporting_manager[0][0]
+            subject = frappe.db.get_value('User', {"name":doc.lead_owner}, 'mobile_no')
+            doc.lead_owner_mobile_no = subject
 
         email = doc.lead_owner
         user_name = frappe.get_doc('User', email).full_name

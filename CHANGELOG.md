@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.0.8-dev] - 2022-05-31
+
+### Added
+
+[export right to partner roles|exco role addition|Sales manager can see their granchildren leads|lead allocation sms]
+
+## [v1.0.7] - 2022-05-27
 ## [v1.0.7-uat] - 2022-05-25
 ## [v1.0.7-dev] - 2022-05-25
 
