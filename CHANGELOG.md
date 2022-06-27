@@ -4,7 +4,7 @@
 
 ### Added
 
-[reports|reason for rejection mandatory|Product wise mobile number should be unique]
+[reports|reason for rejection mandatory|Product wise mobile number should be unique](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/46)
 
 ## [v1.0.8-uat] - 2022-06-06
 ## [v1.0.8-dev] - 2022-05-31
