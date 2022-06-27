@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.0.9-dev] - 2022-06-27
+
+### Added
+
+[reports|reason for rejection mandatory|Product wise mobile number should be unique]
+
 ## [v1.0.8-uat] - 2022-06-06
 ## [v1.0.8-dev] - 2022-05-31
 
