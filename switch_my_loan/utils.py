@@ -9,6 +9,10 @@ def workflow_states(doc,method):
     #     doc.open_time = frappe.utils.now()
     
     if doc.workflow_state == "Open" and old_doc == None:
+        res = frappe.db.sql("""select count(name) from `tabLead` where product_required = %s and mobile_number = %s""",(doc.product_required,doc.mobile_number))
+        no_of_results = res[0][0]
+        if (no_of_results >= 1):
+            frappe.throw("A Lead already with same product and mobile number")
         doc.append('remark', {
         'status' : 'Call Done'
     })
@@ -91,7 +95,6 @@ def workflow_states(doc,method):
         if doc.workflow_state != old_doc.workflow_state:
             doc.approved_time = frappe.utils.now()
             # doc.reload()
-
     
     user = frappe.session.user
     if 'CRM User' in frappe.get_roles(user) and not 'Sales User' in frappe.get_roles(user) and not 'Sales Manager' in frappe.get_roles(user) and doc.loan_amount == None:

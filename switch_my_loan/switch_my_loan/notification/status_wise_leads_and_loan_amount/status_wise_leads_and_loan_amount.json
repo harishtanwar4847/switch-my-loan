@@ -1,0 +1,27 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "creation": "2022-06-01 18:46:23.185180",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Custom",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Hello,\nPlease find the dashboard for Status-wise Leads and Loan Amount:\n<table border=\"1\" cellspacing=\"0\" cellpadding=\"5\" align=\"\">\n<th>Sr.No.</th>\n<th>Lead Status</th>\n<th>Amount</th>\n<th>No. of Cases</th>\n{% for j in doc.leads %}\n<tr>\n<td>{{loop.index}}</td>\n<td>{{j[0]}}</td>\n<td>{{j[1]}}</td>\n<td>{{j[2]}}</td>\n</tr>\n{% endfor %}\n</table>\n",
+ "modified": "2022-06-28 12:55:18.066093",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Status-wise Leads and Loan Amount",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_role": "Exco"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Status-wise Leads and Loan Amount"
+}
