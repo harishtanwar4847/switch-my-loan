@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.10-dev] - 2022-06-28
+
+### Added
+
+[notifications addition](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/47)
+
 ## [v1.0.9-dev] - 2022-06-27
 
 ### Added
