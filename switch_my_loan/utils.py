@@ -9,6 +9,9 @@ def workflow_states(doc,method):
     #     doc.open_time = frappe.utils.now()
     
     if doc.workflow_state == "Open" and old_doc == None:
+        # if (doc.workflow_state == "Open"):
+        salary1 = frappe.db.get_value("Employee", {"user_id":doc.telecaller_name},"employee_salary")
+        doc.telecaller_salary = salary1
         doc.append('remark', {
         'status' : 'Call Done'
     })
@@ -17,6 +20,8 @@ def workflow_states(doc,method):
 
     if doc.workflow_state == "Call Done":
         if doc.workflow_state != old_doc.workflow_state:
+            salary2 = frappe.db.get_value("Employee", {"user_id":doc.lead_owner},"employee_salary")
+            doc.sales_user_salary = salary2
             doc.append('remark', {
             'status' : "Meeting Scheduled"
     })
@@ -168,17 +173,3 @@ def update_status(lead,status):
     doc = frappe.get_doc("Lead",lead)
     doc.set_status(update = True, status = status)
     doc.reload()
-
-
-
-
-
-
-
-        
-
-
-        
-
-            
-
