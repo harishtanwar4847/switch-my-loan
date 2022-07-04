@@ -81,10 +81,7 @@ def get_data(filters):
 	print(l3)
 	print(l4)
 	print(l5)
-	# total_revenue = frappe.db.sql("""select SUM(l.loan_amount) from `tabLead` l where l.workflow_state = 'Amount Credited'""")
-	# query = total_revenue
-	# print(query)
-	# return get_query(query[0][0])
+	
 
 def get_query(query):
 	return frappe.db.sql("""

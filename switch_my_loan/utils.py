@@ -9,9 +9,10 @@ def workflow_states(doc,method):
     #     doc.open_time = frappe.utils.now()
     
     if doc.workflow_state == "Open" and old_doc == None:
-        # if (doc.workflow_state == "Open"):
-        salary1 = frappe.db.get_value("Employee", {"user_id":doc.telecaller_name},"employee_salary")
-        doc.telecaller_salary = salary1
+        res = frappe.db.sql("""select count(name) from `tabLead` where product_required = %s and mobile_number = %s""",(doc.product_required,doc.mobile_number))
+        no_of_results = res[0][0]
+        if (no_of_results >= 1):
+            frappe.throw("A Lead already with same product and mobile number")
         doc.append('remark', {
         'status' : 'Call Done'
     })
@@ -20,8 +21,6 @@ def workflow_states(doc,method):
 
     if doc.workflow_state == "Call Done":
         if doc.workflow_state != old_doc.workflow_state:
-            salary2 = frappe.db.get_value("Employee", {"user_id":doc.lead_owner},"employee_salary")
-            doc.sales_user_salary = salary2
             doc.append('remark', {
             'status' : "Meeting Scheduled"
     })
@@ -96,7 +95,6 @@ def workflow_states(doc,method):
         if doc.workflow_state != old_doc.workflow_state:
             doc.approved_time = frappe.utils.now()
             # doc.reload()
-
     
     user = frappe.session.user
     if 'CRM User' in frappe.get_roles(user) and not 'Sales User' in frappe.get_roles(user) and not 'Sales Manager' in frappe.get_roles(user) and doc.loan_amount == None:
@@ -151,12 +149,18 @@ def workflow_states(doc,method):
 
         if res.count(doc.lead_owner) <= int(lead_count1[0][0]):
             doc.lead_owner = sales_person[0][0]
+            subject = frappe.db.get_value('User', {"name":doc.lead_owner}, 'mobile_no')
+            doc.lead_owner_mobile_no = subject
         if count2 >= int(lead_count2[0][0]):
             frappe.msgprint("Already 15 Leads Assigned, So this lead is assigned to reporting manager")
             doc.lead_owner = reporting_manager2[0][0]
+            subject = frappe.db.get_value('User', {"name":doc.lead_owner}, 'mobile_no')
+            doc.lead_owner_mobile_no = subject
         if res3.count(doc.lead_owner) >= int(lead_count3[0][0]):
             frappe.msgprint("Already 15 Leads Assigned, So this lead is assigned to reporting manager")
             doc.lead_owner = reporting_manager[0][0]
+            subject = frappe.db.get_value('User', {"name":doc.lead_owner}, 'mobile_no')
+            doc.lead_owner_mobile_no = subject
 
         email = doc.lead_owner
         user_name = frappe.get_doc('User', email).full_name
@@ -173,3 +177,9 @@ def update_status(lead,status):
     doc = frappe.get_doc("Lead",lead)
     doc.set_status(update = True, status = status)
     doc.reload()
+
+
+
+
+
+

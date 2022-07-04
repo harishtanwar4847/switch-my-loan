@@ -2,6 +2,7 @@ frappe.ui.form.on('Lead', {
 	refresh: function(frm) {
 
         frm.get_field("remark").grid.df.cannot_delete_rows = true;
+        // frm.set_df_property("status", "read_only", 1)
 
         if(frm.is_new() && frappe.user_roles.includes('CRM User'))
         {
@@ -78,10 +79,11 @@ frappe.ui.form.on('Lead', {
             }, __("Status"));
         }
         frm.cscript.custom_refresh = function(doc) {
+            frm.set_df_property("status", "read_only", doc.__islocal ? 0 : 1);
+
             if(frappe.user_roles.includes('Sales User')){
                 frm.set_df_property("telecaller_name", "read_only", doc.__islocal ? 0 : 1);
                 frm.set_df_property("crm_team_remarks", "read_only", doc.__islocal ? 0 : 1);
-
 
             }
         }
@@ -173,16 +175,51 @@ frappe.ui.form.on('Lead', {
         })
 	},
     close_purchase_order(frm){
-        frappe.call({
-            "method":"switch_my_loan.utils.update_status",
-            args:{
-                lead:frm.doc.name,
-                status:"Rejected"
-            },
-            callback:function(r){
-                frm.reload_doc()
-            }
-        })
+    	var me = this;
+		var d = new frappe.ui.Dialog({
+			title: __('Reason for Rejection'),
+			fields: [
+				{
+					"fieldname": "reason_for_rejection",
+					"fieldtype": "Text",
+					"reqd": 1,
+				}
+			],
+			primary_action: function() {
+				var data = d.get_values();
+				let reason_for_rejection = 'Reason for Rejection: ' + data.reason_for_rejection;
+
+				frappe.call({
+					method: "frappe.desk.form.utils.add_comment",
+					args: {
+						reference_doctype: frm.doc.doctype,
+						reference_name: frm.doc.name,
+						content: __(reason_for_rejection),
+						comment_email: frappe.session.user,
+						comment_by: frappe.session.user_fullname
+					},
+					callback: function(r) {
+						if(!r.exc) {
+                            console.log("testing")
+                            frappe.call({
+                                "method":"switch_my_loan.utils.update_status",
+                                args:{
+                                    lead:frm.doc.name,
+                                    status:"Rejected"
+                                },
+                                callback:function(r){
+                                    frm.reload_doc()
+                                }
+                            })
+                            
+							d.hide();
+                            
+						}
+					}
+				});
+			}
+		});
+		d.show();
 	},
 
     unclose_purchase_order(frm){
