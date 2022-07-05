@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.1.0-dev] - 2022-07-05
+
+### Added
+
+[Telecaller Incentive Report | Lead Form Restructuring](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/49)
+
+## [v1.0.10-uat] - 2022-06-28
 ## [v1.0.10-dev] - 2022-06-28
 
 ### Added

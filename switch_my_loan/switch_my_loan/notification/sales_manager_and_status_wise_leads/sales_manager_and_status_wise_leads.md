@@ -1,5 +1,5 @@
 Hello,<br>
-Pleas find the dashboard for Sales Manager and status wise Leads:<br><br>
+Please find the dashboard for Sales Manager and status wise Leads:<br><br>
 <table border="1" cellspacing="0" cellpadding="5" align="">
 <th>Sr.No.</th>
 <th>Lead Owner Name</th>
