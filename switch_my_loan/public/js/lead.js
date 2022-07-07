@@ -118,6 +118,20 @@ frappe.ui.form.on('Lead', {
                 }
             }
         })
+        frm.set_query('partner', () => {
+            return {
+                filters: {
+                    customer_group:"Partner"
+                }
+            }
+        })
+        frm.set_query('lender_selection', () => {
+            return {
+                filters: {
+                    customer_group:"Lender"
+                }
+            }
+        })
         frm.set_query('lender_branch', () => {
             return {
                 filters: {

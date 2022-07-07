@@ -183,11 +183,3 @@ def update_status(lead,status):
 
 
 
-
-        
-
-
-        
-
-            
-
