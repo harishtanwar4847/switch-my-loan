@@ -111,7 +111,7 @@ def workflow_states(doc,method):
     sales_person = frappe.db.sql("""select sales_person from `tabProduct Sales Team` where location_name = %s and amount_threshold >= %s and parent = %s order by amount_threshold asc limit 1""", (doc.location,doc.loan_amount,doc.product_required))
     # abc = frappe.db.get_list("Lead", filters={'workflow_state':('not in',('Amount Credited')),"lead_owner":sales_person[0][0]}, fields=("lead_owner"))
     # print(abc)
-    if 'CRM User' in frappe.get_roles(user) and not 'Sales User' in frappe.get_roles(user) and not 'Sales Manager' in frappe.get_roles(user) and doc.loan_amount != None and doc.location!= None and doc.product_required!= None:
+    if (('CRM User' in frappe.get_roles(user) or 'Partner User' in frappe.get_roles(user))  and not 'Sales User' in frappe.get_roles(user) and not 'Sales Manager' in frappe.get_roles(user) and doc.loan_amount != None and doc.location!= None and doc.product_required!= None):
         location = frappe.db.sql("""select location_name from `tabProduct Sales Team` where parent = %s""",doc.product_required)
         amount_threshold = frappe.db.sql("""select amount_threshold from `tabProduct Sales Team` where parent = %s and location_name = %s""", (doc.product_required, doc.location))
         print(location)

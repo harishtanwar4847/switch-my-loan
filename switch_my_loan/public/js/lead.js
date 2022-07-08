@@ -4,7 +4,7 @@ frappe.ui.form.on('Lead', {
         frm.get_field("remark").grid.df.cannot_delete_rows = true;
         // frm.set_df_property("status", "read_only", 1)
 
-        if(frm.is_new() && frappe.user_roles.includes('CRM User'))
+        if(frm.is_new() && (frappe.user_roles.includes('CRM User') || frappe.user_roles.includes('Partner User')))
         {
             frm.set_value("telecaller_name", frappe.session.user)
         }
@@ -20,7 +20,7 @@ frappe.ui.form.on('Lead', {
         }
 
         
-        if(!frm.is_new() && frappe.user_roles.includes('CRM User') && !frappe.user_roles.includes('Sales User') && !frappe.user_roles.includes('Sales Manager')){
+        if(!frm.is_new() && (frappe.user_roles.includes('CRM User') || frappe.user_roles.includes('Partner User')) && !frappe.user_roles.includes('Sales User') && !frappe.user_roles.includes('Sales Manager')){
             frm.toggle_display("location",false)
             frm.toggle_display("any_existing_obligations",false)
             frm.toggle_display("customer_profile",false)
@@ -31,6 +31,13 @@ frappe.ui.form.on('Lead', {
             frm.toggle_display("partner",false)
             frm.toggle_display("mobile_number",false)
             frm.toggle_display("email_id",false)
+            frm.toggle_display("do_you_own_a_car",false)
+            frm.toggle_display("mandate_required",false)
+            frm.toggle_display("sourcing_agent",false)
+            frm.toggle_display("supplier_group",false)
+            frm.toggle_display("fixed_cost",false)
+            frm.toggle_display("commission_rate",false)
+            frm.toggle_display("lender_selection",false)
         }
 
 
