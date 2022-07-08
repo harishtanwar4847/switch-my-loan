@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.1.1-dev] - 2022-07-08
+
+### Added
+
+[Partner role export right](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/51)
+
 ## [v1.1.0-uat] - 2022-07-07
 ## [v1.1.0-dev] - 2022-07-05
 
