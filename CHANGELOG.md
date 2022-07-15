@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.1.3-dev] - 2022-07-15
+
+### Added
+
+- [changes in telecaller incentive report](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/54)
+
 ## [v1.1.2-dev] - 2022-07-15
 
 ### Added

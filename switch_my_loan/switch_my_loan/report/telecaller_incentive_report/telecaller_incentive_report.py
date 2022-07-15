@@ -82,20 +82,16 @@ def get_data(filters):
 			l5.append(0)
 		else:
 			eligible_divisional_amount = j - i*6
-			for i in amount_threshold:
-				if i[1] > 0:
-					if eligible_divisional_amount >= i[0] and eligible_divisional_amount <= i[1]:
-						telecaller_incentive = eligible_divisional_amount * i[2]/100
-				if i[1] == 0:
-					if eligible_divisional_amount >= i[0]:
-						telecaller_incentive = eligible_divisional_amount * i[2]/100
-			# elif eligible_divisional_amount > 100000 and eligible_divisional_amount < 250000:
-			# 	telecaller_incentive = eligible_divisional_amount * 12.5/100
-			# elif eligible_divisional_amount > 250000 and eligible_divisional_amount < 500000:
-			# 	telecaller_incentive = eligible_divisional_amount * 15/100
-			# elif eligible_divisional_amount > 500000:
-			# 	telecaller_incentive = eligible_divisional_amount * 17.5/100
-					l5.append(telecaller_incentive)
+			for x in amount_threshold:
+				if x[1] > 0:
+					if eligible_divisional_amount >= x[0] and eligible_divisional_amount <= x[1]:
+						telecaller_incentive = eligible_divisional_amount * x[2]/100
+						l5.append(telecaller_incentive)
+				if x[1] == 0:
+					if eligible_divisional_amount >= x[0]:
+						telecaller_incentive = eligible_divisional_amount * x[2]/100
+						l5.append(telecaller_incentive)
+			
 
 	print(l1)
 	print(l2)
