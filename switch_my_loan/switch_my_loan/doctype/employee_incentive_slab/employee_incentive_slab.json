@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "autoname": "field:employee_type",
  "creation": "2022-06-27 18:26:27.411266",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -11,9 +12,9 @@
  "fields": [
   {
    "fieldname": "employee_type",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "label": "Employee Type",
-   "options": "\nSales User\nTelecaller"
+   "unique": 1
   },
   {
    "fieldname": "employee_incentive_details",
@@ -24,7 +25,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-06-27 18:30:19.271168",
+ "modified": "2022-07-14 13:09:16.967205",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Employee Incentive Slab",
