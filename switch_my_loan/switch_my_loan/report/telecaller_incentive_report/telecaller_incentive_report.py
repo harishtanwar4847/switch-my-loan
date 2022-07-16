@@ -42,7 +42,7 @@ def get_data(filters):
 	l3 = []
 	l4 = []
 	l5 = []
-	telecaller_name = frappe.db.sql("""select distinct(telecaller_name) from `tabLead` where telecaller_name is not null""")
+	telecaller_name = frappe.db.sql("""select distinct(telecaller_name) from `tabLead` where telecaller_name is not null and supplier_group is null and workflow_state = 'Amount Credited'""")
 	print(telecaller_name)
 	for i in telecaller_name:
 		print(i[0])
@@ -65,20 +65,34 @@ def get_data(filters):
 		else:
 			l4.append(0)
 
+	print("====================")
+	print("====Incentive Details")
+	amount_threshold = frappe.db.sql("""select from_amount,to_amount,percent from `tabEmployee Incentive Detail` where parent = 'Telecaller'""")
+	# percent = frappe.db.sql("""select to_amount from `tabEmployee Incentive Detail` where parent = 'Telecaller' and to_amount = %s""")
+	# for i in amount_threshold:
+	# 	percent = frappe.db.sql("""select percent from `tabEmployee Incentive Detail` where parent = 'Telecaller' and to_amount = %s""",(i[0]))
+	# 	print(percent)
+	print(amount_threshold)
+	
+
+	print("===========")
+	print("Incentive")
 	for (i,j) in zip(l3,l4):
 		if i*6 >= j:
 			l5.append(0)
 		else:
 			eligible_divisional_amount = j - i*6
-			if eligible_divisional_amount > 0 and eligible_divisional_amount < 100000:
-				telecaller_incentive = eligible_divisional_amount * 10/100
-			elif eligible_divisional_amount > 100000 and eligible_divisional_amount < 250000:
-				telecaller_incentive = eligible_divisional_amount * 12.5/100
-			elif eligible_divisional_amount > 250000 and eligible_divisional_amount < 500000:
-				telecaller_incentive = eligible_divisional_amount * 15/100
-			elif eligible_divisional_amount > 500000:
-				telecaller_incentive = eligible_divisional_amount * 17.5/100
-			l5.append(telecaller_incentive)
+			for x in amount_threshold:
+				if x[1] > 0:
+					if eligible_divisional_amount >= x[0] and eligible_divisional_amount <= x[1]:
+						telecaller_incentive = eligible_divisional_amount * x[2]/100
+						l5.append(telecaller_incentive)
+				if x[1] == 0:
+					if eligible_divisional_amount >= x[0]:
+						telecaller_incentive = eligible_divisional_amount * x[2]/100
+						l5.append(telecaller_incentive)
+			
+
 	print(l1)
 	print(l2)
 	print(l3)
