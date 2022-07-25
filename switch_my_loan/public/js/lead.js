@@ -29,8 +29,6 @@ frappe.ui.form.on('Lead', {
             frm.toggle_display("remark",false)
             frm.toggle_display("source",false)
             frm.toggle_display("partner",false)
-            frm.toggle_display("mobile_number",false)
-            frm.toggle_display("email_id",false)
             frm.toggle_display("do_you_own_a_car",false)
             frm.toggle_display("mandate_required",false)
             frm.toggle_display("sourcing_agent",false)
