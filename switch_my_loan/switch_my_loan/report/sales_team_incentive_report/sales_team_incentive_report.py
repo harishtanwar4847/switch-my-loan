@@ -88,7 +88,7 @@ def get_data(filters):
 	l46 = []
 	l47 = []
 	print("Fixed Cost =====================================================================")
-	sales_person_name_fixed_cost = frappe.db.sql("""select lead_owner from `tabLead` where workflow_state = 'Amount Credited' and supplier_group = 'Fixed Cost' and creation between %s and %s""",(filters.from_date,filters.to_date),)
+	sales_person_name_fixed_cost = frappe.db.sql("""select lead_owner from `tabLead` where workflow_state = 'Amount Credited' and supplier_group = 'Fixed Cost' and approved_time between %s and %s""",(filters.from_date,filters.to_date),)
 	print(sales_person_name_fixed_cost)
 	for i in sales_person_name_fixed_cost:
 		print(i)
@@ -99,7 +99,7 @@ def get_data(filters):
 			l2.append((i[0],salary[0][0]))
 		else:
 			l2.append((i[0],0.0))
-		total_revenue_fixed_cost = frappe.db.sql("""select SUM(l.total_revenue) from `tabLead` l where l.workflow_state = 'Amount Credited' and l.supplier_group = 'Fixed Cost' and l.lead_owner = %s and creation between %s and %s""",(i[0],filters.from_date,filters.to_date),)
+		total_revenue_fixed_cost = frappe.db.sql("""select SUM(l.total_revenue) from `tabLead` l where l.workflow_state = 'Amount Credited' and l.supplier_group = 'Fixed Cost' and l.lead_owner = %s and l.approved_time between %s and %s""",(i[0],filters.from_date,filters.to_date),)
 		print('----')
 		print(total_revenue_fixed_cost)
 		print('----')
@@ -135,7 +135,7 @@ def get_data(filters):
 
 
 	print("Null =====================================================================")
-	sales_person_name_null = frappe.db.sql("""select lead_owner from `tabLead` where workflow_state = 'Amount Credited' and supplier_group is null and creation between %s and %s""",(filters.from_date,filters.to_date),)
+	sales_person_name_null = frappe.db.sql("""select lead_owner from `tabLead` where workflow_state = 'Amount Credited' and supplier_group is null and approved_time between %s and %s""",(filters.from_date,filters.to_date),)
 	print(sales_person_name_null)
 	for i in sales_person_name_null:
 		print(i)
@@ -146,7 +146,7 @@ def get_data(filters):
 			l12.append((i[0],salary[0][0]))
 		else:
 			l12.append((i[0],0.0))
-		total_revenue_null = frappe.db.sql("""select SUM(l.total_revenue) from `tabLead` l where l.workflow_state = 'Amount Credited' and l.supplier_group is null and l.lead_owner = %s and creation between %s and %s""",(i[0],filters.from_date,filters.to_date),)
+		total_revenue_null = frappe.db.sql("""select SUM(l.total_revenue) from `tabLead` l where l.workflow_state = 'Amount Credited' and l.supplier_group is null and l.lead_owner = %s and l.approved_time between %s and %s""",(i[0],filters.from_date,filters.to_date),)
 		print('----')
 		print(total_revenue_null)
 		print('----')
@@ -178,7 +178,7 @@ def get_data(filters):
 	print(l17)
 
 	print("Fixed Commission =====================================================================")
-	sales_person_name_fixed_commission = frappe.db.sql("""select lead_owner from `tabLead` where workflow_state = 'Amount Credited' and supplier_group = 'Fixed Commission' and creation between %s and %s""",(filters.from_date,filters.to_date),)
+	sales_person_name_fixed_commission = frappe.db.sql("""select lead_owner from `tabLead` where workflow_state = 'Amount Credited' and supplier_group = 'Fixed Commission' and approved_time between %s and %s""",(filters.from_date,filters.to_date),)
 	print(sales_person_name_fixed_commission)
 	for i in sales_person_name_fixed_commission:
 		print(i)
@@ -189,19 +189,19 @@ def get_data(filters):
 			l22.append((i[0],salary[0][0]))
 		else:
 			l22.append((i[0],0.0))
-		total_revenue_fixed_commission = frappe.db.sql("""select SUM(l.total_revenue) from `tabLead` l where l.workflow_state = 'Amount Credited' and l.supplier_group = 'Fixed Commission' and l.lead_owner = %s and creation between %s and %s""",(i[0],filters.from_date,filters.to_date),)
+		total_revenue_fixed_commission = frappe.db.sql("""select SUM(l.total_revenue) from `tabLead` l where l.workflow_state = 'Amount Credited' and l.supplier_group = 'Fixed Commission' and l.lead_owner = %s and l.approved_time between %s and %s""",(i[0],filters.from_date,filters.to_date),)
 		print('----')
 		print(total_revenue_fixed_commission)
 		print('----')
 		l23.append((i[0],total_revenue_fixed_commission[0][0]))
 
-		lead_name = frappe.db.sql("""select lead_owner,name from `tabLead` where workflow_state = 'Amount Credited' and supplier_group = 'Fixed Commission' and lead_owner = %s and creation between %s and %s""",(i[0],filters.from_date,filters.to_date),)
+		lead_name = frappe.db.sql("""select lead_owner,name from `tabLead` where workflow_state = 'Amount Credited' and supplier_group = 'Fixed Commission' and lead_owner = %s and approved_time between %s and %s""",(i[0],filters.from_date,filters.to_date),)
 		print(lead_name)
 		for j in lead_name:			
-			fixed_commission = frappe.db.sql("""select l.lead_owner,l.commission_rate,l.name from `tabLead` l where l.workflow_state = 'Amount Credited' and supplier_group = 'Fixed Commission' and l.lead_owner = %s and l.name=%s and l.creation between %s and %s""",(i[0],j[1], filters.from_date,filters.to_date),)
+			fixed_commission = frappe.db.sql("""select l.lead_owner,l.commission_rate,l.name from `tabLead` l where l.workflow_state = 'Amount Credited' and supplier_group = 'Fixed Commission' and l.lead_owner = %s and l.name=%s and l.approved_time between %s and %s""",(i[0],j[1], filters.from_date,filters.to_date),)
 			l24.append(fixed_commission[0])
 
-			total_revenue_fixed_commission = frappe.db.sql("""select l.lead_owner,l.total_revenue,l.name from `tabLead` l where l.workflow_state = 'Amount Credited' and l.lead_owner = %s and l.name=%s and creation between %s and %s""",(i[0],j[1],filters.from_date,filters.to_date),)
+			total_revenue_fixed_commission = frappe.db.sql("""select l.lead_owner,l.total_revenue,l.name from `tabLead` l where l.workflow_state = 'Amount Credited' and l.lead_owner = %s and l.name=%s and l.approved_time between %s and %s""",(i[0],j[1],filters.from_date,filters.to_date),)
 			print('----')
 			print(total_revenue_fixed_commission)
 			print('----')
