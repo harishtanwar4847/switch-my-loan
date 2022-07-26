@@ -1,5 +1,60 @@
 # Changelog
 
+## [v1.1.4] - 2022-07-26
+## [v1.1.4-uat] - 2022-07-25
+## [v1.1.4-dev] - 2022-07-25
+
+### Added
+
+- [Changes in reports](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/57)
+
+## [v1.1.3-uat] - 2022-07-16
+## [v1.1.3-dev] - 2022-07-15
+
+### Added
+
+- [changes in telecaller incentive report](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/54)
+
+## [v1.1.2-dev] - 2022-07-15
+
+### Added
+
+- [sales team incentive report](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/53)
+
+## [v1.1.1-uat] - 2022-07-08
+## [v1.1.1-dev] - 2022-07-08
+
+### Added
+
+[Partner role export right](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/51)
+
+## [v1.1.0-uat] - 2022-07-07
+## [v1.1.0-dev] - 2022-07-05
+
+### Added
+
+[Telecaller Incentive Report | Lead Form Restructuring](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/49)
+
+## [v1.0.10-uat] - 2022-06-28
+## [v1.0.10-dev] - 2022-06-28
+
+### Added
+
+[notifications addition](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/47)
+
+## [v1.0.9-dev] - 2022-06-27
+
+### Added
+
+[reports|reason for rejection mandatory|Product wise mobile number should be unique](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/46)
+
+## [v1.0.8-uat] - 2022-06-06
+## [v1.0.8-dev] - 2022-05-31
+
+### Added
+
+[export right to partner roles|exco role addition|Sales manager can see their granchildren leads|lead allocation sms]
+
 ## [v1.0.7] - 2022-05-27
 ## [v1.0.7-uat] - 2022-05-25
 ## [v1.0.7-dev] - 2022-05-25

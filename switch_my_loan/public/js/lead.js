@@ -2,8 +2,9 @@ frappe.ui.form.on('Lead', {
 	refresh: function(frm) {
 
         frm.get_field("remark").grid.df.cannot_delete_rows = true;
+        // frm.set_df_property("status", "read_only", 1)
 
-        if(frm.is_new() && frappe.user_roles.includes('CRM User'))
+        if(frm.is_new() && (frappe.user_roles.includes('CRM User') || frappe.user_roles.includes('Partner User')))
         {
             frm.set_value("telecaller_name", frappe.session.user)
         }
@@ -19,7 +20,7 @@ frappe.ui.form.on('Lead', {
         }
 
         
-        if(!frm.is_new() && frappe.user_roles.includes('CRM User') && !frappe.user_roles.includes('Sales User') && !frappe.user_roles.includes('Sales Manager')){
+        if(!frm.is_new() && (frappe.user_roles.includes('CRM User') || frappe.user_roles.includes('Partner User')) && !frappe.user_roles.includes('Sales User') && !frappe.user_roles.includes('Sales Manager')){
             frm.toggle_display("location",false)
             frm.toggle_display("any_existing_obligations",false)
             frm.toggle_display("customer_profile",false)
@@ -28,8 +29,13 @@ frappe.ui.form.on('Lead', {
             frm.toggle_display("remark",false)
             frm.toggle_display("source",false)
             frm.toggle_display("partner",false)
-            frm.toggle_display("mobile_number",false)
-            frm.toggle_display("email_id",false)
+            frm.toggle_display("do_you_own_a_car",false)
+            frm.toggle_display("mandate_required",false)
+            frm.toggle_display("sourcing_agent",false)
+            frm.toggle_display("supplier_group",false)
+            frm.toggle_display("fixed_cost",false)
+            frm.toggle_display("commission_rate",false)
+            frm.toggle_display("lender_selection",false)
         }
 
 
@@ -78,10 +84,11 @@ frappe.ui.form.on('Lead', {
             }, __("Status"));
         }
         frm.cscript.custom_refresh = function(doc) {
+            frm.set_df_property("status", "read_only", doc.__islocal ? 0 : 1);
+
             if(frappe.user_roles.includes('Sales User')){
                 frm.set_df_property("telecaller_name", "read_only", doc.__islocal ? 0 : 1);
                 frm.set_df_property("crm_team_remarks", "read_only", doc.__islocal ? 0 : 1);
-
 
             }
         }
@@ -113,6 +120,20 @@ frappe.ui.form.on('Lead', {
             return {
                 filters: {
                     is_group:['!=',1]
+                }
+            }
+        })
+        frm.set_query('partner', () => {
+            return {
+                filters: {
+                    customer_group:"Partner"
+                }
+            }
+        })
+        frm.set_query('lender_selection', () => {
+            return {
+                filters: {
+                    customer_group:"Lender"
                 }
             }
         })
@@ -159,16 +180,51 @@ frappe.ui.form.on('Lead', {
         })
 	},
     close_purchase_order(frm){
-        frappe.call({
-            "method":"switch_my_loan.utils.update_status",
-            args:{
-                lead:frm.doc.name,
-                status:"Rejected"
-            },
-            callback:function(r){
-                frm.reload_doc()
-            }
-        })
+    	var me = this;
+		var d = new frappe.ui.Dialog({
+			title: __('Reason for Rejection'),
+			fields: [
+				{
+					"fieldname": "reason_for_rejection",
+					"fieldtype": "Text",
+					"reqd": 1,
+				}
+			],
+			primary_action: function() {
+				var data = d.get_values();
+				let reason_for_rejection = 'Reason for Rejection: ' + data.reason_for_rejection;
+
+				frappe.call({
+					method: "frappe.desk.form.utils.add_comment",
+					args: {
+						reference_doctype: frm.doc.doctype,
+						reference_name: frm.doc.name,
+						content: __(reason_for_rejection),
+						comment_email: frappe.session.user,
+						comment_by: frappe.session.user_fullname
+					},
+					callback: function(r) {
+						if(!r.exc) {
+                            console.log("testing")
+                            frappe.call({
+                                "method":"switch_my_loan.utils.update_status",
+                                args:{
+                                    lead:frm.doc.name,
+                                    status:"Rejected"
+                                },
+                                callback:function(r){
+                                    frm.reload_doc()
+                                }
+                            })
+                            
+							d.hide();
+                            
+						}
+					}
+				});
+			}
+		});
+		d.show();
 	},
 
     unclose_purchase_order(frm){

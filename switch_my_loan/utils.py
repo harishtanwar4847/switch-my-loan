@@ -9,6 +9,10 @@ def workflow_states(doc,method):
     #     doc.open_time = frappe.utils.now()
     
     if doc.workflow_state == "Open" and old_doc == None:
+        res = frappe.db.sql("""select count(name) from `tabLead` where product_required = %s and mobile_number = %s""",(doc.product_required,doc.mobile_number))
+        no_of_results = res[0][0]
+        if (no_of_results >= 1):
+            frappe.throw("A Lead already with same product and mobile number")
         doc.append('remark', {
         'status' : 'Call Done'
     })
@@ -91,7 +95,6 @@ def workflow_states(doc,method):
         if doc.workflow_state != old_doc.workflow_state:
             doc.approved_time = frappe.utils.now()
             # doc.reload()
-
     
     user = frappe.session.user
     if 'CRM User' in frappe.get_roles(user) and not 'Sales User' in frappe.get_roles(user) and not 'Sales Manager' in frappe.get_roles(user) and doc.loan_amount == None:
@@ -108,7 +111,7 @@ def workflow_states(doc,method):
     sales_person = frappe.db.sql("""select sales_person from `tabProduct Sales Team` where location_name = %s and amount_threshold >= %s and parent = %s order by amount_threshold asc limit 1""", (doc.location,doc.loan_amount,doc.product_required))
     # abc = frappe.db.get_list("Lead", filters={'workflow_state':('not in',('Amount Credited')),"lead_owner":sales_person[0][0]}, fields=("lead_owner"))
     # print(abc)
-    if 'CRM User' in frappe.get_roles(user) and not 'Sales User' in frappe.get_roles(user) and not 'Sales Manager' in frappe.get_roles(user) and doc.loan_amount != None and doc.location!= None and doc.product_required!= None:
+    if (('CRM User' in frappe.get_roles(user) or 'Partner User' in frappe.get_roles(user))  and not 'Sales User' in frappe.get_roles(user) and not 'Sales Manager' in frappe.get_roles(user) and doc.loan_amount != None and doc.location!= None and doc.product_required!= None):
         location = frappe.db.sql("""select location_name from `tabProduct Sales Team` where parent = %s""",doc.product_required)
         amount_threshold = frappe.db.sql("""select amount_threshold from `tabProduct Sales Team` where parent = %s and location_name = %s""", (doc.product_required, doc.location))
         print(location)
@@ -146,12 +149,18 @@ def workflow_states(doc,method):
 
         if res.count(doc.lead_owner) <= int(lead_count1[0][0]):
             doc.lead_owner = sales_person[0][0]
+            subject = frappe.db.get_value('User', {"name":doc.lead_owner}, 'mobile_no')
+            doc.lead_owner_mobile_no = subject
         if count2 >= int(lead_count2[0][0]):
             frappe.msgprint("Already 15 Leads Assigned, So this lead is assigned to reporting manager")
             doc.lead_owner = reporting_manager2[0][0]
+            subject = frappe.db.get_value('User', {"name":doc.lead_owner}, 'mobile_no')
+            doc.lead_owner_mobile_no = subject
         if res3.count(doc.lead_owner) >= int(lead_count3[0][0]):
             frappe.msgprint("Already 15 Leads Assigned, So this lead is assigned to reporting manager")
             doc.lead_owner = reporting_manager[0][0]
+            subject = frappe.db.get_value('User', {"name":doc.lead_owner}, 'mobile_no')
+            doc.lead_owner_mobile_no = subject
 
         email = doc.lead_owner
         user_name = frappe.get_doc('User', email).full_name
@@ -173,12 +182,4 @@ def update_status(lead,status):
 
 
 
-
-
-        
-
-
-        
-
-            
 

@@ -27,7 +27,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-12 19:09:54.395514",
+ "modified": "2022-07-08 14:38:00.992255",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Product",
@@ -84,8 +84,14 @@
    "role": "Partner User"
   },
   {
+   "export": 1,
    "read": 1,
    "role": "Partner Manager"
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "role": "Exco"
   }
  ],
  "sort_field": "modified",
