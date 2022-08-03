@@ -52,7 +52,7 @@ def get_data(filters):
 	for i in sourcing_agent_fixed_cost:
 		print(i[0])
 		l1.append(i[0])
-		total_revenue_fixed_cost = frappe.db.sql("""select SUM(l.total_revenue) from `tabLead` l where l.workflow_state = 'Amount Credited' and l.supplier_group = 'Fixed Cost' and l.sourcing_agent = %s and date(l.approved_time) between %s and %s""",(i[0],filters.from_date,filters.to_date),)
+		total_revenue_fixed_cost = frappe.db.sql("""select SUM(l.total_revenue) from `tabLead` l where l.workflow_state = 'Amount Credited' and l.supplier_group = 'Fixed Cost' and l.sourcing_agent = %s and date(l.amount_credited_time) between %s and %s""",(i[0],filters.from_date,filters.to_date),)
 		print(total_revenue_fixed_cost)
 		if total_revenue_fixed_cost[0][0] is not None:
 			l2.append(total_revenue_fixed_cost[0][0])
@@ -78,7 +78,7 @@ def get_data(filters):
 	for i in sourcing_agent_fixed_commission:
 		print(i[0])
 		l5.append(i[0])
-		total_revenue_fixed_commission = frappe.db.sql("""select SUM(l.total_revenue) from `tabLead` l where l.workflow_state = 'Amount Credited' and l.supplier_group = 'Fixed Commission' and l.sourcing_agent = %s and date(l.approved_time) between %s and %s""",(i[0],filters.from_date,filters.to_date),)
+		total_revenue_fixed_commission = frappe.db.sql("""select SUM(l.total_revenue) from `tabLead` l where l.workflow_state = 'Amount Credited' and l.supplier_group = 'Fixed Commission' and l.sourcing_agent = %s and date(l.amount_credited_time) between %s and %s""",(i[0],filters.from_date,filters.to_date),)
 		print(total_revenue_fixed_commission)
 		if total_revenue_fixed_commission[0][0] is not None:
 			l6.append(total_revenue_fixed_commission[0][0])
