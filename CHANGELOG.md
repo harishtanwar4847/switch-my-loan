@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.1.5-dev] - 2022-08-03
+
+### Added
+
+- [Time stamps section addition|Lead Closure TAT report](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/60)
+
 ## [v1.1.4] - 2022-07-26
 ## [v1.1.4-uat] - 2022-07-25
 ## [v1.1.4-dev] - 2022-07-25
