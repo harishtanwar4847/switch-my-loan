@@ -1,4 +1,4 @@
-__version__ = '1.1.6-dev'
+__version__ = '1.1.7-dev'
 
 import frappe
 import os
