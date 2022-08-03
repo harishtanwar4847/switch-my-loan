@@ -16,7 +16,7 @@ def workflow_states(doc,method):
         doc.append('remark', {
         'status' : 'Call Done'
     })
-        d = datetime.today().replace(microsecond=0)
+        d = datetime.now().replace(microsecond=0)
         doc.open_time = d
         # doc.save()
         # doc.reload()
@@ -26,7 +26,7 @@ def workflow_states(doc,method):
             doc.append('remark', {
             'status' : "Meeting Scheduled"
     })
-            d = datetime.today().replace(microsecond=0)
+            d = datetime.now().replace(microsecond=0)
             doc.call_done_time = d
 
 
@@ -36,7 +36,7 @@ def workflow_states(doc,method):
             doc.append('remark', {
             'status' : 'Meeting Conducted'
     })
-            d = datetime.today().replace(microsecond=0)
+            d = datetime.now().replace(microsecond=0)
             doc.meeting_scheduled_time = d
             # doc.save()
 
@@ -47,7 +47,7 @@ def workflow_states(doc,method):
             doc.append('remark', {
             'status' : 'Partly Documents Collected/Documents Received'
     })
-            d = datetime.today().replace(microsecond=0)
+            d = datetime.now().replace(microsecond=0)
             doc.meeting_conducted_time = d
         
 
@@ -57,7 +57,7 @@ def workflow_states(doc,method):
             doc.append('remark', {
             'status' : 'Documents Received'
     })
-            d = datetime.today().replace(microsecond=0)
+            d = datetime.now().replace(microsecond=0)
             doc.partly_documents_collected_time = d
 
 
@@ -67,7 +67,7 @@ def workflow_states(doc,method):
             doc.append('remark', {
             'status' : 'Lender Selection'
     })
-            d = datetime.today().replace(microsecond=0)
+            d = datetime.now().replace(microsecond=0)
             doc.documents_received_time = d
 
     if doc.workflow_state == "Lender Selection":
@@ -75,12 +75,12 @@ def workflow_states(doc,method):
             doc.append('remark', {
             'status' : 'Login Done'
     })
-            d = datetime.today().replace(microsecond=0)
+            d = datetime.now().replace(microsecond=0)
             doc.lender_selection_time = d
     
     if doc.workflow_state == "Pending For Reporting Manager Approval":
         if doc.workflow_state != old_doc.workflow_state:
-            d = datetime.today().replace(microsecond=0)
+            d = datetime.now().replace(microsecond=0)
             doc.pending_for_reporting_manager_approval_time = d
 
 
@@ -89,7 +89,7 @@ def workflow_states(doc,method):
             doc.append('remark', {
             'status' : 'Additional Doc Required'
     })
-            d = datetime.today().replace(microsecond=0)
+            d = datetime.now().replace(microsecond=0)
             doc.login_done_time = d
 
 
@@ -98,7 +98,7 @@ def workflow_states(doc,method):
             doc.append('remark', {
             'status' : 'Sanctioned'
     })
-            d = datetime.today().replace(microsecond=0)
+            d = datetime.now().replace(microsecond=0)
             doc.additional_doc_required_time = d
 
 
@@ -114,7 +114,7 @@ def workflow_states(doc,method):
             doc.append('remark', {
             'status' : 'Disbursement Doc Submitted'
     })
-            d = datetime.today().replace(microsecond=0)
+            d = datetime.now().replace(microsecond=0)
             doc.disbursement_doc_list_time = d
 
 
@@ -131,13 +131,13 @@ def workflow_states(doc,method):
             doc.append('remark', {
             'status' : 'Amount Credited'
     })
-            d = datetime.today().replace(microsecond=0)
+            d = datetime.now().replace(microsecond=0)
             doc.disbursed_time = d
 
 
     if doc.workflow_state == "Amount Credited":
         if doc.workflow_state != old_doc.workflow_state:
-            d = datetime.today().replace(microsecond=0)
+            d = datetime.now().replace(microsecond=0)
             doc.amount_credited_time = d
     
    
