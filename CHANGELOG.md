@@ -1,5 +1,30 @@
 # Changelog
 
+## [v1.1.8-uat] - 2022-08-04
+## [v1.1.8-dev] - 2022-08-04
+
+### Added
+
+- [status field to be read only](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/63)
+
+## [v1.1.7-dev] - 2022-08-03
+
+### Added
+
+- [updating utils.py](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/62)
+
+## [v1.1.6-dev] - 2022-08-03
+
+### Added
+
+- [updating util.py](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/61)
+
+## [v1.1.5-dev] - 2022-08-03
+
+### Added
+
+- [Time stamps section addition|Lead Closure TAT report](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/60)
+
 ## [v1.1.4] - 2022-07-26
 ## [v1.1.4-uat] - 2022-07-25
 ## [v1.1.4-dev] - 2022-07-25
