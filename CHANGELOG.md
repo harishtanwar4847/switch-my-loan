@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.1.7-dev] - 2022-08-03
+
+### Added
+
+- [updating utils.py](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/62)
+
 ## [v1.1.6-dev] - 2022-08-03
 
 ### Added
