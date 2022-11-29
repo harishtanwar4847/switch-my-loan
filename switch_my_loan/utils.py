@@ -2,12 +2,7 @@ import frappe
 from datetime import datetime
 
 def workflow_states(doc,method): 
-    old_doc = doc.get_doc_before_save()
-    # if doc.workflow_state == "Open":
-    #     todayDateStr = datetime.strptime(frappe.utils.now(), "%Y-%m-%d %H:%M:%S.%f")
-    #     print(todayDateStr)
-    #     doc.open_time = frappe.utils.now()
-    
+    old_doc = doc.get_doc_before_save() 
     if doc.workflow_state == "Open" and old_doc == None:
         res = frappe.db.sql("""select count(name) from `tabLead` where product_required = %s and mobile_number = %s""",(doc.product_required,doc.mobile_number))
         no_of_results = res[0][0]
@@ -16,101 +11,68 @@ def workflow_states(doc,method):
         doc.append('remark', {
         'status' : 'Call Done'
     })
-        time = frappe.utils.now_datetime()
-        d = time.replace(microsecond=0)
-        doc.open_time = d
-        # doc.save()
-        # doc.reload()
+        doc.open_time = frappe.utils.now_datetime().replace(microsecond=0)
 
     if doc.workflow_state == "Call Done":
         if doc.workflow_state != old_doc.workflow_state:
             doc.append('remark', {
             'status' : "Meeting Scheduled"
     })
-            time = frappe.utils.now_datetime()
-            d = time.replace(microsecond=0)
-            doc.call_done_time = d
-
-
+            doc.call_done_time = frappe.utils.now_datetime().replace(microsecond=0)
 
     if doc.workflow_state == "Meeting Scheduled":
         if doc.workflow_state != old_doc.workflow_state:
             doc.append('remark', {
             'status' : 'Meeting Conducted'
     })
-            time = frappe.utils.now_datetime()
-            d = time.replace(microsecond=0)
-            doc.meeting_scheduled_time = d
-            # doc.save()
-
-
+            doc.meeting_scheduled_time = frappe.utils.now_datetime().replace(microsecond=0)
 
     if doc.workflow_state == "Meeting Conducted":
         if doc.workflow_state != old_doc.workflow_state:
             doc.append('remark', {
             'status' : 'Partly Documents Collected/Documents Received'
     })
-            time = frappe.utils.now_datetime()
-            d = time.replace(microsecond=0)           
-            doc.meeting_conducted_time = d
-        
-
-
+            doc.meeting_conducted_time = frappe.utils.now_datetime().replace(microsecond=0)
+            
     if doc.workflow_state == "Partly Documents Collected":
         if doc.workflow_state != old_doc.workflow_state:
             doc.append('remark', {
             'status' : 'Documents Received'
     })
-            time = frappe.utils.now_datetime()
-            d = time.replace(microsecond=0)
-            doc.partly_documents_collected_time = d
-
-
+            doc.partly_documents_collected_time = frappe.utils.now_datetime().replace(microsecond=0)
+    
     if doc.workflow_state == "Documents Received":
         if doc.workflow_state != old_doc.workflow_state:
             doc.documents_received_time = frappe.utils.now()
             doc.append('remark', {
             'status' : 'Lender Selection'
     })
-            time = frappe.utils.now_datetime()
-            d = time.replace(microsecond=0)
-            doc.documents_received_time = d
+            doc.documents_received_time = frappe.utils.now_datetime().replace(microsecond=0)
 
     if doc.workflow_state == "Lender Selection":
         if doc.workflow_state != old_doc.workflow_state:
             doc.append('remark', {
             'status' : 'Login Done'
     })
-            time = frappe.utils.now_datetime()
-            d = time.replace(microsecond=0)
-            doc.lender_selection_time = d
+            doc.lender_selection_time = frappe.utils.now_datetime().replace(microsecond=0)
     
     if doc.workflow_state == "Pending For Reporting Manager Approval":
         if doc.workflow_state != old_doc.workflow_state:
-            time = frappe.utils.now_datetime()
-            d = time.replace(microsecond=0)
-            doc.pending_for_reporting_manager_approval_time = d
-
+            doc.pending_for_reporting_manager_approval_time = frappe.utils.now_datetime().replace(microsecond=0)
 
     if doc.workflow_state == "Login Done":
         if doc.workflow_state != old_doc.workflow_state:
             doc.append('remark', {
             'status' : 'Additional Doc Required'
     })
-            time = frappe.utils.now_datetime()
-            d = time.replace(microsecond=0)
-            doc.login_done_time = d
-
+            doc.login_done_time = frappe.utils.now_datetime().replace(microsecond=0)
 
     if doc.workflow_state == "Additional Doc Required":
         if doc.workflow_state != old_doc.workflow_state:
             doc.append('remark', {
             'status' : 'Sanctioned'
     })
-            time = frappe.utils.now_datetime()
-            d = time.replace(microsecond=0)
-            doc.additional_doc_required_time = d
-
+            doc.additional_doc_required_time = frappe.utils.now_datetime().replace(microsecond=0)
 
     if doc.workflow_state == "Sanctioned":
         if doc.workflow_state != old_doc.workflow_state:
@@ -124,12 +86,8 @@ def workflow_states(doc,method):
             doc.append('remark', {
             'status' : 'Disbursement Doc Submitted'
     })
-            time = frappe.utils.now_datetime()
-            d = time.replace(microsecond=0)
-            doc.disbursement_doc_list_time = d
-
-
-
+            doc.disbursement_doc_list_time = frappe.utils.now_datetime().replace(microsecond=0)
+          
     if doc.workflow_state == "Disbursement Doc Submitted":
         if doc.workflow_state != old_doc.workflow_state:
             doc.append('remark', {
@@ -142,20 +100,12 @@ def workflow_states(doc,method):
             doc.append('remark', {
             'status' : 'Amount Credited'
     })
-            time = frappe.utils.now_datetime()
-            d = time.replace(microsecond=0)
-            doc.disbursed_time = d
-
-
+            doc.disbursed_time = frappe.utils.now_datetime().replace(microsecond=0)
+  
     if doc.workflow_state == "Amount Credited":
         if doc.workflow_state != old_doc.workflow_state:
-            time = frappe.utils.now_datetime()
-            d = time.replace(microsecond=0)
-            doc.amount_credited_time = d
-    
-   
+            doc.amount_credited_time = frappe.utils.now_datetime().replace(microsecond=0)
 
-    
     
     user = frappe.session.user
     if 'CRM User' in frappe.get_roles(user) and not 'Sales User' in frappe.get_roles(user) and not 'Sales Manager' in frappe.get_roles(user) and doc.loan_amount == None:
