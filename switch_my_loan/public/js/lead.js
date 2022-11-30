@@ -84,8 +84,6 @@ frappe.ui.form.on('Lead', {
             }, __("Status"));
         }
         frm.cscript.custom_refresh = function(doc) {
-            frm.set_df_property("status", "read_only", doc.__islocal ? 0 : 1);
-
             if(frappe.user_roles.includes('Sales User')){
                 frm.set_df_property("telecaller_name", "read_only", doc.__islocal ? 0 : 1);
                 frm.set_df_property("crm_team_remarks", "read_only", doc.__islocal ? 0 : 1);
