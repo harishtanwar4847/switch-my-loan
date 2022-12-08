@@ -128,7 +128,8 @@ scheduler_events = {
 	"0 16 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_four"],
 	"0 18 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_six"],
 	"5 14 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours_at_two"],
-	"5 18 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours_at_six"]}
+	"5 18 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours_at_six"],
+	"0 09 * * *": ["switch_my_loan.tasks.time_for_call_back"]}
 # 	"weekly": [
 # 		"switch_my_loan.tasks.weekly"
 # 	]
