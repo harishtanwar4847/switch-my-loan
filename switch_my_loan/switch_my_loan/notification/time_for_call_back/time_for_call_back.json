@@ -1,0 +1,27 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "creation": "2022-09-08 12:06:56.921178",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Custom",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {{doc.lead_owner}},<br><br>\n\n\n\nThe lead {{doc.name}}, {{doc.lead_name}} is due for follow up. Please update the status of the lead<br>\n\nClick on the below link to log in to MyCRM<br>\n\nhttps://mycrm.switchmyloan.in/app/lead/{{doc.name}}<br><br>\n\n\n\nRegards,<br>\n\nMyCRM",
+ "modified": "2022-12-07 17:32:47.663912",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Time for call back",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "lead_owner"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Time for call back"
+}

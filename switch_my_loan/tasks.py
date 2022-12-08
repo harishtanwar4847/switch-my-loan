@@ -459,3 +459,27 @@ def unattended_leads_daily_at_seven():
             frappe.enqueue(method=frappe.sendmail, recipients=exco_list3[i], sender=None, 
             subject=frappe.render_template(notification.subject, args), message=frappe.render_template(notification.message, args))
     
+def time_for_call_back():
+    leadlist = frappe.db.sql("""select name from `tabLead` where time_for_call_back is not null""")
+    print(leadlist)
+    leadlist2 = []
+    sales_managers = []
+    if leadlist:
+        for lead in leadlist:
+            l = frappe.get_doc('Lead',lead[0])
+            time_for_call_back = l.time_for_call_back
+            print(time_for_call_back)
+            time = getdate(time_for_call_back)
+            print(time)
+            today = date.today()
+            print(today)
+            if time == today:
+                print("abc")
+                leadlist2.append(lead)
+                print(leadlist2)
+                notification = frappe.get_doc('Notification', 'Time for call back')
+                l.leads = leadlist2
+                args={'doc': l}
+                recipients,cc,bb = notification.get_list_of_recipients(l, args)
+                frappe.enqueue(method=frappe.sendmail, recipients=l.lead_owner, sender=None, 
+                subject=frappe.render_template(notification.subject, args), message=frappe.render_template(notification.message, args))
