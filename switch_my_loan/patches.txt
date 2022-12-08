@@ -21,3 +21,4 @@ switch_my_loan.patches.role_updates ####
 switch_my_loan.patches.navbar_settings
 switch_my_loan.patches.partner_roles
 switch_my_loan.patches.exco_role
+switch_my_loan.patches.strict_user_permissions
