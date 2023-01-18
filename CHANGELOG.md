@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.2.0-uat] - 2023-01-18
+## [v1.2.0-dev] - 2023-01-18
+
+### Added
+
+-[Changes in supplier form](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/70)
+
 ## [v1.1.9-uat] - 2022-12-08
 ## [v1.1.9-dev] - 2022-12-08
 

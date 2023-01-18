@@ -1,4 +1,4 @@
-Hello {{doc.lead_owner}}, <br><br>
+Hello {% set var = frappe.db.get_value("User", doc.lead_owner, "full_name") %} {{var}}, <br><br>
 Today your meeting is scheduled with the following leads:
 <table border="1" cellspacing="0" cellpadding="5" align="">
 <th>S. No.</th>

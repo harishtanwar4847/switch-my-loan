@@ -1,4 +1,4 @@
-Dear {{doc.lead_owner}},<br><br>
+Dear {% set var = frappe.db.get_value("User", doc.lead_owner, "full_name") %} {{var}},<br><br>
 
 
 
