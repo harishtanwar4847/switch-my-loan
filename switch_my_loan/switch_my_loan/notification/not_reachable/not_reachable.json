@@ -1,0 +1,29 @@
+{
+ "attach_print": 0,
+ "channel": "SMS",
+ "condition": "doc.status == \"Customer not reachable\" or doc.status == \"Customer not responding\"",
+ "creation": "2022-08-29 16:18:34.779149",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {{doc.lead_name}}, we tried reaching your number but were not able to contact you.\n\nRegards,\n\nSwitch My Loan -Switch My Loan",
+ "modified": "2022-12-07 17:33:14.580285",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Not Reachable",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "mobile_number"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sms_template_id": "1107166175330579827",
+ "value_changed": "status"
+}

@@ -8,7 +8,7 @@ from jinja2 import Template
 def unattended_leads_after_two_hours_at_twelve():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"status":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -36,7 +36,7 @@ def unattended_leads_after_two_hours_at_twelve():
 def unattended_leads_after_two_hours_at_two():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"status":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -64,7 +64,7 @@ def unattended_leads_after_two_hours_at_two():
 def unattended_leads_after_two_hours_at_four():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"status":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -92,7 +92,7 @@ def unattended_leads_after_two_hours_at_four():
 def unattended_leads_after_two_hours_at_six():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"status":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -121,7 +121,7 @@ def unattended_leads_after_two_hours_at_six():
 def unattended_leads_after_four_hours_at_two():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"status":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -151,7 +151,7 @@ def unattended_leads_after_four_hours_at_two():
         sm = frappe.db.sql("""select l.name,l.lead_name,l.loan_amount,l.product_required,l.creation,l.lead_owner from `tabLead` as l 
         join `tabSales Person` as sp 
         on sp.name = l.lead_owner   
-        where l.workflow_state = "Open" and sp.parent_sales_person = %s""",(sm_list[i]))
+        where l.status = "Open" and sp.parent_sales_person = %s""",(sm_list[i]))
         leadlist2 = []
         if sm:
             for lead in sm:
@@ -171,7 +171,7 @@ def unattended_leads_after_four_hours_at_two():
 def unattended_leads_after_four_hours_at_six():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"status":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -201,7 +201,7 @@ def unattended_leads_after_four_hours_at_six():
         sm = frappe.db.sql("""select l.name,l.lead_name,l.loan_amount,l.product_required,l.creation,l.lead_owner from `tabLead` as l 
         join `tabSales Person` as sp 
         on sp.name = l.lead_owner   
-        where l.workflow_state = "Open" and sp.parent_sales_person = %s""",(sm_list[i]))
+        where l.status = "Open" and sp.parent_sales_person = %s""",(sm_list[i]))
         leadlist2 = []
         if sm:
             for lead in sm:
@@ -222,7 +222,7 @@ def unattended_leads_after_four_hours_at_six():
 def unattended_leads_daily_at_ten():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"status":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -250,7 +250,7 @@ def unattended_leads_daily_at_ten():
     print("----------------------> Inside Meeting Scheduled mail ---------------------->")
     su_list2 =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list2)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner","meeting_scheduled_on"),filters={"lead_owner":su_list[i],"workflow_state":"Call Done"}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner","meeting_scheduled_on"),filters={"lead_owner":su_list[i],"status":"Call Done"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -265,12 +265,13 @@ def unattended_leads_daily_at_ten():
                 if today == meeting_date:
                     leadlist2.append(lead)
             print(leadlist2)
-            notification = frappe.get_doc('Notification', 'Meeting Scheduled Reminder')
-            l.leads = leadlist2
-            args={'doc': l}
-            recipients,cc,bb = notification.get_list_of_recipients(l, args)
-            frappe.enqueue(method=frappe.sendmail, recipients=su_list2[i], sender=None, 
-            subject=frappe.render_template(notification.subject, args), message=frappe.render_template(notification.message, args))
+            if l.meeting_scheduled_on:
+                notification = frappe.get_doc('Notification', 'Meeting Scheduled Reminder')
+                l.leads = leadlist2
+                args={'doc': l}
+                recipients,cc,bb = notification.get_list_of_recipients(l, args)
+                frappe.enqueue(method=frappe.sendmail, recipients=su_list2[i], sender=None, 
+                subject=frappe.render_template(notification.subject, args), message=frappe.render_template(notification.message, args))
     
     print("----------------------> Meeting Scheduled mail ends ---------------------->")
 
@@ -280,7 +281,7 @@ def unattended_leads_daily_at_ten():
         sm = frappe.db.sql("""select l.name,l.lead_name,l.loan_amount,l.product_required,l.creation,l.lead_owner from `tabLead` as l 
         join `tabSales Person` as sp 
         on sp.name = l.lead_owner   
-        where l.workflow_state = "Open" and sp.parent_sales_person = %s""",(sm_list[i]))
+        where l.status = "Open" and sp.parent_sales_person = %s""",(sm_list[i]))
         leadlist2 = []
         if sm:
             for lead in sm:
@@ -299,7 +300,7 @@ def unattended_leads_daily_at_ten():
     
     exco_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Exco'""", as_list=1)]
     for i in range(len(exco_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"workflow_state":"Open"}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"status":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -327,7 +328,7 @@ def unattended_leads_daily_at_ten():
 def unattended_leads_daily_at_seven():
     su_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Sales User'""", as_list=1)]
     for i in range(len(su_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"workflow_state":"Open"}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"lead_owner":su_list[i],"status":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -357,7 +358,7 @@ def unattended_leads_daily_at_seven():
         sm = frappe.db.sql("""select l.name,l.lead_name,l.loan_amount,l.product_required,l.creation,l.lead_owner from `tabLead` as l 
         join `tabSales Person` as sp 
         on sp.name = l.lead_owner   
-        where l.workflow_state = "Open" and sp.parent_sales_person = %s""",(sm_list[i]))
+        where l.status = "Open" and sp.parent_sales_person = %s""",(sm_list[i]))
         leadlist2 = []
         if sm:
             for lead in sm:
@@ -376,7 +377,7 @@ def unattended_leads_daily_at_seven():
     
     exco_list =[x[0] for x in frappe.db.sql("""select u.name from `tabUser` u inner join `tabHas Role` hr on hr.parent = u.name where hr.role = 'Exco'""", as_list=1)]
     for i in range(len(exco_list)):
-        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"workflow_state":"Open"}, as_list = True)
+        leadlist = frappe.db.get_list('Lead', fields=("name","lead_name","loan_amount","product_required","creation","lead_owner"),filters={"status":"Open"}, as_list = True)
         print(leadlist)
         leadlist2 = []
         if leadlist:
@@ -459,3 +460,27 @@ def unattended_leads_daily_at_seven():
             frappe.enqueue(method=frappe.sendmail, recipients=exco_list3[i], sender=None, 
             subject=frappe.render_template(notification.subject, args), message=frappe.render_template(notification.message, args))
     
+def time_for_call_back():
+    leadlist = frappe.db.sql("""select name from `tabLead` where time_for_call_back is not null""")
+    print(leadlist)
+    leadlist2 = []
+    sales_managers = []
+    if leadlist:
+        for lead in leadlist:
+            l = frappe.get_doc('Lead',lead[0])
+            time_for_call_back = l.time_for_call_back
+            print(time_for_call_back)
+            time = getdate(time_for_call_back)
+            print(time)
+            today = date.today()
+            print(today)
+            if time == today:
+                print("abc")
+                leadlist2.append(lead)
+                print(leadlist2)
+                notification = frappe.get_doc('Notification', 'Time for call back')
+                l.leads = leadlist2
+                args={'doc': l}
+                recipients,cc,bb = notification.get_list_of_recipients(l, args)
+                frappe.enqueue(method=frappe.sendmail, recipients=l.lead_owner, sender=None, 
+                subject=frappe.render_template(notification.subject, args), message=frappe.render_template(notification.message, args))

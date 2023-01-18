@@ -65,12 +65,27 @@ frappe.ui.form.on('Lead', {
                 }, __("Status"));
             frm.fields.forEach(function(l){ frm.set_df_property(l.df.fieldname, "read_only", 1); })  
         }
-        if(frm.doc.status != "On Hold" && frm.doc.status != "Rejected" && frm.doc.status != "Drop"){
+
+        if(frm.doc.status == "Customer not reachable"){
+            frm.add_custom_button(__('Resume'), function(){
+                frm.trigger("unhold_purchase_order")
+            }, __("Status"));
+            frm.fields.forEach(function(l){ frm.set_df_property(l.df.fieldname, "read_only", 1); })  
+        }
+
+        if(frm.doc.status == "Customer not responding"){
+            frm.add_custom_button(__('Resume'), function(){
+                frm.trigger("unhold_purchase_order")
+            }, __("Status"));
+            frm.fields.forEach(function(l){ frm.set_df_property(l.df.fieldname, "read_only", 1); })  
+        }
+
+        if(frm.doc.status != "On Hold" && frm.doc.status != "Rejected" && frm.doc.status != "Drop" && frm.doc.status != "Customer not reachable" && frm.doc.status != "Customer not responding"){
             frm.fields.forEach(function(l){ frm.set_df_property(l.df.fieldname, "read_only", 0); })  
         }
         
 
-        if(!frm.doc.__islocal && frm.doc.status != "On Hold" && frm.doc.status != "Rejected" && frm.doc.status != "Drop" && (frappe.user_roles.includes('Sales User') || frappe.user_roles.includes('Sales Manager'))){
+        if(!frm.doc.__islocal && frm.doc.status != "On Hold" && frm.doc.status != "Rejected" && frm.doc.status != "Drop" && frm.doc.status != "Customer not reachable" && frm.doc.status != "Customer not responding" && (frappe.user_roles.includes('Sales User') || frappe.user_roles.includes('Sales Manager'))){
             frm.add_custom_button(__('On Hold'), function(){
                 frm.trigger("hold_purchase_order")                
             }, __("Status"));
@@ -81,6 +96,14 @@ frappe.ui.form.on('Lead', {
         
             frm.add_custom_button(__('Reject'), function(){
                 frm.trigger("close_purchase_order")
+            }, __("Status"));
+
+            frm.add_custom_button(__('Customer not reachable'), function(){
+                frm.trigger("customer_not_reachable")
+            }, __("Status"));
+
+            frm.add_custom_button(__('Customer not responding'), function(){
+                frm.trigger("customer_not_responding")
             }, __("Status"));
         }
         frm.cscript.custom_refresh = function(doc) {
@@ -362,17 +385,33 @@ frappe.ui.form.on('Lead', {
             
 		});
 		d.show();
-    }
+    },
+
+    customer_not_reachable(frm){
+        frappe.call({
+            "method":"switch_my_loan.utils.update_status",
+            args:{
+                lead:frm.doc.name,
+                status:"Customer not reachable"
+            },
+            callback:function(r){
+                frm.reload_doc()
+            }
+        })
+	},
+
+    customer_not_responding(frm){
+        frappe.call({
+            "method":"switch_my_loan.utils.update_status",
+            args:{
+                lead:frm.doc.name,
+                status:"Customer not responding"
+            },
+            callback:function(r){
+                frm.reload_doc()
+            }
+        })
+	}
 
 
 });
-
-
-
-
-
-
-
-
-
-
