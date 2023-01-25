@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.2.1-uat] - 2023-01-25
+## [v1.2.1-dev] - 2023-01-25
+
+### Added
+
+-[Notification on supplier creation](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/73)
+
 ## [v1.2.0] - 2023-01-18
 ## [v1.2.0-uat] - 2023-01-18
 ## [v1.2.0-dev] - 2023-01-18
