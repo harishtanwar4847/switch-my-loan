@@ -1,0 +1,27 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "creation": "2023-01-23 13:29:44.016063",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Supplier",
+ "enabled": 1,
+ "event": "New",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {{doc.supplier_name}}, <br>\nGreetings from Switch My Loan !!! <br><br>\n\nThank you for your interest in partnering with Switch My Loan.<br>\nWe would contact you shortly for proceeding further with the onboarding process.<br><br>\n\n\nRegards,<br>\nTeam Switch My Loan<br>\n<img src=\"https://www.switchmyloan.in/assets/img/logo.png\" alt=\"SML Logo\" width=\"120\" height=\"50\">",
+ "modified": "2023-01-25 12:07:58.537167",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Partner registration Successful Notification",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "email_id"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Partner registration Successful"
+}
