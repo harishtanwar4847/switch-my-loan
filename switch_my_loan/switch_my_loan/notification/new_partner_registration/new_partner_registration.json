@@ -1,0 +1,27 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "creation": "2023-01-25 12:24:10.488785",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Supplier",
+ "enabled": 1,
+ "event": "New",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear Durwang,<br><br>\nWe have received a partner registration application on the website. Please find below the details for your action:<br><br>\nPartner Name: {{doc.supplier_name}}<br>\nPartner Number: {{doc.mobile_number}}<br>\nEmail ID: {{doc.email_id}}<br>\nProducts to be referred: {{doc.products_to_be_referred}}<br>\nLocation: {{doc.location}}<br><br>\nLink : {{frappe.utils.get_url()}}/app/supplier",
+ "modified": "2023-01-25 12:51:34.707672",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "New Partner registration",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "notify_person"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "New Partner registration"
+}
