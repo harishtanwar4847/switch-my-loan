@@ -23,3 +23,4 @@ switch_my_loan.patches.partner_roles
 switch_my_loan.patches.exco_role
 switch_my_loan.patches.strict_user_permissions
 switch_my_loan.patches.obligation_updation
+switch_my_loan.patches.crm_user_bell_icon
