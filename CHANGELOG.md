@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.2.2-dev] - 2023-03-06
+
+### Added
+
+-[Allow telecaller to edit leads from website]()
+
 ## [v1.2.1] - 2023-01-25
 ## [v1.2.1-uat] - 2023-01-25
 ## [v1.2.1-dev] - 2023-01-25

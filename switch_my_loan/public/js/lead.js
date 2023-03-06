@@ -20,7 +20,7 @@ frappe.ui.form.on('Lead', {
         }
 
         
-        if(!frm.is_new() && (frappe.user_roles.includes('CRM User') || frappe.user_roles.includes('Partner User')) && !frappe.user_roles.includes('Sales User') && !frappe.user_roles.includes('Sales Manager')){
+        if(!frm.is_new() && (frappe.user_roles.includes('CRM User') || frappe.user_roles.includes('Partner User')) && !frappe.user_roles.includes('Sales User') && !frappe.user_roles.includes('Sales Manager') && frm.doc.source != 'Website'){
             frm.toggle_display("location",false)
             frm.toggle_display("any_existing_obligations",false)
             frm.toggle_display("customer_profile",false)
@@ -107,7 +107,7 @@ frappe.ui.form.on('Lead', {
             }, __("Status"));
         }
         frm.cscript.custom_refresh = function(doc) {
-            if(frappe.user_roles.includes('Sales User')){
+            if(frappe.user_roles.includes('Sales User') && !(frappe.user_roles.includes('System Manager')) && !(frm.doc.workflow_state == 'Open')){
                 frm.set_df_property("telecaller_name", "read_only", doc.__islocal ? 0 : 1);
                 frm.set_df_property("crm_team_remarks", "read_only", doc.__islocal ? 0 : 1);
 
@@ -185,6 +185,9 @@ frappe.ui.form.on('Lead', {
         }
         if(frm.doc.lender_branch == "All Territories"){
             frappe.throw("Please Select Lender Branch")
+        }
+        if(frm.doc.mobile_number && !(/^\d{10}$/.test(frm.doc.mobile_number))){
+            frappe.throw("Mobile Number must containt 10 digits")
         }
     },
 
