@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.2.2-uat] - 2023-03-07
+## [v1.2.2-dev] - 2023-03-06
+
+### Added
+
+-[Allow telecaller to edit leads from website](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/76)
+
 ## [v1.2.1] - 2023-01-25
 ## [v1.2.1-uat] - 2023-01-25
 ## [v1.2.1-dev] - 2023-01-25
