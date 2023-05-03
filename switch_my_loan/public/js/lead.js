@@ -20,7 +20,7 @@ frappe.ui.form.on('Lead', {
         }
 
         
-        if(!frm.is_new() && (frappe.user_roles.includes('CRM User') || frappe.user_roles.includes('Partner User')) && !frappe.user_roles.includes('Sales User') && !frappe.user_roles.includes('Sales Manager') && frm.doc.source != 'Website'){
+        if(!frm.is_new() && (frappe.user_roles.includes('CRM User') || frappe.user_roles.includes('Partner User')) && !frappe.user_roles.includes('Sales User') && !frappe.user_roles.includes('Sales Manager') && frm.doc.source != 'Website' && frm.doc.source != 'Website WhatsApp BOT'){
             frm.toggle_display("location",false)
             frm.toggle_display("any_existing_obligations",false)
             frm.toggle_display("customer_profile",false)
@@ -135,7 +135,7 @@ frappe.ui.form.on('Lead', {
             }, __("Status"));
         }
         
-        if(frappe.user_roles.includes('CRM User') && frm.doc.source == 'Website'){
+        if(frappe.user_roles.includes('CRM User') && frm.doc.source.includes("Website")){
             frm.set_df_property("source", "read_only", 1);
         }
     },
