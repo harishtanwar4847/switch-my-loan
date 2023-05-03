@@ -1,10 +1,10 @@
 # Changelog
 
-## [v1.2.3-dev] - 2023-03-06
+## [v1.2.3-dev] - 2023-05-03
 
 ### Added
 
--[Mail to be sent after offer and feilds to be made mandetory in lead form]()
+-[Mail to be sent after offer and feilds to be made mandetory in lead form](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/79)
 
 ## [v1.2.2] - 2023-04-25
 ## [v1.2.2-uat] - 2023-03-07
