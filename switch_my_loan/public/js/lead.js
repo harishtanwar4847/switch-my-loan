@@ -20,7 +20,7 @@ frappe.ui.form.on('Lead', {
         }
 
         
-        if(!frm.is_new() && (frappe.user_roles.includes('CRM User') || frappe.user_roles.includes('Partner User')) && !frappe.user_roles.includes('Sales User') && !frappe.user_roles.includes('Sales Manager') && frm.doc.source != 'Website'){
+        if(!frm.is_new() && (frappe.user_roles.includes('CRM User') || frappe.user_roles.includes('Partner User')) && !frappe.user_roles.includes('Sales User') && !frappe.user_roles.includes('Sales Manager') && frm.doc.source != 'Website' && frm.doc.source != 'Website WhatsApp BOT'){
             frm.toggle_display("location",false)
             frm.toggle_display("any_existing_obligations",false)
             frm.toggle_display("customer_profile",false)
@@ -113,8 +113,31 @@ frappe.ui.form.on('Lead', {
 
             }
         }
+        if(!frm.doc.__islocal && frm.doc.status != "On Hold" && frm.doc.status != "Customer not reachable" && frm.doc.status != "Customer not responding" && frm.doc.status != "Rejected" && frm.doc.status != "Drop" && frm.doc.workflow_state == "Open" && frm.doc.source.includes("Website") && frappe.user_roles.includes('CRM User')){
+            frm.add_custom_button(__('On Hold'), function(){
+                frm.trigger("hold_purchase_order")                
+            }, __("Status"));
+            
+            frm.add_custom_button(__('Drop'), function(){
+                frm.trigger("drop_purchase_order")                
+            }, __("Status"));
+        
+            frm.add_custom_button(__('Reject'), function(){
+                frm.trigger("close_purchase_order")
+            }, __("Status"));
 
-  
+            frm.add_custom_button(__('Customer not reachable'), function(){
+                frm.trigger("customer_not_reachable")
+            }, __("Status"));
+
+            frm.add_custom_button(__('Customer not responding'), function(){
+                frm.trigger("customer_not_responding")
+            }, __("Status"));
+        }
+        
+        if(frappe.user_roles.includes('CRM User') && frm.doc.source.includes("Website")){
+            frm.set_df_property("source", "read_only", 1);
+        }
     },
 
     checklist: function (frm) {
