@@ -113,7 +113,7 @@ frappe.ui.form.on('Lead', {
 
             }
         }
-        if(!frm.doc.__islocal && frm.doc.status != "On Hold" && frm.doc.status != "Customer not reachable" && frm.doc.status != "Customer not responding" && frm.doc.status != "Rejected" && frm.doc.status != "Drop" && frm.doc.workflow_state == "Open" && frm.doc.source.includes("Website") && frappe.user_roles.includes('CRM User')){
+        if(!frm.doc.__islocal && frm.doc.status != "On Hold" && frm.doc.status != "Customer not reachable" && frm.doc.status != "Customer not responding" && frm.doc.status != "Rejected" && frm.doc.status != "Drop" && frm.doc.workflow_state == "Open" && frm.doc.source.includes("Website") && frappe.user_roles.includes('CRM User') && (!frappe.user_roles.includes('Sales User'))){
             frm.add_custom_button(__('On Hold'), function(){
                 frm.trigger("hold_purchase_order")                
             }, __("Status"));
