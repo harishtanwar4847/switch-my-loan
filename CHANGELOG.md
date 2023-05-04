@@ -4,7 +4,7 @@
 
 ### Added
 
--[Changes in permissions]()
+-[Changes in permissions](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/81)
 
 
 ## [v1.2.3-dev+1] - 2023-05-04
