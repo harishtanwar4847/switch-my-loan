@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.2.3-dev+2] - 2023-05-04
+
+### Added
+
+-[Changes in permissions]()
+
+
 ## [v1.2.3-dev+1] - 2023-05-04
 
 ### Added
