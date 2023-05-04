@@ -4,7 +4,7 @@
 
 ### Added
 
--[Fixes in status appearance]()
+-[Fixes in status appearance](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/82)
 
 ## [v1.2.3-dev+2] - 2023-05-04
 
