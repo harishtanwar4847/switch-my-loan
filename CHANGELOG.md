@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.2.3-dev+3] - 2023-05-04
+
+### Added
+
+-[Fixes in status appearance]()
+
 ## [v1.2.3-dev+2] - 2023-05-04
 
 ### Added
