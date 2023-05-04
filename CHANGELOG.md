@@ -1,5 +1,32 @@
 # Changelog
 
+## [v1.2.3-uat] - 2023-05-04
+## [v1.2.3-dev+3] - 2023-05-04
+
+### Added
+
+-[Fixes in status appearance](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/82)
+
+## [v1.2.3-dev+2] - 2023-05-04
+
+### Added
+
+-[Changes in permissions](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/81)
+
+
+## [v1.2.3-dev+1] - 2023-05-04
+
+### Added
+
+-[Changes in unified form](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/80)
+
+
+## [v1.2.3-dev] - 2023-05-03
+
+### Added
+
+-[Mail to be sent after offer and feilds to be made mandetory in lead form](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/79)
+
 ## [v1.2.2] - 2023-04-25
 ## [v1.2.2-uat] - 2023-03-07
 ## [v1.2.2-dev] - 2023-03-06
