@@ -1,7 +1,7 @@
 {
  "attach_print": 0,
  "channel": "SMS",
- "condition": "doc.source == \"Website\" and doc.offer",
+ "condition": "doc.source == \"Website\" and doc.eligible_loan_amount",
  "creation": "2023-05-08 19:35:43.090115",
  "days_in_advance": 0,
  "docstatus": 0,
@@ -12,7 +12,7 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Dear {{ doc.lead_name }}, thank you for connecting with Switch My Loan. Hope we could fulfil your requirement. Kindly visit us at https://www.switchmyloan.in - your friendly loan buddy.",
- "modified": "2023-05-08 19:35:43.090115",
+ "modified": "2023-05-09 17:22:47.281940",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Call from Call Centre Website",
@@ -25,5 +25,5 @@
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
  "sms_template_id": "1007790132987380126",
- "value_changed": "offer"
+ "value_changed": "eligible_loan_amount"
 }

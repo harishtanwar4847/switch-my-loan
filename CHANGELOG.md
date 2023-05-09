@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.2.5-dev] - 2023-05-09
+
+### Added
+
+-[Change offer sms trigger to eligible loan amount](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/86)
+
 ## [v1.2.4-uat] - 2023-05-09
 ## [v1.2.4-dev] - 2023-05-09
 
