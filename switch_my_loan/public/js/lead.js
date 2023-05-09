@@ -135,7 +135,7 @@ frappe.ui.form.on('Lead', {
             }, __("Status"));
         }
         
-        if(frappe.user_roles.includes('CRM User') && frm.doc.source.includes("Website")){
+        if(frappe.user_roles.includes('CRM User') && !frappe.user_roles.includes("Sales User") && !frappe.user_roles.includes("System Manager") && frm.doc.source.includes("Website")){
             frm.set_df_property("source", "read_only", 1);
         }
     },
