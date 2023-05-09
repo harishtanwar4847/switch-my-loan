@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.2.4-dev] - 2023-05-09
+
+### Added
+
+-[Send sms after offer and change mandatory permission for few fields in lead form](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/84)
+
 ## [v1.2.3-uat] - 2023-05-04
 ## [v1.2.3-dev+3] - 2023-05-04
 
