@@ -1655,7 +1655,7 @@
    "insert_after": "notes_section",
    "label": "Loan Type Table",
    "length": 0,
-   "mandatory_depends_on": "eval: ((frappe.user.has_role('Sales User') || frappe.user.has_role('CRM User')) && (!frappe.user.has_role('System Manager')))&&(doc.any_existing_obligations == 'Yes');",
+   "mandatory_depends_on": "",
    "modified": "2022-02-16 12:09:03.148745",
    "modified_by": "Administrator",
    "name": "Lead-loan_type_table",
