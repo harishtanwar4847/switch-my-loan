@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.2.6-uat] - 2023-05-10
+## [v1.2.6-dev] - 2023-05-10
+
+### Added
+
+-[Make property juridiction and cibil nonmandatory for all](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/89)
+
 ## [v1.2.5] - 2023-05-10
 ## [v1.2.5-uat] - 2023-05-09
 ## [v1.2.5-dev] - 2023-05-09
