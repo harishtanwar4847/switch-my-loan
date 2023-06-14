@@ -9,12 +9,13 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2022-07-11 13:45:47.846012",
+ "modified": "2023-06-13 23:10:25.418681",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Sales Team Incentive Report",
  "owner": "Administrator",
  "prepared_report": 0,
+ "query": "",
  "ref_doctype": "Lead",
  "report_name": "Sales Team Incentive Report",
  "report_type": "Script Report",
@@ -30,9 +31,6 @@
   },
   {
    "role": "CRM User"
-  },
-  {
-   "role": "CRM Manager"
   },
   {
    "role": "Partner User"

@@ -1,0 +1,28 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.source == \"Partner\" and doc.partner == \"Basic Home Loan\" and doc.product_required not in (\"Home Loan Balance transfer\", \"Home Loan\", \"Commercial Property Purchase\", \"commercial BT\", \"Loan Against Property - Secured OD\", \"Loan against property balance transfer\", \"Loan aginst Property BT + Top up\", \"Loan Against Property\", \"Home Loan BT + Top up\", \"Home Loan Final Version\")",
+ "creation": "2023-06-13 22:31:58.504214",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "New",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {{doc.lead_name}},<br><br>\nThank you for reaching out.<br>\nBASIC Home Loan is happy to announce its partnership with Switch My Loan (SML).<br>\nSML team will get in touch with you to fulfill all your personal, business and car  loan requirements seamlessly.<br>\nFor all your Home Loan / LAP requirements, BASIC Team will assist you.<br>\nOur services are 100% free and processes are completely digitized.<br><br>\nYou sit back and relax, while we do all the hard work for your loan.<br><br>\n\nRegards,<br>\nYour Friendly loan buddy<br>\nSwitch My Loan Pvt. Ltd.<br>\n<img src=\"https://www.switchmyloan.in/assets/img/logo.png\" alt=\"SML Logo\" width=\"120\" height=\"50\">",
+ "modified": "2023-06-13 22:43:24.985080",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Greetings from Switch My Loan Basic Home Loan",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "email_id"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Greetings from Switch My Loan"
+}

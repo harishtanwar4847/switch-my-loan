@@ -9,7 +9,7 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2022-08-03 16:44:31.524286",
+ "modified": "2023-06-13 23:08:51.166516",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Lead Closure TAT",
@@ -31,9 +31,6 @@
   },
   {
    "role": "CRM User"
-  },
-  {
-   "role": "CRM Manager"
   },
   {
    "role": "Partner User"

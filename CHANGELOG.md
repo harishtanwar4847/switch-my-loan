@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.2.7-uat] - 2023-06-14
+## [v1.2.7-dev] - 2023-06-14
+
+### Added
+
+-[Stop automated messages to partner Basic Home Loan](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/1)
+
 ## [v1.2.6] - 2023-05-10
 ## [v1.2.6-uat] - 2023-05-10
 ## [v1.2.6-dev] - 2023-05-10
