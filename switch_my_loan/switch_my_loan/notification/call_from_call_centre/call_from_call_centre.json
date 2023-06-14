@@ -1,7 +1,7 @@
 {
  "attach_print": 0,
  "channel": "SMS",
- "condition": "doc.source != \"Website\"",
+ "condition": "doc.source != \"Website\" and doc.partner!=\"Basic Home Loan\"",
  "creation": "2022-04-08 15:02:18.792192",
  "days_in_advance": 0,
  "docstatus": 0,
@@ -12,7 +12,7 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Dear {{ doc.lead_name }}, thank you for connecting with Switch My Loan. Hope we could fulfil your requirement. Kindly visit us at https://www.switchmyloan.in - your friendly loan buddy.",
- "modified": "2023-05-08 19:36:02.571555",
+ "modified": "2023-06-13 22:10:32.705324",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Call from Call Centre",
