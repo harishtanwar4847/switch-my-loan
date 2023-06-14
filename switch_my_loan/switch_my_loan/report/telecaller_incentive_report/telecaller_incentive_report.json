@@ -9,7 +9,7 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2022-06-29 14:16:27.446993",
+ "modified": "2023-06-13 23:12:40.246843",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Telecaller Incentive Report",
@@ -31,9 +31,6 @@
   },
   {
    "role": "CRM User"
-  },
-  {
-   "role": "CRM Manager"
   },
   {
    "role": "Partner User"

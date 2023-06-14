@@ -9,7 +9,7 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2022-05-27 13:51:02.878985",
+ "modified": "2023-06-13 23:13:56.390596",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Top 5 Partners",
@@ -31,9 +31,6 @@
   },
   {
    "role": "CRM User"
-  },
-  {
-   "role": "CRM Manager"
   },
   {
    "role": "Exco"
