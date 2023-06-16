@@ -6,7 +6,7 @@ For all your Home Loan / LAP requirements, BASIC Team will assist you.<br><br>
 Our services are 100% free and processes are completely digitized.<br>
 You sit back and relax, while we do all the hard work for your loan.<br><br>
 
-Regards,<br>
-Your Friendly loan buddy<br>
-Switch My Loan Pvt. Ltd.<br>
+Thank you.<br>
+BASIC | SML -Switch My Loan<br>
+<img src="https://switchmyloan.in/logo3.png" alt="Basic Home Loan" width="120" height="50"> &nbsp;
 <img src="https://www.switchmyloan.in/assets/img/logo.png" alt="SML Logo" width="120" height="50">
