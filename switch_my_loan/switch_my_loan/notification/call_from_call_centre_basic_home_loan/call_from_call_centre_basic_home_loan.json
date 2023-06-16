@@ -1,0 +1,28 @@
+{
+ "attach_print": 0,
+ "channel": "SMS",
+ "condition": "doc.source == \"Basic Home Loan\" and doc.product_required not in (\"Home Loan Balance transfer\", \"Home Loan\", \"Commercial Property Purchase\", \"commercial BT\", \"Loan Against Property - Secured OD\", \"Loan against property balance transfer\", \"Loan aginst Property BT + Top up\", \"Loan Against Property\", \"Home Loan BT + Top up\", \"Home Loan Final Version\")",
+ "creation": "2023-06-14 17:27:34.547952",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "New",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {{ doc.lead_name }},\nThank you for reaching out.\nBASIC Home Loan is happy to announce its partnership with Switch My Loan (SML).\nSML team will get in touch with you to fulfill all your personal, business and car  loan requirements seamlessly.\nFor all your Home Loan / LAP requirements, BASIC Team will assist you.\nOur services are 100% free and processes are completely digitized.\nYou sit back and relax, while we do all the hard work for your loan.\n\nThank you.\nBASIC | SML -Switch My Loan",
+ "modified": "2023-06-15 13:53:46.149511",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Call from Call Centre Basic Home Loan",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "mobile_number"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sms_template_id": "1107168680618245190"
+}
