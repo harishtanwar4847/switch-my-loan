@@ -1,7 +1,7 @@
 {
  "attach_print": 0,
  "channel": "Email",
- "condition": "doc.workflow_state == \"Disbursed\" and (doc.product_required == \"Home Loan\" or doc.product_required == \"LAP\")",
+ "condition": "doc.workflow_state == \"Disbursed\" and (doc.product_required == \"Home Loan\" or doc.product_required == \"LAP\") and doc.source != \"Basic Home Loan\"",
  "creation": "2022-03-15 16:39:09.916566",
  "days_in_advance": 0,
  "docstatus": 0,
@@ -12,7 +12,7 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Congratulations Dear {{ doc.lead_name}},<br><br>\nWe are thrilled to inform you that your loan has been disbursed by {{doc.lender_selection}}. The amount will<br><br>\nbe credited in your account within 2 working days / you will receive the cheque from the bank<br><br>\nbranch within 2 working days.<br><br>\nIn case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}} or write to {{doc.lead_owner}}<br>\n <br><br>\nFor further loan requirements please visit www.switchmyloan.in<br><br>\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\nSwitch My Loan Pvt. Ltd.<br>",
- "modified": "2022-04-14 15:50:55.261106",
+ "modified": "2023-06-16 17:58:10.541429",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Loan Disbursed",

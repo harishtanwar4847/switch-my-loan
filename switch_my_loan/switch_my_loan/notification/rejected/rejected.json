@@ -1,7 +1,7 @@
 {
  "attach_print": 0,
  "channel": "Email",
- "condition": "doc.status == \"Rejected\"",
+ "condition": "doc.status == \"Rejected\" and doc.source != \"Basic Home Loan\"",
  "creation": "2022-03-15 18:43:19.835314",
  "days_in_advance": 0,
  "docstatus": 0,
@@ -12,7 +12,7 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Dear {{ doc.lead_name }},<br><br>\nThank you for meeting . We are regretful to inform you that we will not be<br><br>\nable to proceed further with your loan application.<br><br>\nIn case of any other loan requirements please visit www.switchmyloan.in<br><br>\nYou sit back and relax, while we do all the hard-work for your loan.<br><br>\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\nSwitch My Loan Pvt. Ltd.<br>",
- "modified": "2022-04-14 15:49:22.801578",
+ "modified": "2023-06-16 18:00:21.387985",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Rejected",

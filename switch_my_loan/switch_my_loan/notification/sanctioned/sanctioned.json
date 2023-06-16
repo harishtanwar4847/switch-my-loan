@@ -1,7 +1,7 @@
 {
  "attach_print": 0,
  "channel": "Email",
- "condition": "doc.workflow_state == \"Disbursement Doc List\"",
+ "condition": "doc.workflow_state == \"Disbursement Doc List\" and doc.source != \"Basic Home Loan\"",
  "creation": "2022-03-15 16:09:09.785659",
  "days_in_advance": 0,
  "docstatus": 0,
@@ -12,7 +12,7 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Dear {{ doc.lead_name }},<br><br>\nCongratulations !!<br><br>\nWe are thrilled to inform you that your application has been sanctioned by {{doc.lender_selection}}  .<br><br>\nYou will receive an email with the list of documents required to disburse the loan. Kindly share the<br><br>\ndocuments at the earliest to avoid any delay.<br><br>\n\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\nSwitch My Loan Pvt. Ltd.<br><br>",
- "modified": "2022-04-14 15:51:46.917857",
+ "modified": "2023-06-16 17:54:51.187108",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Sanctioned",
