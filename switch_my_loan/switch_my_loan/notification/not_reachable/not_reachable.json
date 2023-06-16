@@ -1,7 +1,7 @@
 {
  "attach_print": 0,
  "channel": "SMS",
- "condition": "doc.status == \"Customer not reachable\" or doc.status == \"Customer not responding\"",
+ "condition": "(doc.status == \"Customer not reachable\" or doc.status == \"Customer not responding\") and doc.source != \"Basic Home Loan\"",
  "creation": "2022-08-29 16:18:34.779149",
  "days_in_advance": 0,
  "docstatus": 0,
@@ -12,7 +12,7 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Dear {{doc.lead_name}}, we tried reaching your number but were not able to contact you.\n\nRegards,\n\nSwitch My Loan -Switch My Loan",
- "modified": "2022-12-07 17:33:14.580285",
+ "modified": "2023-06-16 20:10:32.661551",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Not Reachable",
