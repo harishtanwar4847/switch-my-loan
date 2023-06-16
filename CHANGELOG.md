@@ -4,7 +4,7 @@
 
 ### Added
 
--[Stop automated messages to source Basic Home Loan]()
+-[Stop automated messages to source Basic Home Loan](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/3)
 
 ## [v1.2.7-uat] - 2023-06-14
 ## [v1.2.7-dev] - 2023-06-14
