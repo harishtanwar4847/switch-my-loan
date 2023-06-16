@@ -1,5 +1,13 @@
 # Changelog
 
+# Changelog
+
+## [v1.2.9-dev] - 2023-06-16
+
+### Added
+
+-[Disable customer messages for all workflow states]()
+
 ## [v1.2.8-uat] - 2023-06-16
 ## [v1.2.8-dev] - 2023-06-16
 

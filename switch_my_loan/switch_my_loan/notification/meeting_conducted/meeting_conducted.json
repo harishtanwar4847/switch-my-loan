@@ -1,7 +1,7 @@
 {
  "attach_print": 0,
  "channel": "Email",
- "condition": "doc.workflow_state == \"Meeting Conducted\"",
+ "condition": "doc.workflow_state == \"Meeting Conducted\" and doc.source != \"Basic Home Loan\"",
  "creation": "2022-03-15 15:38:31.628909",
  "days_in_advance": 0,
  "docstatus": 0,
@@ -12,7 +12,7 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Dear {{ doc.lead_name }},<br><br>\nThank you for meeting {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}}  Hope we were able to answer all your queries and<br>\nfulfill your requirements. For further details please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}} and \n{% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}}. He<br> \nwill be your relationship manager.<br><br>\nPlease visit www.switchmyloan.in to know more about our products. You sit back and relax, while<br>\nwe do all the hard-work for your loan.<br><br>\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\nSwitch My Loan Pvt. Ltd.<br>",
- "modified": "2022-04-14 15:51:08.661464",
+ "modified": "2023-06-16 17:57:11.956261",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Meeting Conducted",

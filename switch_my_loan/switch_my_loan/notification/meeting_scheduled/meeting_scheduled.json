@@ -1,7 +1,7 @@
 {
  "attach_print": 0,
  "channel": "Email",
- "condition": "doc.workflow_state == \"Meeting Scheduled\"",
+ "condition": "doc.workflow_state == \"Meeting Scheduled\" and doc.source != \"Basic Home Loan\"",
  "creation": "2022-03-15 15:34:19.200116",
  "days_in_advance": 0,
  "docstatus": 0,
@@ -12,7 +12,7 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Dear {{ doc.lead_name }},<br>\nAs discussed with {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}} your meeting has been confirmed for Date   Time  ;.<br><br>\nWe are looking forward to meeting you and servicing your requirements. For more details please<br>\ncontact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}} <br><br>\nPlease visit www.switchmyloan.in to know more about our products. You sit back and relax, while<br>\nwe do all the hard-work for your loan.<br><br>\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\n\nSwitch My Loan Pvt. Ltd.<br>",
- "modified": "2022-04-14 15:52:21.023396",
+ "modified": "2023-06-16 17:53:23.533923",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Meeting Scheduled",
