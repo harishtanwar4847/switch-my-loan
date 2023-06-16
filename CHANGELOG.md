@@ -6,7 +6,7 @@
 
 ### Added
 
--[Disable customer messages for all workflow states]()
+-[Disable customer messages for all workflow states](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/5)
 
 ## [v1.2.8-uat] - 2023-06-16
 ## [v1.2.8-dev] - 2023-06-16
