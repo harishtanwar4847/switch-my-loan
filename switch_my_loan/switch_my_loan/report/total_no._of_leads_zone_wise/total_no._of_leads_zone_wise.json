@@ -9,7 +9,7 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2022-05-27 13:50:03.631436",
+ "modified": "2023-06-13 23:17:27.593032",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Total no. of Leads Zone Wise",
@@ -31,9 +31,6 @@
   },
   {
    "role": "CRM User"
-  },
-  {
-   "role": "CRM Manager"
   },
   {
    "role": "Exco"

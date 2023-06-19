@@ -1,7 +1,7 @@
 {
  "attach_print": 0,
  "channel": "Email",
- "condition": "doc.workflow_state == \"Call Done\"",
+ "condition": "doc.workflow_state == \"Call Done\" and doc.source != \"Basic Home Loan\"",
  "creation": "2022-03-15 16:43:53.580817",
  "days_in_advance": 0,
  "docstatus": 0,
@@ -12,7 +12,7 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Dear {{ doc.lead_name}},\nThank you for connecting with {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}} . We will keep you posted with further<br>\nmovement on your loan application. For more details please visit us www.switchmyloan.in<br><br>\nOur processes are completely digitized. You sit back and relax, while we do all the hard-work for<br>\nyour loan.<br><br>\nKindly rate your experience with {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}} on a scale of 1 to 10, 1 being Disappointing<br>\nand 10 being informative and helpful.<br><br><br>\n\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\nSwitch My Loan Pvt. Ltd.<br><br>",
- "modified": "2022-04-14 15:51:33.584670",
+ "modified": "2023-06-16 17:55:54.894403",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Call Done",

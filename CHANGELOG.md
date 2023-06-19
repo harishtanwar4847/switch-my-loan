@@ -1,5 +1,27 @@
 # Changelog
 
+## [v1.2.9] - 2023-06-19
+## [v1.2.9-uat] - 2023-06-16
+## [v1.2.9-dev] - 2023-06-16
+
+### Added
+
+-[Disable customer messages for all workflow states](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/5)
+
+## [v1.2.8-uat] - 2023-06-16
+## [v1.2.8-dev] - 2023-06-16
+
+### Added
+
+-[Stop automated messages to source Basic Home Loan](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/3)
+
+## [v1.2.7-uat] - 2023-06-14
+## [v1.2.7-dev] - 2023-06-14
+
+### Added
+
+-[Stop automated messages to partner Basic Home Loan](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/1)
+
 ## [v1.2.6] - 2023-05-10
 ## [v1.2.6-uat] - 2023-05-10
 ## [v1.2.6-dev] - 2023-05-10

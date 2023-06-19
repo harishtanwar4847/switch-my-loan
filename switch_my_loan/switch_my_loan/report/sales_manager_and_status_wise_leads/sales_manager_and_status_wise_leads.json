@@ -9,7 +9,7 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2022-07-22 19:52:52.721494",
+ "modified": "2023-06-13 23:09:20.031239",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Sales Manager and status wise Leads",
@@ -31,9 +31,6 @@
   },
   {
    "role": "CRM User"
-  },
-  {
-   "role": "CRM Manager"
   },
   {
    "role": "Partner User"

@@ -1,7 +1,7 @@
 {
  "attach_print": 0,
  "channel": "Email",
- "condition": "doc.workflow_state == \"Lender Selection\"",
+ "condition": "doc.workflow_state == \"Lender Selection\" and doc.source != \"Basic Home Loan\"",
  "creation": "2022-03-15 15:43:10.228400",
  "days_in_advance": 0,
  "docstatus": 0,
@@ -12,7 +12,7 @@
  "idx": 0,
  "is_standard": 1,
  "message": "Congratulation {{ doc.lead_name }},<br>\nWe are pleased to inform you that your file has been shared with {{ doc.lender_selection}}. You will be updated<br>\nonce the application has been logged in.<br><br>\nIn case of any queries, please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}} & \n{% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}}  or write to us at {{doc.lead_owner}}<br><br>\nRegards,<br><br>\nYour Friendly loan buddy<br><br>\n\nSwitch My Loan Pvt. Ltd.<br>",
- "modified": "2022-04-14 15:50:37.841752",
+ "modified": "2023-06-16 17:58:59.659727",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Lender Selection",
