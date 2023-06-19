@@ -16,7 +16,9 @@ app_logo_url = "/assets/switch_my_loan/images/sml4.png"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/switch_my_loan/css/switch_my_loan.css"
-app_include_js = ["https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"]
+app_include_js = [
+    "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/switch_my_loan/css/switch_my_loan.css"
@@ -33,7 +35,7 @@ app_include_js = ["https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Lead" : "public/js/lead.js"}
+doctype_js = {"Lead": "public/js/lead.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -46,7 +48,7 @@ doctype_js = {"Lead" : "public/js/lead.js"}
 
 # website user home page (by Role)
 # role_home_page = {
-#	"Role": "home_page"
+# 	"Role": "home_page"
 # }
 
 # Generators
@@ -72,7 +74,7 @@ after_install = "switch_my_loan.install.after_install"
 # Permissions evaluated in scripted ways
 
 permission_query_conditions = {
-# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
+    # 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
     "Lead": "switch_my_loan.permissions.lead_query"
 }
 #
@@ -97,45 +99,48 @@ permission_query_conditions = {
 # 		"on_update": "method",
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
-#	}
+# 	}
 # }
 doc_events = {
-	"Lead":{
-		"before_save":"switch_my_loan.utils.workflow_states",
-        "after_save":"switch_my_loan.utils.on_update",
-
-	}
+    "Lead": {
+        "before_save": "switch_my_loan.utils.workflow_states",
+        "after_save": "switch_my_loan.utils.on_update",
+    }
 }
 
 # Scheduled Tasks
 # ---------------
 
 scheduler_events = {
-# 	"all": [
-# 		"switch_my_loan.tasks.all"
-# 	],
-	# "daily": [
-	# 	"switch_my_loan.tasks.unattended_leads_daily"
-	# ],
+    # 	"all": [
+    # 		"switch_my_loan.tasks.all"
+    # 	],
+    # "daily": [
+    # 	"switch_my_loan.tasks.unattended_leads_daily"
+    # ],
     # "hourly": [
     #     "switch_my_loan.tasks.unattended_leads_after_two_hours",
-	# 	"switch_my_loan.tasks.unattended_leads_after_four_hours"
+    # 	"switch_my_loan.tasks.unattended_leads_after_four_hours"
     # ],
-	"cron":{"10 10 * * *": ["switch_my_loan.tasks.unattended_leads_daily_at_ten"],
-	"10 19 * * *": ["switch_my_loan.tasks.unattended_leads_daily_at_seven"],
-	"0 12 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_twelve"],
-	"0 14 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_two"],
-	"0 16 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_four"],
-	"0 18 * * *":["switch_my_loan.tasks.unattended_leads_after_two_hours_at_six"],
-	"5 14 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours_at_two"],
-	"5 18 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours_at_six"],
-	"0 09 * * *": ["switch_my_loan.tasks.time_for_call_back"]}
-# 	"weekly": [
-# 		"switch_my_loan.tasks.weekly"
-# 	]
-# 	"monthly": [
-# 		"switch_my_loan.tasks.monthly"
-# 	]
+    "cron": {
+        "10 10 * * *": ["switch_my_loan.tasks.unattended_leads_daily_at_ten"],
+        "10 19 * * *": ["switch_my_loan.tasks.unattended_leads_daily_at_seven"],
+        "0 12 * * *": [
+            "switch_my_loan.tasks.unattended_leads_after_two_hours_at_twelve"
+        ],
+        "0 14 * * *": ["switch_my_loan.tasks.unattended_leads_after_two_hours_at_two"],
+        "0 16 * * *": ["switch_my_loan.tasks.unattended_leads_after_two_hours_at_four"],
+        "0 18 * * *": ["switch_my_loan.tasks.unattended_leads_after_two_hours_at_six"],
+        "5 14 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours_at_two"],
+        "5 18 * * *": ["switch_my_loan.tasks.unattended_leads_after_four_hours_at_six"],
+        "0 09 * * *": ["switch_my_loan.tasks.time_for_call_back"],
+    }
+    # 	"weekly": [
+    # 		"switch_my_loan.tasks.weekly"
+    # 	]
+    # 	"monthly": [
+    # 		"switch_my_loan.tasks.monthly"
+    # 	]
 }
 
 # Testing
@@ -166,24 +171,22 @@ scheduler_events = {
 # --------------------
 
 user_data_fields = [
-	{
-		"doctype": "{doctype_1}",
-		"filter_by": "{filter_by}",
-		"redact_fields": ["{field_1}", "{field_2}"],
-		"partial": 1,
-	},
-	{
-		"doctype": "{doctype_2}",
-		"filter_by": "{filter_by}",
-		"partial": 1,
-	},
-	{
-		"doctype": "{doctype_3}",
-		"strict": False,
-	},
-	{
-		"doctype": "{doctype_4}"
-	}
+    {
+        "doctype": "{doctype_1}",
+        "filter_by": "{filter_by}",
+        "redact_fields": ["{field_1}", "{field_2}"],
+        "partial": 1,
+    },
+    {
+        "doctype": "{doctype_2}",
+        "filter_by": "{filter_by}",
+        "partial": 1,
+    },
+    {
+        "doctype": "{doctype_3}",
+        "strict": False,
+    },
+    {"doctype": "{doctype_4}"},
 ]
 
 # Authentication and authorization
