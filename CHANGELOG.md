@@ -1,7 +1,7 @@
 # Changelog
 
 ### Added
-- feat: ✨  Added Umbrella Source and Upload Docs Link Generator for Leads
+- [feat: ✨  Added Umbrella Source and Upload Docs Link Generator for Leads](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/8)
 ## [v.1.3.0-uat] - 2023-09-19
 
 ## [v1.2.9] - 2023-06-19
