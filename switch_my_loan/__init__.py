@@ -1,4 +1,4 @@
-__version__ = '1.2.9'
+__version__ = '1.3.0-uat'
 
 import frappe
 import os
@@ -8,18 +8,18 @@ import json
 def neodove_webhook():
     log_file_path = frappe.utils.get_files_path('neodove.json')
 
-    logs = "[]" 
+    logs = "[]"
     if os.path.exists(log_file_path):
         with open(log_file_path, "r") as f:
             logs = f.read()
         f.close()
-    
+
     logs = json.loads(logs)
     logs.append(frappe.local.form_dict)
     with open(log_file_path, "w") as f:
         f.write(json.dumps(logs))
     f.close()
-    
+
     frappe.response.message = frappe.form_dict
 
 # modifying frappe.core.doctype.sms_settings.sms_settings.send_sms as send_sms_custom to take sms_template_id input
@@ -49,7 +49,7 @@ def send_sms_custom(receiver_list, msg, sender_name = '', success_msg = True, sm
 	else:
 		frappe.msgprint(frappe._("Please Update SMS Settings"))
 
-# monkey patch for frappe.email.doctype.notification.notification.Notification.send_sms to use send_sms_custom instead of send_sms 
+# monkey patch for frappe.email.doctype.notification.notification.Notification.send_sms to use send_sms_custom instead of send_sms
 # and passing notification.sms_template_id in the send_sms_custom method
 def send_sms_notif(self, doc, context):
 	send_sms_custom(

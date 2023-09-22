@@ -16,7 +16,7 @@ app_logo_url = "/assets/switch_my_loan/images/sml4.png"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/switch_my_loan/css/switch_my_loan.css"
-# app_include_js = "/assets/switch_my_loan/js/switch_my_loan.js"
+app_include_js = ["https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/switch_my_loan/css/switch_my_loan.css"
@@ -193,3 +193,5 @@ user_data_fields = [
 # 	"switch_my_loan.auth.validate"
 # ]
 
+# boot_info
+extend_bootinfo = "switch_my_loan.boot.boot_session"
