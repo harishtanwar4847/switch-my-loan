@@ -12,7 +12,10 @@ frappe.ui.form.on('Lead', {
   refresh: function (frm) {
     frm.get_field('remark').grid.df.cannot_delete_rows = true;
     // frm.set_df_property("status", "read_only", 1)
-    console.log('Upload Link', get_doc_upload_link(frm));
+    frm.set_df_property('docs_upload_link', 'read_only', 1);
+    if (frm.is_new()) {
+      frm.toggle_display('docs_upload_link', false);
+    }
     if (frm.is_new() && (frappe.user_roles.includes('CRM User') || frappe.user_roles.includes('Partner User'))) {
       frm.set_value('telecaller_name', frappe.session.user);
     }
@@ -547,9 +550,12 @@ frappe.ui.form.on('Lead', {
     });
   },
 
-  after_save(frm) {
-    // Updating the Docs Upload Link for the Lead
-    frappe.db.set_value(frm.doctype, frm.docname, 'docs_upload_link', get_doc_upload_link(frm));
+  async after_save(frm) {
+    if (!frm.doc.docs_upload_link) {
+      // Updating the Docs Upload Link for the Lead
+      await frappe.db.set_value('Lead', frm.doc.name, 'docs_upload_link', get_doc_upload_link(frm));
+      frm.reload_doc();
+    }
   },
 
   // Setting the Umbrella Source Based on the Source and if umbrella source is found then disable the Umbrella Source
