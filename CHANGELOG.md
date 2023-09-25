@@ -4,6 +4,7 @@
 
 - [feat: ✨ Added Welcome Message SMS Notification ](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/9)
 
+## [v1.3.1] - 2023-09-24
 ## [v1.3.1-uat] - 2023-09-24
 
 ### Added
