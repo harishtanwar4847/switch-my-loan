@@ -12,7 +12,6 @@ frappe.ui.form.on('Lead', {
   refresh: function (frm) {
     frm.get_field('remark').grid.df.cannot_delete_rows = true;
     // frm.set_df_property("status", "read_only", 1)
-    frm.set_df_property('docs_upload_link', 'read_only', 1);
     if (frm.is_new()) {
       frm.toggle_display('docs_upload_link', false);
     }
@@ -257,6 +256,10 @@ frappe.ui.form.on('Lead', {
     ) {
       frm.set_df_property('source', 'read_only', 1);
     }
+  },
+
+  onload_post_render(frm) {
+    frm.set_df_property('docs_upload_link', 'read_only', 1);
   },
 
   checklist: function (frm) {
