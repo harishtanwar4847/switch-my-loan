@@ -237,18 +237,8 @@
 
 -[change in unattende leads notifications only trigger if status is open](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/41)
 
-<<<<<<< HEAD
-
 ## [v1.0.6] - 2022-05-19
-
-=======
-
-## [v1.0.6] - 2022-05-19
-
-> > > > > > > 0993c6d (Merge pull request #7 from atrina-technologies-pvt-ltd/uat)
-
 ## [v1.0.6-uat] - 2022-05-18
-
 ## [v1.0.6-dev] - 2022-05-12
 
 ### Added
