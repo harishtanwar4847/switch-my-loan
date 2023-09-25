@@ -8,11 +8,11 @@
  "doctype": "Notification",
  "document_type": "Lead",
  "enabled": 1,
- "event": "New",
+ "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Dear Mr. {{doc.lead_name}},<br>\nThank you for connecting with Switch My Loan. Hope we could fulfill your requirements. Switch My<br>\nLoan will be the one stop solution for all your loan requirements.<br><br>\nWe provide Personal Loans, Business Loans, Home Loans, Loan against property and Loan Against<br>\nSecurities. We are specialized in Balance transfer loans.<br><br>\nOur processes are completely digitized. You sit back and relax, while we do all the hard-work for<br>\nyour loan.<br><br>\nRegards,<br>\nYour Friendly loan buddy<br>\nSwitch My Loan Pvt. Ltd.<br>\n<img src=\"https://www.switchmyloan.in/assets/img/logo.png\" alt=\"SML Logo\" width=\"120\" height=\"50\">",
- "modified": "2023-06-15 11:28:48.274864",
+ "message": "Dear Mr. {{doc.lead_name}},<br>\nThank you for connecting with Switch My Loan. Hope we could fulfill your requirements. Switch My<br>\nLoan will be the one stop solution for all your loan requirements.<br><br>\nWe provide Personal Loans, Business Loans, Home Loans, Loan against property and Loan Against<br>\nSecurities. We are specialized in Balance transfer loans.<br><br>\nOur processes are completely digitized. You sit back and relax, while we do all the hard-work for<br>\nyour loan.<br><br>\nMeanwhile, Please upload all the required documents by visiting this <a href={{doc.docs_upload_link}} target=\"_blank\" >Link</a>\n<br><br>\nRegards,<br>\nYour Friendly loan buddy<br>\nSwitch My Loan Pvt. Ltd.<br>\n<img src=\"https://www.switchmyloan.in/assets/img/logo.png\" alt=\"SML Logo\" width=\"120\" height=\"50\">\n",
+ "modified": "2023-09-25 17:59:24.111839",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Call Done For Call Center",
@@ -24,5 +24,6 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "subject": "Greetings from Switch My Loan"
+ "subject": "Greetings from Switch My Loan",
+ "value_changed": "docs_upload_link"
 }

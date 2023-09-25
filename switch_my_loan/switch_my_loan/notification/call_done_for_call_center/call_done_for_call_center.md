@@ -5,6 +5,8 @@ We provide Personal Loans, Business Loans, Home Loans, Loan against property and
 Securities. We are specialized in Balance transfer loans.<br><br>
 Our processes are completely digitized. You sit back and relax, while we do all the hard-work for<br>
 your loan.<br><br>
+Meanwhile, Please upload all the required documents by visiting this <a href={{doc.docs_upload_link}} target="_blank" >Link</a>
+<br><br>
 Regards,<br>
 Your Friendly loan buddy<br>
 Switch My Loan Pvt. Ltd.<br>
