@@ -1,0 +1,29 @@
+{
+ "attach_print": 0,
+ "channel": "SMS",
+ "condition": "doc.source != \"Website\" and doc.source != \"Basic Home Loan\"",
+ "creation": "2023-09-25 18:29:57.715829",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear {{ doc.lead_name }}, Thank you for Applying with Switch My Loan.\n\nYou can click on below link to upload your documents for ease of your application processing.\n\n{{ doc.docs_upload_link }}",
+ "modified": "2023-09-25 18:33:40.544528",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Greetings from Switch My Loan SMS",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "mobile_number"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sms_template_id": "1107169537138769475",
+ "value_changed": "docs_upload_link"
+}
