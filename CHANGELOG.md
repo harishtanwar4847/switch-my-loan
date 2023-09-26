@@ -1,6 +1,10 @@
 # Changelog
 
 ## Added
+-[feat: ✨ Added the Notification and Disabled the SMS ](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/11)
+## [v1.3.2] - 2023-09-26
+
+## Added
 
 - [feat: ✨ Added Welcome Message SMS Notification ](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/9)
 
