@@ -1,5 +1,9 @@
 # Changelog
 
+#
+-[feat: ✨ Added the Lead Source in the Data Import List](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/12)
+## [v1.3.3] - 2023-09-26
+
 ## Added
 -[feat: ✨ Added the Notification and Disabled the SMS ](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/11)
 ## [v1.3.2] - 2023-09-26
