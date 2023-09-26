@@ -1,6 +1,10 @@
 # Changelog
 
-#
+## Added
+- [feat: ✨ Updated the Nucleus Base URI](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/13)
+## [v1.3.4] - 2023-09-26
+
+## Added
 -[feat: ✨ Added the Lead Source in the Data Import List](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/12)
 ## [v1.3.3] - 2023-09-26
 
