@@ -1,6 +1,11 @@
 # Changelog
 
 ## Added
+-[feat: ✨ Added form-16 password field to lead](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/15)
+
+## [v1.3.5] - 2023-09-26
+
+## Added
 - [feat: ✨ Updated the Nucleus Base URI](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/13)
 ## [v1.3.4] - 2023-09-26
 
