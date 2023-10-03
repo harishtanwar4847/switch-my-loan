@@ -1,6 +1,9 @@
 # Changelog
 
 ## Added
+-[feat: 🦺 Removed Mandatory Condition for Take Home Salary for Sales User and Non Salaried Type](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/16)
+## [v1.3.6] - 2023-10-03
+## Added
 -[feat: ✨ Added form-16 password field to lead](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/15)
 
 ## [v1.3.5] - 2023-09-26
