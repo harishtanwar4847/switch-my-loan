@@ -12,7 +12,7 @@ def execute():
     })
     doc.append('parameters', {
         'parameter':'password',
-        'value':'SwitchMyLoan@123'
+        'value':'SML2021@123'
     })
     doc.append('parameters', {
         'parameter':'feedid',
@@ -28,7 +28,7 @@ def execute():
     })
     doc.append('parameters', {
         'parameter':'senderid',
-        'value':'SMLBUD'
+        'value':'SML'
     })
     
     doc.save()
