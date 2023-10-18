@@ -3,4 +3,4 @@ A lead has been assigned to you. Kindly login to mycrm.switchmyloan.in to attend
 Lead Name: {{doc.lead_name}}
 
 Regards,
-SML BUD
+SML -Switch My Loan

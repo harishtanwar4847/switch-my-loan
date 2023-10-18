@@ -11,8 +11,8 @@
  "event": "New",
  "idx": 0,
  "is_standard": 1,
- "message": "Dear {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}},\nA lead has been assigned to you. Kindly login to mycrm.switchmyloan.in to attend the lead.\nLead Name: {{doc.lead_name}}\n\nRegards,\nSML BUD",
- "modified": "2022-05-31 10:19:53.099074",
+ "message": "Dear {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}},\nA lead has been assigned to you. Kindly login to mycrm.switchmyloan.in to attend the lead.\nLead Name: {{doc.lead_name}}\n\nRegards,\nSML -Switch My Loan",
+ "modified": "2023-10-18 16:33:17.908699",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Lead Allocation",
@@ -24,7 +24,7 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sms_template_id": "1107165234812958959",
+ "sms_template_id": "1107900000377600007",
  "subject": "Lead Allocation",
  "value_changed": "status"
 }
