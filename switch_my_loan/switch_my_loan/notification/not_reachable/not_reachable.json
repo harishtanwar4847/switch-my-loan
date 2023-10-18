@@ -11,8 +11,8 @@
  "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Dear {{doc.lead_name}}, we tried reaching your number but were not able to contact you.\n\nRegards,\n\nSwitch My Loan -Switch My Loan",
- "modified": "2023-06-16 20:10:32.661551",
+ "message": "Dear {{doc.lead_name}}, we tried reaching your number but were not able to contact you.\n\nRegards,\n\nSML -Switch My Loan -Switch My Loan",
+ "modified": "2023-10-18 16:18:46.378018",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Not Reachable",
@@ -24,6 +24,6 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sms_template_id": "1107166175330579827",
+ "sms_template_id": "1107900000377600005",
  "value_changed": "status"
 }
