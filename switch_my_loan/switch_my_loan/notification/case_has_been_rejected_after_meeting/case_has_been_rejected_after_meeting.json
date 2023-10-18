@@ -11,8 +11,8 @@
  "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Dear Customer, Thank you for meeting {{ doc.lead_owner }}. We are regretful to inform you that we will not be proceeding ahead with your loan application. In case of any other loan requirements, please visit: https://www.switchmyloan.in - Team Switch My Loan",
- "modified": "2023-06-16 17:40:02.189392",
+ "message": "Dear Customer, Thank you for meeting {{ doc.lead_owner }}. We are regretful to inform you that we will not be proceeding ahead with your loan application. In case of any other loan requirements, please visit: https://www.switchmyloan.in - Team SML -Switch My Loan",
+ "modified": "2023-10-18 16:35:53.143242",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Case has been rejected after meeting",
@@ -24,7 +24,7 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sms_template_id": "1007288914295730211",
+ "sms_template_id": "1107900000377600015",
  "subject": "Case has been rejected after meeting",
  "value_changed": "status"
 }
