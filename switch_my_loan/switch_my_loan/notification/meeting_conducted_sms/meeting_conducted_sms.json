@@ -11,8 +11,8 @@
  "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Dear {{ doc.lead_name }}, Thank you for meeting {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}}. Hope we were able to fulfil your requirement. For more details please contact: {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}}  - {% set var2 = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var2}}, he will be your relationship manager. - Team Switch My Loan",
- "modified": "2023-06-16 17:37:35.959067",
+ "message": "Dear {{ doc.lead_name }}, Thank you for meeting {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}}. Hope we were able to fulfil your requirement. For more details please contact: {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}}, he will be your relationship manager. - Team SML -Switch My Loan",
+ "modified": "2023-10-19 11:53:25.788094",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Meeting Conducted SMS",
@@ -24,7 +24,7 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sms_template_id": "1007155466130605966",
+ "sms_template_id": "1107900000377600014",
  "subject": "Meeting Conducted",
  "value_changed": "workflow_state"
 }
