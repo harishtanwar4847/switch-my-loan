@@ -11,8 +11,8 @@
  "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Dear {{ doc.lead_name }}, we are pleased to inform you that your file has been shared with {{ doc.lender_selection}}. We shall update you once your loan application has been logged in. In case of any queries, kindly call on {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}} or write to us on {{ doc.lead_owner }} - Team Switch My Loan",
- "modified": "2023-06-16 17:35:27.457466",
+ "message": "Dear {{ doc.lead_name }}, we are pleased to inform you that your file has been shared with {{ doc.lender_selection}}. We shall update you once your loan application has been logged in. In case of any queries, kindly call on {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}} or write to us on {{ doc.lead_owner }} - Team SML -Switch My Loan",
+ "modified": "2023-10-19 14:27:23.946865",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Lender Selection SMS",
@@ -24,7 +24,7 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sms_template_id": "1007533765677372265",
+ "sms_template_id": "1107900000377600010",
  "subject": "Lender Selection",
  "value_changed": "workflow_state"
 }
