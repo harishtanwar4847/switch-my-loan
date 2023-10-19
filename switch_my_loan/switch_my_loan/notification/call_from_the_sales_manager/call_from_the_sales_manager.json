@@ -11,8 +11,8 @@
  "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Dear {{ doc.lead_name }}, thank you for connecting with {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}}. We will keep you posted on further movement of your loan application. For more details please visit us at https://www.switchmyloan.in - Team Switch My Loan",
- "modified": "2023-06-16 17:40:53.927302",
+ "message": "Dear {{ doc.lead_name }}, thank you for connecting with {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}}. We will keep you posted on further movement of your loan application. For more details please visit us at https://www.switchmyloan.in - Team SML -Switch My Loan",
+ "modified": "2023-10-19 11:48:31.321013",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Call from the Sales Manager",
@@ -24,7 +24,7 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sms_template_id": "1007280623125626651",
+ "sms_template_id": "1107900000377600013",
  "subject": "Call from the Sales Manager",
  "value_changed": "workflow_state"
 }

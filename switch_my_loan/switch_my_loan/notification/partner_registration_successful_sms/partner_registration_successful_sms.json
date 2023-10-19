@@ -1,6 +1,7 @@
 {
  "attach_print": 0,
  "channel": "SMS",
+ "condition": "",
  "creation": "2023-01-23 14:53:56.169153",
  "days_in_advance": 0,
  "docstatus": 0,
@@ -10,8 +11,8 @@
  "event": "New",
  "idx": 0,
  "is_standard": 1,
- "message": "Dear {{doc.supplier_name}},\n\nThank you for your interest in partnering with Switch My Loan.\nWe would contact you shortly for proceeding further with the onboarding process\n\nRegards,\nSMLBUD -Switch My Loan",
- "modified": "2023-01-25 11:49:21.277260",
+ "message": "Dear {{doc.supplier_name}},\n\nThank you for your interest in partnering with SML.\nWe would contact you shortly for proceeding further with the onboarding process\n\nRegards,\nSMLBUD -Switch My Loan -Switch My Loan",
+ "modified": "2023-10-19 14:45:50.759135",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Partner Registration Successful SMS",
@@ -23,6 +24,6 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sms_template_id": "1107167411872157346",
+ "sms_template_id": "1107900000377600004",
  "subject": "Partner Registration Successful"
 }

@@ -1,5 +1,9 @@
 # Changelog
 
+## Updated
+-[chore: ✅ Updated the SMS Templates](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/18)
+## [v1.3.7] - 2023-10-19
+
 ## Added
 -[feat: 🦺 Removed Mandatory Condition for Take Home Salary for Sales User and Non Salaried Type](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/16)
 ## [v1.3.6] - 2023-10-03

@@ -11,8 +11,8 @@
  "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Dear {{ doc.lead_name }}, thank you for connecting with Switch My Loan. Hope we could fulfil your requirement. Kindly visit us at https://www.switchmyloan.in - your friendly loan buddy.",
- "modified": "2023-05-09 17:22:47.281940",
+ "message": "Dear {{ doc.lead_name }}, thank you for connecting with SML. Hope we could fulfil your requirement. Kindly visit us at https://www.switchmyloan.in -Switch My Loan",
+ "modified": "2023-10-19 11:08:41.204713",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Call from Call Centre Website",
@@ -24,6 +24,6 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sms_template_id": "1007790132987380126",
+ "sms_template_id": "1107169730166136303",
  "value_changed": "eligible_loan_amount"
 }

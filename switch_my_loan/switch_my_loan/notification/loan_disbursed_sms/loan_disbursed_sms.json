@@ -11,8 +11,8 @@
  "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Congratulations Dear Mr. {{ doc.lead_name }}, we are thrilled to inform you your {{ doc.product_required }} has been disbursed by {{ doc.lender_selection }}. The amount will be credited in your account within 2 working days.\nIn case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}} or write to {{doc.lead_owner}} - Team Switch My Loan",
- "modified": "2023-06-16 17:38:12.630519",
+ "message": "Congratulations Dear {{ doc.lead_name }}, we are thrilled to inform you that your {{ doc.product_required }} has been disbursed by {{ doc.lender_selection }}. The amount will be credited in your account within two working days.In case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}} or write to info@switchmyloan.in -Switch My Loan",
+ "modified": "2023-10-19 11:26:21.225499",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Loan Disbursed SMS",
@@ -24,7 +24,7 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sms_template_id": "1007155466130605966",
+ "sms_template_id": "1107900000377600021",
  "subject": "Loan  Disbursed",
  "value_changed": "workflow_state"
 }
