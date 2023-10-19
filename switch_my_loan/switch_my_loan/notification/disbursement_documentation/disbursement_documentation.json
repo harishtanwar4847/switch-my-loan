@@ -11,8 +11,8 @@
  "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Dear Mr. {{ doc.lead_name }}, You must have received a mail from Switch My Loan, with the list of documents to be shared to disburse your loan. Kindly click on the link https://www.switchmyloan.in and upload the required documents for a quick disbursal of your loan.\nIn case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}} or write to {{ doc.lead_owner}}.",
- "modified": "2023-06-16 17:41:37.268552",
+ "message": "Dear Mr. {{ doc.lead_name }}, You must have received a mail from SML, with the list of documents to be shared to disburse your loan. \nKindly click on the below link \n{{doc.upload_link}}  \nand upload the required documents for a quick disbursal of your loan.\nIn case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}} or write to info@switchmyloan.in -Switch My Loan",
+ "modified": "2023-10-19 13:15:42.036160",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Disbursement documentation",
@@ -24,6 +24,6 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sms_template_id": "1007131793921531031",
+ "sms_template_id": "1107900000377600024",
  "value_changed": "workflow_state"
 }
