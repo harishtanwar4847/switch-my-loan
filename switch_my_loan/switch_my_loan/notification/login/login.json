@@ -11,8 +11,8 @@
  "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Congratulations Mr. {{ doc.lead_name }}, your file has been successfully logged in, in {{ doc.lender_selection}}. We will keep you updated with the progress on your loan application. You can login to Switch My Loan and track your application status.\nIn case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}}  - {% set var2 = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var2}} or write to {{doc.lead_owner}}",
- "modified": "2023-06-16 17:39:08.956980",
+ "message": "Congratulations Mr. {{ doc.lead_name }}, your file has been successfully logged in, in {{ doc.lender_selection}}. We will keep you updated with the progress on your loan application. You can login to SML and track your application status.In case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}} or write to {{ doc.lead_owner }} -Switch My Loan",
+ "modified": "2023-10-19 11:18:15.326095",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Login",
@@ -24,7 +24,7 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sms_template_id": "1007807965341541505",
+ "sms_template_id": "1107900000377600012",
  "subject": "Login",
  "value_changed": "workflow_state"
 }
