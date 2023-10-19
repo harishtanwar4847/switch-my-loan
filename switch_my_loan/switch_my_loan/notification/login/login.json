@@ -11,7 +11,7 @@
  "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Congratulations Mr. {{ doc.lead_name }}, your file has been successfully logged in, in {{ doc.lender_selection}}. We will keep you updated with the progress on your loan application. You can login to SML and track your application status.In case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}} or write to {{ doc.lead_owner }} -Switch My Loan",
+ "message": "Congratulations Mr. {{ doc.lead_name }}, your file has been successfully logged in, in {{ doc.lender_selection }}. We will keep you updated with the progress on your loan application. You can login to SML and track your application status.In case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}} or write to {{ doc.lead_owner }} -Switch My Loan",
  "modified": "2023-10-19 11:18:15.326095",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
