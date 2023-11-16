@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:crm_person_name",
+ "creation": "2023-11-14 11:50:49.196276",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "crm_person_name",
+  "lft",
+  "rgt",
+  "is_group",
+  "old_parent",
+  "parent_crm_person"
+ ],
+ "fields": [
+  {
+   "fieldname": "crm_person_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "CRM Person Name",
+   "options": "User",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group",
+   "reqd": 1
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "label": "Old Parent",
+   "options": "CRM Person"
+  },
+  {
+   "fieldname": "parent_crm_person",
+   "fieldtype": "Link",
+   "label": "Parent CRM Person",
+   "options": "CRM Person"
+  }
+ ],
+ "is_tree": 1,
+ "links": [],
+ "modified": "2023-11-14 11:55:20.742691",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "CRM Person",
+ "nsm_parent_field": "parent_crm_person",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CRM Manager",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CRM User",
+   "share": 1
+  }
+ ],
+ "search_fields": "parent_crm_person",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
