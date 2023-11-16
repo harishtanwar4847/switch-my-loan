@@ -57,7 +57,6 @@ def lead_query(user=frappe.session.user):
         return construct_hierarchy_query(user, sales_hierarchy, 'lead_owner')
     
     if 'Sales User' in roles:
-        print('\n\n\n<<<<<<<<<<<<Inside Lead MAPPING QUERY>>>>>>>>>>>>\n\n\n')
         return f"(`tabLead`.lead_owner = '{user}')"
 
     if 'CRM Manager' in roles:
@@ -67,5 +66,5 @@ def lead_query(user=frappe.session.user):
     if has_roles(roles, ['CRM User', 'Partner User']) and lacks_roles(roles, ['Sales Manager', 'Sales User']):
         return f"(`tabLead`.telecaller_name = '{user}')"
 
-    if has_roles(roles, ['CRM Manager', 'Partner Manager']) and 'Sales Manager' not in roles:
+    if 'Partner Manager' in roles:
         return f"(`tabLead`.telecaller_name is not null)"
