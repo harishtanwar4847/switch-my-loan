@@ -1,49 +1,71 @@
 import frappe
 
-def lead_query(user = frappe.session.user):
-    pass
-    if (('CRM User' in frappe.get_roles(user) or 'Partner User' in frappe.get_roles(user)) and not 'Sales Manager' in frappe.get_roles(user) and not 'System Manager' in frappe.get_roles(user) and not 'Sales User' in frappe.get_roles(user)):
-        print('\n\n\n<<<<<<<<<<<<Inside Lead MAPPING QUERY>>>>>>>>>>>>\n\n\n')
-        return "(`tabLead`.telecaller_name = '{user}')".format(user=frappe.session.user)
-    if ('Sales User' in frappe.get_roles(user) and not 'Sales Manager' in frappe.get_roles(user) and not 'System Manager' in frappe.get_roles(user)):
-        print('\n\n\n<<<<<<<<<<<<Inside Lead MAPPING QUERY>>>>>>>>>>>>\n\n\n')
-        return "(`tabLead`.lead_owner = '{user}')".format(user=frappe.session.user)
-    if (('CRM Manager' in frappe.get_roles(user) or 'Partner Manager' in frappe.get_roles(user)) and not 'Sales Manager' in frappe.get_roles(user) and not 'System Manager' in frappe.get_roles(user)):
-        return "(`tabLead`.telecaller_name is not null)"
-    if (frappe.session.user == 'himanshu@switchmyloan.in'):
+def get_user_hierarchy(table_name, field_name, parent_field, user):
+    """
+    Generic function to retrieve a list of users in a hierarchy.
+    :param table_name: Name of the table to query (e.g., 'CRM Person', 'Sales Person').
+    :param field_name: Name of the field to return (e.g., 'crm_person_name', 'sales_person').
+    :param parent_field: Name of the parent field in the hierarchy.
+    :param user: The user for whom to retrieve the hierarchy.
+    :return: A list of users in the hierarchy.
+    """
+    hierarchy_list = [user]
+    subordinates = [person[field_name] for person in frappe.db.get_all(table_name, fields=[field_name], filters={parent_field: user})]
+
+    for subordinate in subordinates:
+        if subordinate not in hierarchy_list:
+            hierarchy_list.append(subordinate)
+            further_subordinates = get_user_hierarchy(table_name, field_name, parent_field, subordinate)
+            hierarchy_list.extend([user for user in further_subordinates if user not in hierarchy_list])
+
+    return hierarchy_list
+
+def construct_hierarchy_query(user, hierarchy_list, field_name):
+    """
+    Constructs an SQL query based on a user and their hierarchy.
+    :param user: The current user.
+    :param hierarchy_list: List of users in the hierarchy.
+    :param field_name: The field name to be used in the SQL query.
+    :return: An SQL query string.
+    """
+    if len(hierarchy_list) > 1:
+        return f"(`tabLead`.{field_name} IN {tuple(hierarchy_list)})"
+    else:
+        return f"(`tabLead`.{field_name} = '{user}')"
+
+def lacks_roles(user_roles, roles_to_check):
+    return not any(role in user_roles for role in roles_to_check)
+
+def has_roles(user_roles, roles_to_check):
+    return any(role in user_roles for role in roles_to_check)
+
+def lead_query(user=frappe.session.user):
+    roles = frappe.get_roles(user)
+    print('\n>>>>>>> Current User: ', user, '<<<<<<<\n')
+
+    ## Skip the entire process if 'System Manager' role is present
+    if 'System Manager' in roles:
+        return
+
+    # Specific user check
+    if user == 'himanshu@switchmyloan.in':
         return "(`tabLead`.docstatus = 0)"
-    if ('Sales Manager' in frappe.get_roles(user) and not 'System Manager' in frappe.get_roles(user)):
-        
-        # return """((`tabLead`.lead_owner in (SELECT `tabLead`.lead_owner FROM `tabLead` INNER JOIN `tabSales Person` ON 
-        # `tabLead`.lead_owner = `tabSales Person`.parent_sales_person OR 
-        # `tabLead`.lead_owner = `tabSales Person`.sales_person where `tabSales Person`.parent_sales_person = '{user}')) OR 
-        # `tabLead`.lead_owner = `tabSales Person`.sales_person where 
-        # OR (`tabLead`.lead_owner = '{user}'))""".format(user=frappe.session.user)
-        list = frappe.db.get_all('Sales Person', fields=("sales_person"),filters={"parent_sales_person":frappe.session.user})
-        print(list)
-        list3 = []
-        for l in list:
-            print(l['sales_person'])
-            list3.append(l['sales_person'])
-            print(list3)
-            list2  = frappe.db.get_all('Sales Person', fields=("sales_person"),filters={"parent_sales_person":l['sales_person']})
-            print(list2)
-            for lead in list2:
-                list3.append(lead['sales_person'])
-                print(list3)
-        print(list3)
-        if len(list3)==1:
-            print(len(list3))
-            return "(`tabLead`.lead_owner = {user})  OR (`tabLead`.lead_owner = '{a}')".format(user=frappe.db.escape(user),a=list3[0])
-            # return "((`tabLead`.lead_owner = 'milindm@switchmyloan.in') OR (`tabLead`.lead_owner = 'saksha@switchmyloan.in'))"
-        elif len(list3)>1:
-            print(tuple(list3))
-            print(len(list3))
-            return """(`tabLead`.lead_owner = {user})  OR (`tabLead`.lead_owner in {list})""".format(user=frappe.db.escape(user),list = tuple(list3))
-        
-        else:
-            return "(`tabLead`.lead_owner = '{user}')".format(user=frappe.session.user)
 
+    # Role-based checks
+    if 'Sales Manager' in roles:
+        sales_hierarchy = get_user_hierarchy('Sales Person', 'sales_person', 'parent_sales_person', user)
+        return construct_hierarchy_query(user, sales_hierarchy, 'lead_owner')
+    
+    if 'Sales User' in roles:
+        print('\n\n\n<<<<<<<<<<<<Inside Lead MAPPING QUERY>>>>>>>>>>>>\n\n\n')
+        return f"(`tabLead`.lead_owner = '{user}')"
 
+    if 'CRM Manager' in roles:
+        crm_hierarchy = get_user_hierarchy('CRM Person', 'crm_person_name', 'parent_crm_person', user)
+        return construct_hierarchy_query(user, crm_hierarchy, 'telecaller_name') + " OR " + construct_hierarchy_query(user, crm_hierarchy, 'lead_owner')
 
+    if has_roles(roles, ['CRM User', 'Partner User']) and lacks_roles(roles, ['Sales Manager', 'Sales User']):
+        return f"(`tabLead`.telecaller_name = '{user}')"
 
+    if has_roles(roles, ['CRM Manager', 'Partner Manager']) and 'Sales Manager' not in roles:
+        return f"(`tabLead`.telecaller_name is not null)"
