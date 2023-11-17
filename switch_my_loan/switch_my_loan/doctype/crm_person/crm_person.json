@@ -13,7 +13,8 @@
   "rgt",
   "is_group",
   "old_parent",
-  "parent_crm_person"
+  "parent_crm_person",
+  "commission_rate"
  ],
  "fields": [
   {
@@ -51,19 +52,26 @@
   {
    "fieldname": "old_parent",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Old Parent",
-   "options": "CRM Person"
+   "options": "CRM Person",
+   "report_hide": 1
   },
   {
    "fieldname": "parent_crm_person",
    "fieldtype": "Link",
    "label": "Parent CRM Person",
    "options": "CRM Person"
+  },
+  {
+   "fieldname": "commission_rate",
+   "fieldtype": "Data",
+   "label": "Commission Rate"
   }
  ],
  "is_tree": 1,
  "links": [],
- "modified": "2023-11-14 11:55:20.742691",
+ "modified": "2023-11-17 11:16:40.271711",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "CRM Person",
