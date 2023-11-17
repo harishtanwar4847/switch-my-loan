@@ -1,5 +1,9 @@
 # Changelog
 
+## Added
+-[feat: ✨ Added CRM Person Tree and It's Permission](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/22)
+## [v1.3.8] - 2023-11-17
+
 ## Updated
 -[chore: ✅ Updated the SMS Templates](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/18)
 ## [v1.3.7] - 2023-10-19
