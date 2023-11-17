@@ -41,7 +41,7 @@ def has_roles(user_roles, roles_to_check):
 
 def lead_query(user=frappe.session.user):
     roles = frappe.get_roles(user)
-    print('\n>>>>>>> Current User: ', user, '<<<<<<<\n')
+    print(f"\n>>>>>>> Current User: {user} <<<<<<<\n")
 
     ## Skip the entire process if 'System Manager' role is present
     if 'System Manager' in roles:
