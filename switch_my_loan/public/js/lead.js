@@ -565,5 +565,12 @@ frappe.ui.form.on('Lead', {
   async source(frm) {
     const { message } = await frappe.db.get_value('Lead Source', { name: frm.doc.source }, ['umbrella_source']);
     frm.set_value('umbrella_source', message.umbrella_source || '');
+    frm.set_query('sub_source', () => {
+      return {
+        filters: {
+          source: ['=', frm.doc.source],
+        },
+      };
+    });
   },
 });
