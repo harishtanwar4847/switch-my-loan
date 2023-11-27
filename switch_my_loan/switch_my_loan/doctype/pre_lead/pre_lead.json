@@ -1,0 +1,191 @@
+{
+ "actions": [],
+ "allow_events_in_timeline": 1,
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-11-24 13:53:36.231493",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "dealer",
+  "customer_name",
+  "mobile_number",
+  "email_id",
+  "col_break_0",
+  "status",
+  "dealer_code",
+  "loan_amount",
+  "naming_series",
+  "product_required",
+  "section_break_1",
+  "pre_lead_disposition"
+ ],
+ "fields": [
+  {
+   "fieldname": "dealer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Dealer",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dealer_code",
+   "fieldtype": "Data",
+   "label": "Dealer Code"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mobile Number",
+   "options": "Phone",
+   "reqd": 1
+  },
+  {
+   "default": "Pre-Lead Created",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Pre-Lead Created\nCall Answered - Lead Created\nCall Answered - Not interested\nCall Answered - Requested call back\nUnreachable\nDid Not Pick Up",
+   "reqd": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "no_copy": 1,
+   "options": "PRE-LEAD-.YYYY.-",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "loan_amount",
+   "fieldtype": "Data",
+   "label": "Loan Amount"
+  },
+  {
+   "fieldname": "product_required",
+   "fieldtype": "Link",
+   "label": "Product",
+   "options": "Product"
+  },
+  {
+   "fieldname": "pre_lead_disposition",
+   "fieldtype": "Table",
+   "label": "Pre Lead Disposition",
+   "options": "Pre Lead Disposition"
+  },
+  {
+   "fieldname": "col_break_0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "icon": "fa fa-user",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-24 18:07:41.275154",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Pre Lead",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Partner Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CRM Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "customer_name,dealer,dealer_code,status,product_required",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "customer_name",
+ "track_changes": 1
+}

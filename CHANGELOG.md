@@ -1,6 +1,10 @@
 # Changelog
 
 ## Added
+-[feat: ✨ Added Pre Leads and Lead Sub Source Doc Types](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/29)
+## [v1.3.9] - 2023-11-24
+
+## Added
 -[feat: ✨ Added CRM Person Tree and It's Permission](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/22)
 ## [v1.3.8] - 2023-11-17
 

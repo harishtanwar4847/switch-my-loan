@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "creation": "2023-11-24 14:05:42.401185",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "updated_by",
+  "updated_at",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "updated_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Updated By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "updated_at",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Updated At",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Satus",
+   "options": "\nPre-Lead Created\nCall Answered - Lead Created\nCall Answered - Not interested\nCall Answered - Requested call back\nUnreachable\nDid Not Pick Up\nUnreachable",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-11-24 17:56:09.245153",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Pre Lead Disposition",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
