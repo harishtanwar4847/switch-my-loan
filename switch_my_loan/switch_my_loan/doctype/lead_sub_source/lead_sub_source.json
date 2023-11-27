@@ -2,37 +2,37 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:lead_sub_source",
+ "autoname": "field:sub_source",
  "creation": "2023-11-27 14:57:10.494354",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "parent_lead_source",
-  "lead_sub_source"
+  "source",
+  "sub_source"
  ],
  "fields": [
   {
    "allow_in_quick_entry": 1,
-   "fieldname": "parent_lead_source",
+   "fieldname": "source",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Lead Source",
+   "label": "Source",
    "options": "Lead Source",
    "reqd": 1
   },
   {
-   "fieldname": "lead_sub_source",
+   "fieldname": "sub_source",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Lead Sub Source",
+   "label": "Sub Source",
    "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-27 14:57:10.494354",
+ "modified": "2023-11-27 18:25:45.212156",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Lead Sub Source",
