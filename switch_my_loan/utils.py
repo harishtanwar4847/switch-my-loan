@@ -189,8 +189,11 @@ def update_status(lead,status):
     doc.set_status(update = True, status = status)
     doc.reload()
 
+@frappe.whitelist()
+def before_export(doc, method):
+    restricted_fields = ['mobile_number', 'phone']
 
-
-
-
-
+    if "Restrict Export" in frappe.get_roles(frappe.session.user):
+        for field in restricted_fields:
+            if field in doc.as_dict():
+                doc.set(field, None)

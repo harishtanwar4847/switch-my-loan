@@ -105,6 +105,7 @@ doc_events = {
     "Lead": {
         "before_save": "switch_my_loan.utils.workflow_states",
         "after_save": "switch_my_loan.utils.on_update",
+        "before_export": "switch_my_loan.utils.before_export",
     }
 }
 
@@ -151,9 +152,10 @@ scheduler_events = {
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "switch_my_loan.event.get_events"
-# }
+override_whitelisted_methods = {
+	# "frappe.desk.doctype.event.event.get_events": "switch_my_loan.event.get_events",
+    "frappe.desk.reportview.export_query": "switch_my_loan.custom_export.export_query"
+}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
