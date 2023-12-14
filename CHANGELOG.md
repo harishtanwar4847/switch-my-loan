@@ -1,5 +1,8 @@
 # Changelog
 
+## Added
+-[feat: :sparkles: Added the Custom Fields for Lead and Auth Related Fns](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/38)
+
 ## Updated
 -[chore: ✅ Updated the SMS Templates](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/18)
 ## [v1.3.7] - 2023-10-19
