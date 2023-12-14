@@ -1,6 +1,10 @@
 # Changelog
 
 ## Added
+-[feat: :sparkles: Added the Custom Fields for Lead and Auth Related Fns](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/39)
+## [v1.4.0] - 2023-12-14
+
+## Added
 -[feat: ✨ Added Lead Sub Source](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/32)
 ## [v1.3.9] - 2023-11-27
 
