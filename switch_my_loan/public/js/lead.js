@@ -295,13 +295,13 @@ frappe.ui.form.on('Lead', {
         },
       };
     });
-    // frm.set_query('lender_selection', () => {
-    //   return {
-    //     filters: {
-    //       customer_group: 'Lender',
-    //     },
-    //   };
-    // });
+    frm.set_query('lender_selection', () => {
+      return {
+        filters: {
+          customer_group: 'Lender',
+        },
+      };
+    });
     frm.set_query('lender_branch', () => {
       return {
         filters: {
@@ -326,15 +326,15 @@ frappe.ui.form.on('Lead', {
   },
 
   validate(frm) {
-    // if (frm.doc.location == 'All Territories') {
-    //   frappe.throw('Please Select Location Name');
-    // }
-    // if (frm.doc.lender_branch == 'All Territories') {
-    //   frappe.throw('Please Select Lender Branch');
-    // }
-    // if (frm.doc.mobile_number && !/^\d{10}$/.test(frm.doc.mobile_number)) {
-    //   frappe.throw('Mobile Number must containt 10 digits');
-    // }
+    if (frm.doc.location == 'All Territories') {
+      frappe.throw('Please Select Location Name');
+    }
+    if (frm.doc.lender_branch == 'All Territories') {
+      frappe.throw('Please Select Lender Branch');
+    }
+    if (frm.doc.mobile_number && !/^\d{10}$/.test(frm.doc.mobile_number)) {
+      frappe.throw('Mobile Number must containt 10 digits');
+    }
   },
 
   unhold_purchase_order(frm) {
