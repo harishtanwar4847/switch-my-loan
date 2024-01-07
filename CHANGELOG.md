@@ -1,6 +1,11 @@
 # Changelog
 
 ## Added
+
+## [v1.4.1] - 2024-01-07
+-[feat: :sparkles: Added the Lenders and Sub Product Table](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/39)
+
+## Added
 -[feat: :sparkles: Added the Custom Fields for Lead and Auth Related Fns](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/39)
 ## [v1.4.0] - 2023-12-14
 

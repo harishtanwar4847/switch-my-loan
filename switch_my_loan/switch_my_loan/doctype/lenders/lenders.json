@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{lender}-{status}-{##}",
+ "creation": "2024-01-06 19:49:45.472958",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "lender",
+  "status",
+  "reason_for_rejection",
+  "created_at",
+  "updated_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "lender",
+   "fieldtype": "Link",
+   "label": "Lender",
+   "options": "Lender",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Login Done\nSanctioned\nReject",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "created_at",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Created At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "updated_at",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Updated At"
+  },
+  {
+   "fieldname": "reason_for_rejection",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Reason for Rejection"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-06 21:15:38.789037",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Lenders",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

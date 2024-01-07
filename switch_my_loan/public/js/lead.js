@@ -1,321 +1,397 @@
-function get_doc_upload_link(frm) {
-  const encryptionKey = CryptoJS.enc.Utf8.parse(frappe.boot?.sml_encryption_key);
+function getDocUploadLink(frm) {
+  const encryptionKey = CryptoJS.enc.Utf8.parse(
+    frappe.boot?.sml_encryption_key
+  );
   const nucleusBaseUrl = frappe.boot?.sml_nucleus_base_url;
-  const token = CryptoJS.AES.encrypt(JSON.stringify({ docname: frm.docname, doctype: frm.doctype }), encryptionKey, {
-    mode: CryptoJS.mode.ECB,
-  }).toString();
+  const token = CryptoJS.AES.encrypt(
+    JSON.stringify({ docname: frm.docname, doctype: frm.doctype }),
+    encryptionKey,
+    {
+      mode: CryptoJS.mode.ECB,
+    }
+  ).toString();
 
-  return `${nucleusBaseUrl}/crm/submitDocuments?token=${encodeURIComponent(token)}`;
+  return `${nucleusBaseUrl}/crm/submitDocuments?token=${encodeURIComponent(
+    token
+  )}`;
 }
 
-frappe.ui.form.on('Lead', {
+function dialogForCollectingData({
+  title = "Your Title",
+  fields = [
+    {
+      fieldname: "field_1",
+      fieldtype: "SmallText",
+      reqd: 1,
+    },
+  ],
+  currentData = {},
+  frm,
+}) {
+  let selectedDoc = currentData;
+  const dialog = new frappe.ui.Dialog({
+    title: __(title),
+    fields,
+    primary_action: () => {
+      const data = dialog.get_values();
+      if (window.timeout) {
+        clearTimeout(window.timeout);
+        delete window.timeout;
+      }
+      window.timeout = setTimeout(() => {
+        fields.forEach(({ fieldname }) => {
+          selectedDoc[fieldname] = data[fieldname];
+        });
+
+        frm.save();
+        dialog.hide();
+      }, 1500);
+    },
+  });
+
+  dialog.show();
+}
+
+frappe.ui.form.on("Lead", {
   refresh: function (frm) {
-    frm.get_field('remark').grid.df.cannot_delete_rows = true;
+    frm.get_field("remark").grid.df.cannot_delete_rows = true;
     // frm.set_df_property("status", "read_only", 1)
     if (frm.is_new()) {
-      frm.toggle_display('docs_upload_link', false);
-    }
-    if (frm.is_new() && (frappe.user_roles.includes('CRM User') || frappe.user_roles.includes('Partner User'))) {
-      frm.set_value('telecaller_name', frappe.session.user);
+      frm.toggle_display("docs_upload_link", false);
     }
     if (
-      (frm.is_new() && frappe.user_roles.includes('Sales User')) ||
-      (frm.is_new() && frappe.user_roles.includes('Sales Manager'))
+      frm.is_new() &&
+      (frappe.user_roles.includes("CRM User") ||
+        frappe.user_roles.includes("Partner User"))
     ) {
-      frm.set_value('lead_owner', frappe.session.user);
+      frm.set_value("telecaller_name", frappe.session.user);
     }
-    if (frappe.user_roles.includes('Sales User') && frm.is_new()) {
-      frm.toggle_display('telecaller_name', false);
-      frm.toggle_display('crm_team_remarks', false);
+    if (
+      (frm.is_new() && frappe.user_roles.includes("Sales User")) ||
+      (frm.is_new() && frappe.user_roles.includes("Sales Manager"))
+    ) {
+      frm.set_value("lead_owner", frappe.session.user);
+    }
+    if (frappe.user_roles.includes("Sales User") && frm.is_new()) {
+      frm.toggle_display("telecaller_name", false);
+      frm.toggle_display("crm_team_remarks", false);
     }
 
     if (
       !frm.is_new() &&
-      (frappe.user_roles.includes('CRM User') || frappe.user_roles.includes('Partner User')) &&
-      !frappe.user_roles.includes('Sales User') &&
-      !frappe.user_roles.includes('Sales Manager') &&
-      frm.doc.source != 'Website' &&
-      frm.doc.source != 'Website WhatsApp BOT' &&
-      frm.doc.source != 'Basic Home Loan'
+      (frappe.user_roles.includes("CRM User") ||
+        frappe.user_roles.includes("Partner User")) &&
+      !frappe.user_roles.includes("Sales User") &&
+      !frappe.user_roles.includes("Sales Manager") &&
+      frm.doc.source != "Website" &&
+      frm.doc.source != "Website WhatsApp BOT" &&
+      frm.doc.source != "Basic Home Loan"
     ) {
-      frm.toggle_display('location', false);
-      frm.toggle_display('any_existing_obligations', false);
-      frm.toggle_display('customer_profile', false);
-      frm.toggle_display('lender_branch', false);
-      frm.toggle_display('take_home_salary', false);
-      frm.toggle_display('remark', false);
-      frm.toggle_display('source', false);
-      frm.toggle_display('partner', false);
-      frm.toggle_display('do_you_own_a_car', false);
-      frm.toggle_display('mandate_required', false);
-      frm.toggle_display('sourcing_agent', false);
-      frm.toggle_display('supplier_group', false);
-      frm.toggle_display('fixed_cost', false);
-      frm.toggle_display('commission_rate', false);
-      frm.toggle_display('lender_selection', false);
+      frm.toggle_display("location", false);
+      frm.toggle_display("any_existing_obligations", false);
+      frm.toggle_display("customer_profile", false);
+      frm.toggle_display("lender_branch", false);
+      frm.toggle_display("take_home_salary", false);
+      frm.toggle_display("remark", false);
+      frm.toggle_display("source", false);
+      frm.toggle_display("partner", false);
+      frm.toggle_display("do_you_own_a_car", false);
+      frm.toggle_display("mandate_required", false);
+      frm.toggle_display("sourcing_agent", false);
+      frm.toggle_display("supplier_group", false);
+      frm.toggle_display("fixed_cost", false);
+      frm.toggle_display("commission_rate", false);
+      frm.toggle_display("lender_selection", false);
     }
 
-    if (frm.doc.workflow_state == 'Lender Selection' && !frm.doc.mandate_required) {
+    if (
+      frm.doc.workflow_state == "Lender Selection" &&
+      !frm.doc.mandate_required
+    ) {
       frm.dirty();
     }
 
-    if (frm.doc.status == 'On Hold') {
+    if (frm.doc.status == "On Hold") {
       frm.add_custom_button(
-        __('Resume'),
+        __("Resume"),
         function () {
-          frm.trigger('unhold_purchase_order');
+          frm.trigger("unhold_purchase_order");
         },
-        __('Status')
+        __("Status")
       );
       frm.fields.forEach(function (l) {
-        frm.set_df_property(l.df.fieldname, 'read_only', 1);
+        frm.set_df_property(l.df.fieldname, "read_only", 1);
       });
     }
 
-    if (frm.doc.status == 'Drop') {
+    if (frm.doc.status == "Drop") {
       frm.add_custom_button(
-        __('Resume'),
+        __("Resume"),
         function () {
-          frm.trigger('unhold_purchase_order');
+          frm.trigger("unhold_purchase_order");
         },
-        __('Status')
+        __("Status")
       );
       frm.fields.forEach(function (l) {
-        frm.set_df_property(l.df.fieldname, 'read_only', 1);
+        frm.set_df_property(l.df.fieldname, "read_only", 1);
       });
     }
 
-    if (frm.doc.status == 'Rejected') {
+    if (frm.doc.status == "Rejected") {
       frm.add_custom_button(
-        __('Reopen'),
+        __("Reopen"),
         function () {
-          frm.trigger('unclose_purchase_order');
+          frm.trigger("unclose_purchase_order");
         },
-        __('Status')
+        __("Status")
       );
       frm.fields.forEach(function (l) {
-        frm.set_df_property(l.df.fieldname, 'read_only', 1);
+        frm.set_df_property(l.df.fieldname, "read_only", 1);
       });
     }
 
-    if (frm.doc.status == 'Customer not reachable') {
+    if (frm.doc.status == "Customer not reachable") {
       frm.add_custom_button(
-        __('Resume'),
+        __("Resume"),
         function () {
-          frm.trigger('unhold_purchase_order');
+          frm.trigger("unhold_purchase_order");
         },
-        __('Status')
+        __("Status")
       );
       frm.fields.forEach(function (l) {
-        frm.set_df_property(l.df.fieldname, 'read_only', 1);
+        frm.set_df_property(l.df.fieldname, "read_only", 1);
       });
     }
 
-    if (frm.doc.status == 'Customer not responding') {
+    if (frm.doc.status == "Customer not responding") {
       frm.add_custom_button(
-        __('Resume'),
+        __("Resume"),
         function () {
-          frm.trigger('unhold_purchase_order');
+          frm.trigger("unhold_purchase_order");
         },
-        __('Status')
+        __("Status")
       );
       frm.fields.forEach(function (l) {
-        frm.set_df_property(l.df.fieldname, 'read_only', 1);
+        frm.set_df_property(l.df.fieldname, "read_only", 1);
       });
     }
 
     if (
-      frm.doc.status != 'On Hold' &&
-      frm.doc.status != 'Rejected' &&
-      frm.doc.status != 'Drop' &&
-      frm.doc.status != 'Customer not reachable' &&
-      frm.doc.status != 'Customer not responding'
+      frm.doc.status != "On Hold" &&
+      frm.doc.status != "Rejected" &&
+      frm.doc.status != "Drop" &&
+      frm.doc.status != "Customer not reachable" &&
+      frm.doc.status != "Customer not responding"
     ) {
       frm.fields.forEach(function (l) {
-        frm.set_df_property(l.df.fieldname, 'read_only', 0);
+        frm.set_df_property(l.df.fieldname, "read_only", 0);
       });
     }
 
     if (
       !frm.doc.__islocal &&
-      frm.doc.status != 'On Hold' &&
-      frm.doc.status != 'Rejected' &&
-      frm.doc.status != 'Drop' &&
-      frm.doc.status != 'Customer not reachable' &&
-      frm.doc.status != 'Customer not responding' &&
-      (frappe.user_roles.includes('Sales User') || frappe.user_roles.includes('Sales Manager'))
+      frm.doc.status != "On Hold" &&
+      frm.doc.status != "Rejected" &&
+      frm.doc.status != "Drop" &&
+      frm.doc.status != "Customer not reachable" &&
+      frm.doc.status != "Customer not responding" &&
+      (frappe.user_roles.includes("Sales User") ||
+        frappe.user_roles.includes("Sales Manager"))
     ) {
       frm.add_custom_button(
-        __('On Hold'),
+        __("On Hold"),
         function () {
-          frm.trigger('hold_purchase_order');
+          frm.trigger("hold_purchase_order");
         },
-        __('Status')
+        __("Status")
       );
 
       frm.add_custom_button(
-        __('Drop'),
+        __("Drop"),
         function () {
-          frm.trigger('drop_purchase_order');
+          frm.trigger("drop_purchase_order");
         },
-        __('Status')
+        __("Status")
       );
 
       frm.add_custom_button(
-        __('Reject'),
+        __("Reject"),
         function () {
-          frm.trigger('close_purchase_order');
+          frm.trigger("close_purchase_order");
         },
-        __('Status')
+        __("Status")
       );
 
       frm.add_custom_button(
-        __('Customer not reachable'),
+        __("Customer not reachable"),
         function () {
-          frm.trigger('customer_not_reachable');
+          frm.trigger("customer_not_reachable");
         },
-        __('Status')
+        __("Status")
       );
 
       frm.add_custom_button(
-        __('Customer not responding'),
+        __("Customer not responding"),
         function () {
-          frm.trigger('customer_not_responding');
+          frm.trigger("customer_not_responding");
         },
-        __('Status')
+        __("Status")
       );
     }
     frm.cscript.custom_refresh = function (doc) {
       if (
-        frappe.user_roles.includes('Sales User') &&
-        !frappe.user_roles.includes('System Manager') &&
-        !(frm.doc.workflow_state == 'Open')
+        frappe.user_roles.includes("Sales User") &&
+        !frappe.user_roles.includes("System Manager") &&
+        !(frm.doc.workflow_state == "Open")
       ) {
-        frm.set_df_property('telecaller_name', 'read_only', doc.__islocal ? 0 : 1);
-        frm.set_df_property('crm_team_remarks', 'read_only', doc.__islocal ? 0 : 1);
+        frm.set_df_property(
+          "telecaller_name",
+          "read_only",
+          doc.__islocal ? 0 : 1
+        );
+        frm.set_df_property(
+          "crm_team_remarks",
+          "read_only",
+          doc.__islocal ? 0 : 1
+        );
       }
     };
     if (
       !frm.doc.__islocal &&
-      frm.doc.status != 'On Hold' &&
-      frm.doc.status != 'Customer not reachable' &&
-      frm.doc.status != 'Customer not responding' &&
-      frm.doc.status != 'Rejected' &&
-      frm.doc.status != 'Drop' &&
-      frm.doc.workflow_state == 'Open' &&
-      frm.doc.source.includes('Website') &&
-      frappe.user_roles.includes('CRM User') &&
-      !frappe.user_roles.includes('Sales User')
+      frm.doc.status != "On Hold" &&
+      frm.doc.status != "Customer not reachable" &&
+      frm.doc.status != "Customer not responding" &&
+      frm.doc.status != "Rejected" &&
+      frm.doc.status != "Drop" &&
+      frm.doc.workflow_state == "Open" &&
+      frm.doc.source.includes("Website") &&
+      frappe.user_roles.includes("CRM User") &&
+      !frappe.user_roles.includes("Sales User")
     ) {
       frm.add_custom_button(
-        __('On Hold'),
+        __("On Hold"),
         function () {
-          frm.trigger('hold_purchase_order');
+          frm.trigger("hold_purchase_order");
         },
-        __('Status')
+        __("Status")
       );
 
       frm.add_custom_button(
-        __('Drop'),
+        __("Drop"),
         function () {
-          frm.trigger('drop_purchase_order');
+          frm.trigger("drop_purchase_order");
         },
-        __('Status')
+        __("Status")
       );
 
       frm.add_custom_button(
-        __('Reject'),
+        __("Reject"),
         function () {
-          frm.trigger('close_purchase_order');
+          frm.trigger("close_purchase_order");
         },
-        __('Status')
+        __("Status")
       );
 
       frm.add_custom_button(
-        __('Customer not reachable'),
+        __("Customer not reachable"),
         function () {
-          frm.trigger('customer_not_reachable');
+          frm.trigger("customer_not_reachable");
         },
-        __('Status')
+        __("Status")
       );
 
       frm.add_custom_button(
-        __('Customer not responding'),
+        __("Customer not responding"),
         function () {
-          frm.trigger('customer_not_responding');
+          frm.trigger("customer_not_responding");
         },
-        __('Status')
+        __("Status")
       );
     }
 
     if (
-      frappe.user_roles.includes('CRM User') &&
-      !frappe.user_roles.includes('Sales User') &&
-      !frappe.user_roles.includes('System Manager') &&
-      frm.doc.source.includes('Website')
+      frappe.user_roles.includes("CRM User") &&
+      !frappe.user_roles.includes("Sales User") &&
+      !frappe.user_roles.includes("System Manager") &&
+      frm.doc.source.includes("Website")
     ) {
-      frm.set_df_property('source', 'read_only', 1);
+      frm.set_df_property("source", "read_only", 1);
     }
   },
 
   onload_post_render(frm) {
-    frm.set_df_property('docs_upload_link', 'read_only', 1);
+    frm.set_df_property("docs_upload_link", "read_only", 1);
   },
 
   checklist: function (frm) {
     if (frm.doc.checklist) {
-      frm.clear_table('documents');
-      frappe.model.with_doc('Document Checklist', frm.doc.checklist, function () {
-        let source_doc = frappe.model.get_doc('Document Checklist', frm.doc.checklist);
-        $.each(source_doc.list_of_document, function (index, source_row) {
-          var addChild = frm.add_child('documents');
-          addChild.document = source_row.document_name;
-          frm.refresh_field('documents');
-        });
-      });
+      frm.clear_table("documents");
+      frappe.model.with_doc(
+        "Document Checklist",
+        frm.doc.checklist,
+        function () {
+          let source_doc = frappe.model.get_doc(
+            "Document Checklist",
+            frm.doc.checklist
+          );
+          $.each(source_doc.list_of_document, function (index, source_row) {
+            var addChild = frm.add_child("documents");
+            addChild.document = source_row.document_name;
+            frm.refresh_field("documents");
+          });
+        }
+      );
     }
     if (!frm.doc.checklist) {
-      frm.clear_table('documents');
-      frm.refresh_field('documents');
+      frm.clear_table("documents");
+      frm.refresh_field("documents");
     }
   },
 
   setup(frm) {
-    frm.set_query('location', () => {
+    frm.set_query("location", () => {
       return {
         filters: {
-          is_group: ['!=', 1],
+          is_group: ["!=", 1],
         },
       };
     });
-    frm.set_query('partner', () => {
+    frm.set_query("partner", () => {
       return {
         filters: {
-          customer_group: 'Partner',
+          customer_group: "Partner",
         },
       };
     });
-    frm.set_query('lender_selection', () => {
+    frm.set_query("lender_selection", () => {
       return {
         filters: {
-          customer_group: 'Lender',
+          customer_group: "Lender",
         },
       };
     });
-    frm.set_query('lender_branch', () => {
+    frm.set_query("lender_branch", () => {
       return {
         filters: {
-          is_group: ['!=', 1],
+          is_group: ["!=", 1],
         },
       };
     });
-    frm.get_field('remark').grid.cannot_add_rows = true;
 
-    frm.set_query('investment_type', 'investment', () => {
+    frm.set_query("sub_product", () => ({
+      filters: { product: ["=", frm.doc.product_required] },
+    }));
+    frm.set_query("sub_source", () => ({
+      filters: { source: ["=", frm.doc.source] },
+    }));
+
+    frm.get_field("remark").grid.cannot_add_rows = true;
+
+    frm.set_query("investment_type", "investment", () => {
       return {
         filters: {
           name: [
-            'not in',
+            "not in",
             frm.doc.investment.map(function (cur_seg) {
               return cur_seg.investment_type;
             }),
@@ -326,20 +402,20 @@ frappe.ui.form.on('Lead', {
   },
 
   validate(frm) {
-    if (frm.doc.location == 'All Territories') {
-      frappe.throw('Please Select Location Name');
+    if (frm.doc.location == "All Territories") {
+      frappe.throw("Please Select Location Name");
     }
-    if (frm.doc.lender_branch == 'All Territories') {
-      frappe.throw('Please Select Lender Branch');
+    if (frm.doc.lender_branch == "All Territories") {
+      frappe.throw("Please Select Lender Branch");
     }
     if (frm.doc.mobile_number && !/^\d{10}$/.test(frm.doc.mobile_number)) {
-      frappe.throw('Mobile Number must containt 10 digits');
+      frappe.throw("Mobile Number must containt 10 digits");
     }
   },
 
   unhold_purchase_order(frm) {
     frappe.call({
-      method: 'switch_my_loan.utils.update_status',
+      method: "switch_my_loan.utils.update_status",
       args: {
         lead: frm.doc.name,
         status: frm.doc.workflow_state,
@@ -352,20 +428,21 @@ frappe.ui.form.on('Lead', {
   close_purchase_order(frm) {
     var me = this;
     var d = new frappe.ui.Dialog({
-      title: __('Reason for Rejection'),
+      title: __("Reason for Rejection"),
       fields: [
         {
-          fieldname: 'reason_for_rejection',
-          fieldtype: 'Text',
+          fieldname: "reason_for_rejection",
+          fieldtype: "Text",
           reqd: 1,
         },
       ],
       primary_action: function () {
         var data = d.get_values();
-        let reason_for_rejection = 'Reason for Rejection: ' + data.reason_for_rejection;
+        let reason_for_rejection =
+          "Reason for Rejection: " + data.reason_for_rejection;
 
         frappe.call({
-          method: 'frappe.desk.form.utils.add_comment',
+          method: "frappe.desk.form.utils.add_comment",
           args: {
             reference_doctype: frm.doc.doctype,
             reference_name: frm.doc.name,
@@ -375,12 +452,12 @@ frappe.ui.form.on('Lead', {
           },
           callback: function (r) {
             if (!r.exc) {
-              console.log('testing');
+              console.log("testing");
               frappe.call({
-                method: 'switch_my_loan.utils.update_status',
+                method: "switch_my_loan.utils.update_status",
                 args: {
                   lead: frm.doc.name,
-                  status: 'Rejected',
+                  status: "Rejected",
                 },
                 callback: function (r) {
                   frm.reload_doc();
@@ -398,7 +475,7 @@ frappe.ui.form.on('Lead', {
 
   unclose_purchase_order(frm) {
     frappe.call({
-      method: 'switch_my_loan.utils.update_status',
+      method: "switch_my_loan.utils.update_status",
       args: {
         lead: frm.doc.name,
         status: frm.doc.workflow_state,
@@ -412,20 +489,20 @@ frappe.ui.form.on('Lead', {
   hold_purchase_order(frm) {
     var me = this;
     var d = new frappe.ui.Dialog({
-      title: __('Reason for Hold'),
+      title: __("Reason for Hold"),
       fields: [
         {
-          fieldname: 'reason_for_hold',
-          fieldtype: 'Text',
+          fieldname: "reason_for_hold",
+          fieldtype: "Text",
           reqd: 1,
         },
       ],
       primary_action: function () {
         var data = d.get_values();
-        let reason_for_hold = 'Reason for hold: ' + data.reason_for_hold;
+        let reason_for_hold = "Reason for hold: " + data.reason_for_hold;
 
         frappe.call({
-          method: 'frappe.desk.form.utils.add_comment',
+          method: "frappe.desk.form.utils.add_comment",
           args: {
             reference_doctype: frm.doc.doctype,
             reference_name: frm.doc.name,
@@ -435,12 +512,12 @@ frappe.ui.form.on('Lead', {
           },
           callback: function (r) {
             if (!r.exc) {
-              console.log('testing');
+              console.log("testing");
               frappe.call({
-                method: 'switch_my_loan.utils.update_status',
+                method: "switch_my_loan.utils.update_status",
                 args: {
                   lead: frm.doc.name,
-                  status: 'On Hold',
+                  status: "On Hold",
                 },
                 callback: function (r) {
                   frm.reload_doc();
@@ -459,26 +536,26 @@ frappe.ui.form.on('Lead', {
   drop_purchase_order(frm) {
     var me = this;
     var d = new frappe.ui.Dialog({
-      title: __('Reason for Drop'),
+      title: __("Reason for Drop"),
       fields: [
         {
-          fieldname: 'reason_for_drop',
-          fieldtype: 'Select',
-          options: ['Not Interested', 'Not Eligible', 'Not Connected'],
+          fieldname: "reason_for_drop",
+          fieldtype: "Select",
+          options: ["Not Interested", "Not Eligible", "Not Connected"],
           reqd: 1,
         },
       ],
       primary_action: function () {
         console.log(frm);
         var data = d.get_values();
-        let reason_for_drop = 'Reason for drop: ' + data.reason_for_drop;
+        let reason_for_drop = "Reason for drop: " + data.reason_for_drop;
         if (window.timeout) {
           clearTimeout(window.timeout);
           delete window.timeout;
         }
         window.timeout = setTimeout(function () {
-          frm.set_value('reason_for_drop', data.reason_for_drop);
-          frm.refresh_field('reason_for_drop');
+          frm.set_value("reason_for_drop", data.reason_for_drop);
+          frm.refresh_field("reason_for_drop");
           frm.save();
         }, 1500);
         // frappe.call({
@@ -493,7 +570,7 @@ frappe.ui.form.on('Lead', {
         //     }
         // })
         frappe.call({
-          method: 'frappe.desk.form.utils.add_comment',
+          method: "frappe.desk.form.utils.add_comment",
           args: {
             reference_doctype: frm.doc.doctype,
             reference_name: frm.doc.name,
@@ -503,12 +580,12 @@ frappe.ui.form.on('Lead', {
           },
           callback: function (r) {
             if (!r.exc) {
-              console.log('testing');
+              console.log("testing");
               frappe.call({
-                method: 'switch_my_loan.utils.update_status',
+                method: "switch_my_loan.utils.update_status",
                 args: {
                   lead: frm.doc.name,
-                  status: 'Drop',
+                  status: "Drop",
                 },
                 callback: function (r) {
                   frm.reload_doc();
@@ -529,10 +606,10 @@ frappe.ui.form.on('Lead', {
 
   customer_not_reachable(frm) {
     frappe.call({
-      method: 'switch_my_loan.utils.update_status',
+      method: "switch_my_loan.utils.update_status",
       args: {
         lead: frm.doc.name,
-        status: 'Customer not reachable',
+        status: "Customer not reachable",
       },
       callback: function (r) {
         frm.reload_doc();
@@ -542,10 +619,10 @@ frappe.ui.form.on('Lead', {
 
   customer_not_responding(frm) {
     frappe.call({
-      method: 'switch_my_loan.utils.update_status',
+      method: "switch_my_loan.utils.update_status",
       args: {
         lead: frm.doc.name,
-        status: 'Customer not responding',
+        status: "Customer not responding",
       },
       callback: function (r) {
         frm.reload_doc();
@@ -553,24 +630,61 @@ frappe.ui.form.on('Lead', {
     });
   },
 
-  async after_save(frm) {
+  after_save(frm) {
     if (!frm.doc.docs_upload_link) {
       // Updating the Docs Upload Link for the Lead
-      await frappe.db.set_value('Lead', frm.doc.name, 'docs_upload_link', get_doc_upload_link(frm));
+      frappe.db.set_value(
+        "Lead",
+        frm.doc.name,
+        "docs_upload_link",
+        getDocUploadLink(frm)
+      );
       frm.reload_doc();
     }
   },
 
   // Setting the Umbrella Source Based on the Source and if umbrella source is found then disable the Umbrella Source
-  async source(frm) {
-    const { message } = await frappe.db.get_value('Lead Source', { name: frm.doc.source }, ['umbrella_source']);
-    frm.set_value('umbrella_source', message.umbrella_source || '');
-    frm.set_query('sub_source', () => {
-      return {
-        filters: {
-          source: ['=', frm.doc.source],
-        },
-      };
-    });
+  source(frm) {
+    if (!frm.doc.source) return;
+
+    frappe.db
+      .get_value("Lead Source", { name: frm.doc.source }, ["umbrella_source"])
+      .then(({ message }) => {
+        frm.set_value("umbrella_source", message.umbrella_source || "");
+      });
   },
+});
+
+frappe.ui.form.on("Lenders", "status", function (frm, cdt, cdn) {
+  let currentRow = locals[cdt][cdn];
+
+  const isNew = currentRow.name.includes("new");
+  const isRejected = currentRow.status === "Reject";
+
+  if (isRejected && !currentRow.reason_for_rejection) {
+    return dialogForCollectingData({
+      title: "Reason for Rejection",
+      currentData: currentRow,
+      fields: [
+        {
+          fieldname: "reason_for_rejection",
+          fieldtype: "SmallText",
+          reqd: 1,
+        },
+      ],
+      frm,
+    });
+  }
+
+  if (!isNew) {
+    currentRow.updated_at = frappe.datetime.now_datetime();
+    frm.refresh_field("updated_at");
+
+    if (!isRejected) {
+      currentRow.reason_for_rejection = "";
+      frm.refresh_field("reason_for_rejection");
+    }
+
+    frm.save();
+  }
 });

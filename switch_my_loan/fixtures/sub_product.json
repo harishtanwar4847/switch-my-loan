@@ -1,0 +1,46 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Sub Product",
+  "modified": "2024-01-06 19:29:56.690552",
+  "name": "Auto loan BT + Top up",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product": "Auto Loan",
+  "sub_product": "Auto loan BT + Top up"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Sub Product",
+  "modified": "2024-01-06 19:30:11.740158",
+  "name": "Purchase of Used Car",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product": "Auto Loan",
+  "sub_product": "Purchase of Used Car"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Sub Product",
+  "modified": "2024-01-06 19:30:30.456055",
+  "name": "Refinance for Used Car",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product": "Auto Loan",
+  "sub_product": "Refinance for Used Car"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Sub Product",
+  "modified": "2024-01-06 19:30:41.800961",
+  "name": "Used Car Loan",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product": "Auto Loan",
+  "sub_product": "Used Car Loan"
+ }
+]

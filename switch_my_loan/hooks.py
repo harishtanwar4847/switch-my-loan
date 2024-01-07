@@ -199,3 +199,9 @@ user_data_fields = [
 
 # boot_info
 extend_bootinfo = "switch_my_loan.boot.boot_session"
+
+fixtures = [
+    "Workflow", 
+    "Workflow State",
+    "Sub Product"
+]
