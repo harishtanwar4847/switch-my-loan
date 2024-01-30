@@ -387,6 +387,11 @@ frappe.ui.form.on("Lead", {
 
     frm.get_field("remark").grid.cannot_add_rows = true;
 
+    // Hiding Offers Section if available_offers are Empty
+    if(frm.doc.available_offers?.length === 0) {
+      frm.toggle_display("offers_section", false)
+    }
+
     frm.set_query("investment_type", "investment", () => {
       return {
         filters: {
@@ -452,7 +457,6 @@ frappe.ui.form.on("Lead", {
           },
           callback: function (r) {
             if (!r.exc) {
-              console.log("testing");
               frappe.call({
                 method: "switch_my_loan.utils.update_status",
                 args: {
@@ -512,7 +516,6 @@ frappe.ui.form.on("Lead", {
           },
           callback: function (r) {
             if (!r.exc) {
-              console.log("testing");
               frappe.call({
                 method: "switch_my_loan.utils.update_status",
                 args: {
@@ -546,7 +549,6 @@ frappe.ui.form.on("Lead", {
         },
       ],
       primary_action: function () {
-        console.log(frm);
         var data = d.get_values();
         let reason_for_drop = "Reason for drop: " + data.reason_for_drop;
         if (window.timeout) {
@@ -580,7 +582,6 @@ frappe.ui.form.on("Lead", {
           },
           callback: function (r) {
             if (!r.exc) {
-              console.log("testing");
               frappe.call({
                 method: "switch_my_loan.utils.update_status",
                 args: {
@@ -653,6 +654,22 @@ frappe.ui.form.on("Lead", {
         frm.set_value("umbrella_source", message.umbrella_source || "");
       });
   },
+
+  location(frm) {
+    const location = frm.doc.location || "";
+
+    if (location.includes("All") || location === "") {
+      return;
+    } else {
+      frappe.db
+        .get_value("Territory", { territory_name: frm.doc.location }, [
+          "parent_territory",
+        ])
+        .then(({ message }) =>
+          frm.set_value("state_name", message.parent_territory || "")
+        );
+    }
+  }
 });
 
 frappe.ui.form.on("Lenders", "status", function (frm, cdt, cdn) {
@@ -661,7 +678,7 @@ frappe.ui.form.on("Lenders", "status", function (frm, cdt, cdn) {
   const isNew = currentRow.name.includes("new");
   const isRejected = currentRow.status === "Reject";
 
-  if (isRejected && !currentRow.reason_for_rejection) {
+  if (isNew && isRejected) {
     return dialogForCollectingData({
       title: "Reason for Rejection",
       currentData: currentRow,
@@ -680,7 +697,20 @@ frappe.ui.form.on("Lenders", "status", function (frm, cdt, cdn) {
     currentRow.updated_at = frappe.datetime.now_datetime();
     frm.refresh_field("updated_at");
 
-    if (!isRejected) {
+    if (isRejected) {
+      return dialogForCollectingData({
+        title: "Reason for Rejection",
+        currentData: currentRow,
+        fields: [
+          {
+            fieldname: "reason_for_rejection",
+            fieldtype: "SmallText",
+            reqd: 1,
+          },
+        ],
+        frm,
+      });
+    } else {
       currentRow.reason_for_rejection = "";
       frm.refresh_field("reason_for_rejection");
     }

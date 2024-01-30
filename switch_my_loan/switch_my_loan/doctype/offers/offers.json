@@ -1,0 +1,109 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-09 12:42:22.732143",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "policy_id",
+  "offer_category",
+  "policy_name",
+  "total_eligible_income",
+  "max_loan_amount",
+  "eligible_loan_amount",
+  "tenure",
+  "rate_of_interest",
+  "monthly_emi",
+  "asked_loan_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "total_eligible_income",
+   "fieldtype": "Float",
+   "label": "Total Eligible Income",
+   "read_only": 1
+  },
+  {
+   "fieldname": "eligible_loan_amount",
+   "fieldtype": "Float",
+   "label": "Eligible Loan Amount",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "tenure",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Tenure",
+   "print_width": "50px",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "rate_of_interest",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Rate Of Interest",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "monthly_emi",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Monthly EMI",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "Pre Offers",
+   "fieldname": "offer_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Offer Category",
+   "options": "Pre Offers\nPost Offers",
+   "read_only": 1
+  },
+  {
+   "fieldname": "policy_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Policy Name",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_loan_amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Max Loan Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "policy_id",
+   "fieldtype": "Data",
+   "label": "Policy Id",
+   "read_only": 1
+  },
+  {
+   "fieldname": "asked_loan_amount",
+   "fieldtype": "Data",
+   "label": "Asked Loan Amount",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-09 16:03:56.216553",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Offers",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
