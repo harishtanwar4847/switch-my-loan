@@ -19,6 +19,7 @@
   "aadhaar_number",
   "registered_as",
   "agreement_id",
+  "full_address",
   "second_column_column",
   "status",
   "workflow_status",
@@ -26,11 +27,10 @@
   "email",
   "city",
   "pincode",
-  "full_address",
-  "current_address",
   "referrer_type",
   "referrer_name",
   "referrer_email",
+  "current_address",
   "bank_details_section_section",
   "account_holder_name",
   "account_number",
@@ -131,12 +131,12 @@
   },
   {
    "fieldname": "full_address",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Full Address"
   },
   {
    "fieldname": "current_address",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Current Address"
   },
   {
@@ -251,7 +251,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-02-01 15:19:06.904870",
+ "modified": "2024-02-05 13:35:50.851995",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "SML Partner",
