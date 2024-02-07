@@ -1,0 +1,30 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.source != \"Website\" and doc.source != \"Basic Home Loan\" and doc.source == \"null\"",
+ "creation": "2023-09-26 12:04:54.975728",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Lead",
+ "enabled": 0,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Dear Mr. {{doc.lead_name}},<br>\nThank you for connecting with Switch My Loan. Hope we could fulfill your requirements. Switch My<br>\nLoan will be the one stop solution for all your loan requirements.<br><br>\nWe provide Personal Loans, Business Loans, Home Loans, Loan against property and Loan Against<br>\nSecurities. We are specialized in Balance transfer loans.<br><br>\nOur processes are completely digitized. You sit back and relax, while we do all the hard-work for<br>\nyour loan.<br><br>\nMeanwhile, Please upload all the required documents by visiting this <a href={{doc.docs_upload_link}} target=\"_blank\" >Link</a>\n<br><br>\nRegards,<br>\nYour Friendly loan buddy<br>\nSwitch My Loan Pvt. Ltd.<br>\n<img src=\"https://www.switchmyloan.in/assets/img/logo.png\" alt=\"SML Logo\" width=\"120\" height=\"50\">\n",
+ "method": "",
+ "modified": "2023-09-26 19:43:27.458014",
+ "modified_by": "Administrator",
+ "module": "Switch My Loan",
+ "name": "Greetings from Switch My Loan Email",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "email_id"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Greetings from Switch My Loan",
+ "value_changed": "docs_upload_link"
+}

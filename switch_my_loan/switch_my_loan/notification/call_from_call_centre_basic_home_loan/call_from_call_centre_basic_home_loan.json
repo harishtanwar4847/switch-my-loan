@@ -11,8 +11,8 @@
  "event": "New",
  "idx": 0,
  "is_standard": 1,
- "message": "Dear {{ doc.lead_name }},\nThank you for reaching out.\nBASIC Home Loan is happy to announce its partnership with Switch My Loan (SML).\nSML team will get in touch with you to fulfill all your personal, business and car  loan requirements seamlessly.\nFor all your Home Loan / LAP requirements, BASIC Team will assist you.\nOur services are 100% free and processes are completely digitized.\nYou sit back and relax, while we do all the hard work for your loan.\n\nThank you.\nBASIC | SML -Switch My Loan",
- "modified": "2023-06-15 13:53:46.149511",
+ "message": "Dear {{ doc.lead_name }},\nThank you for reaching out.\nBASIC Home Loan is happy to announce its partnership with SML.\nSML team will get in touch with you to fulfill all your personal, business and car  loan requirements seamlessly.\nFor all your Home Loan / LAP requirements, BASIC Team will assist you.\nOur services are 100% free and processes are completely digitized.\nYou sit back and relax, while we do all the hard work for your loan.\n\nThank you.\nBASIC | SML -Switch My Loan",
+ "modified": "2023-10-19 14:42:11.846644",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Call from Call Centre Basic Home Loan",
@@ -24,5 +24,5 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sms_template_id": "1107168680618245190"
+ "sms_template_id": "1107900000377600003"
 }

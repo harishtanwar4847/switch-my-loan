@@ -11,8 +11,8 @@
  "event": "Value Change",
  "idx": 0,
  "is_standard": 1,
- "message": "Congratulations Mr. {{ doc.lead_name }}, your loan application has been sanctioned by {{doc.lender_selection}} . You will receive an email with the list of documents required for disbursing the loan. Kindly share those documents at the earliest to avoid any delay.\nIn case of any query please contact {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}} - {% set var2 = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var2}} or write to {{ doc.lead_owner}} - Team Switch My Loan",
- "modified": "2023-06-16 17:38:42.570684",
+ "message": "Dear {{ doc.lead_name }}, as discussed with {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"full_name\") %} {{var}}, your meeting has been confirmed on {{ doc.meeting_scheduled_on }} & . Looking forward to meeting you and servicing your requirement. For more details please contact: {% set var = frappe.db.get_value(\"User\", doc.lead_owner, \"mobile_no\") %} {{var}} - Team SML -Switch My Loan",
+ "modified": "2023-10-19 15:26:27.204673",
  "modified_by": "Administrator",
  "module": "Switch My Loan",
  "name": "Sanction",
@@ -24,7 +24,7 @@
  ],
  "send_system_notification": 0,
  "send_to_all_assignees": 0,
- "sms_template_id": "1007922586897894519",
+ "sms_template_id": "1107900000377600026",
  "subject": "Sanction",
  "value_changed": "workflow_state"
 }

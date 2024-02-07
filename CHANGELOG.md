@@ -1,9 +1,46 @@
 # Changelog
 
 ## Added
+-[feat: :sparkles: Added the Custom Fields for Lead and Auth Related Fns](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/39)
+## [v1.4.0] - 2023-12-14
+
+## Added
+-[feat: ✨ Added Lead Sub Source](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/32)
+## [v1.3.9] - 2023-11-27
+
+## Added
+-[feat: ✨ Added CRM Person Tree and It's Permission](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/22)
+## [v1.3.8] - 2023-11-17
+
+## Updated
+-[chore: ✅ Updated the SMS Templates](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/18)
+## [v1.3.7] - 2023-10-19
+
+## Added
+-[feat: 🦺 Removed Mandatory Condition for Take Home Salary for Sales User and Non Salaried Type](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/16)
+## [v1.3.6] - 2023-10-03
+## Added
+-[feat: ✨ Added form-16 password field to lead](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/15)
+
+## [v1.3.5] - 2023-09-26
+
+## Added
+- [feat: ✨ Updated the Nucleus Base URI](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/13)
+## [v1.3.4] - 2023-09-26
+
+## Added
+-[feat: ✨ Added the Lead Source in the Data Import List](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/12)
+## [v1.3.3] - 2023-09-26
+
+## Added
+-[feat: ✨ Added the Notification and Disabled the SMS ](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/11)
+## [v1.3.2] - 2023-09-26
+
+## Added
 
 - [feat: ✨ Added Welcome Message SMS Notification ](https://github.com/atrina-technologies-pvt-ltd/switch-my-loan/pull/9)
 
+## [v1.3.1] - 2023-09-24
 ## [v1.3.1-uat] - 2023-09-24
 
 ### Added
@@ -236,18 +273,8 @@
 
 -[change in unattende leads notifications only trigger if status is open](https://gitlab.com/atri-tech/atri-maintainers/switch-my-loan/-/merge_requests/41)
 
-<<<<<<< HEAD
-
 ## [v1.0.6] - 2022-05-19
-
-=======
-
-## [v1.0.6] - 2022-05-19
-
-> > > > > > > 0993c6d (Merge pull request #7 from atrina-technologies-pvt-ltd/uat)
-
 ## [v1.0.6-uat] - 2022-05-18
-
 ## [v1.0.6-dev] - 2022-05-12
 
 ### Added
